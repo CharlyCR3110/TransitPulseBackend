@@ -1,0 +1,38 @@
+[
+  {
+    "id": "s1",
+    "name_key": "stop_1",
+    "addr_key": "stop_1_addr",
+    "label_es": "Parada Fuente de la Hispanidad",
+    "label_en": "Fuente de la Hispanidad Stop",
+    "addr_es": "Avenida Central, San Pedro",
+    "addr_en": "Avenida Central, San Pedro",
+    "lat": 9.9343,
+    "lng": -84.0508,
+    "live": true
+  },
+  {
+    "id": "s2",
+    "name_key": "stop_2",
+    "addr_key": "stop_2_addr",
+    "label_es": "Estación Atlántico",
+    "label_en": "Atlántico Station",
+    "addr_es": "Barrio Tournón · Incofer",
+    "addr_en": "Tournón · Incofer",
+    "lat": 9.9401,
+    "lng": -84.0703,
+    "live": true
+  },
+  {
+    "id": "s3",
+    "name_key": "stop_3",
+    "addr_key": "stop_3_addr",
+    "label_es": "Parada Multiplaza",
+    "label_en": "Multiplaza Stop",
+    "addr_es": "Escazú · Autopista Próspero Fernández",
+    "addr_en": "Escazú · Próspero Fernández Hwy",
+    "lat": 9.9421,
+    "lng": -84.1528,
+    "live": false
+  }
+]

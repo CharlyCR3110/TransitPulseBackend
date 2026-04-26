@@ -1,0 +1,30 @@
+[
+  {
+    "id": "al1",
+    "severity": "bad",
+    "title_key": "alert_1_title",
+    "body_key": "alert_1_body",
+    "routes": ["100"]
+  },
+  {
+    "id": "al2",
+    "severity": "warn",
+    "title_key": "alert_2_title",
+    "body_key": "alert_2_body",
+    "routes": ["T1"]
+  },
+  {
+    "id": "al3",
+    "severity": "warn",
+    "title_key": "alert_3_title",
+    "body_key": "alert_3_body",
+    "routes": ["302"]
+  },
+  {
+    "id": "al4",
+    "severity": "ok",
+    "title_key": "alert_4_title",
+    "body_key": "alert_4_body",
+    "routes": ["T2"]
+  }
+]

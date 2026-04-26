@@ -1,0 +1,10 @@
+[
+  { "route_id": "100", "stop_id": "s1", "weekday": 0, "first_service": "05:00", "last_service": "22:00", "headway_minutes": 10, "dest_es": "San José (Merced)", "dest_en": "San José (Merced)", "occupancy": 2 },
+  { "route_id": "100", "stop_id": "s2", "weekday": 0, "first_service": "05:05", "last_service": "22:05", "headway_minutes": 10, "dest_es": "San José (Merced)", "dest_en": "San José (Merced)", "occupancy": 2 },
+  { "route_id": "302", "stop_id": "s1", "weekday": 0, "first_service": "05:15", "last_service": "21:30", "headway_minutes": 12, "dest_es": "Curridabat", "dest_en": "Curridabat", "occupancy": 3 },
+  { "route_id": "205", "stop_id": "s1", "weekday": 0, "first_service": "05:10", "last_service": "21:40", "headway_minutes": 15, "dest_es": "Multiplaza Escazú", "dest_en": "Multiplaza Escazú", "occupancy": 2 },
+  { "route_id": "T1", "stop_id": "s1", "weekday": 0, "first_service": "05:20", "last_service": "22:20", "headway_minutes": 20, "dest_es": "Heredia", "dest_en": "Heredia", "occupancy": 2 },
+  { "route_id": "T1", "stop_id": "s2", "weekday": 0, "first_service": "05:32", "last_service": "22:32", "headway_minutes": 20, "dest_es": "Heredia", "dest_en": "Heredia", "occupancy": 2 },
+  { "route_id": "T2", "stop_id": "s2", "weekday": 0, "first_service": "05:30", "last_service": "22:30", "headway_minutes": 20, "dest_es": "Escazú", "dest_en": "Escazú", "occupancy": 1 },
+  { "route_id": "T2", "stop_id": "s3", "weekday": 0, "first_service": "05:48", "last_service": "22:48", "headway_minutes": 20, "dest_es": "Escazú", "dest_en": "Escazú", "occupancy": 1 }
+]

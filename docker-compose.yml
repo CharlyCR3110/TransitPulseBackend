@@ -1,0 +1,32 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: transitpulse
+      POSTGRES_USER: transitpulse
+      POSTGRES_PASSWORD: transitpulse
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "transitpulse"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  backend:
+    build:
+      context: ./backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://transitpulse:transitpulse@postgres:5432/transitpulse
+      JWT_SECRET: dev-only-secret-change-me-32-bytes-min
+      CORS_ORIGINS: http://localhost:3000
+    ports:
+      - "8080:8080"
+
+volumes:
+  pgdata:

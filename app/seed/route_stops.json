@@ -1,0 +1,16 @@
+[
+  { "route_id": "100", "stop_id": "s1", "stop_order": 1, "segment_minutes": 0 },
+  { "route_id": "100", "stop_id": "s2", "stop_order": 2, "segment_minutes": 14 },
+
+  { "route_id": "302", "stop_id": "s1", "stop_order": 1, "segment_minutes": 0 },
+  { "route_id": "302", "stop_id": "s2", "stop_order": 2, "segment_minutes": 16 },
+
+  { "route_id": "205", "stop_id": "s1", "stop_order": 1, "segment_minutes": 0 },
+  { "route_id": "205", "stop_id": "s3", "stop_order": 2, "segment_minutes": 38 },
+
+  { "route_id": "T1", "stop_id": "s1", "stop_order": 1, "segment_minutes": 0 },
+  { "route_id": "T1", "stop_id": "s2", "stop_order": 2, "segment_minutes": 12 },
+
+  { "route_id": "T2", "stop_id": "s2", "stop_order": 1, "segment_minutes": 0 },
+  { "route_id": "T2", "stop_id": "s3", "stop_order": 2, "segment_minutes": 18 }
+]

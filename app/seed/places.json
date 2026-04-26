@@ -1,0 +1,5 @@
+[
+  { "id": "p1", "label_es": "UCR", "label_en": "UCR", "near_stop_id": "s1" },
+  { "id": "p2", "label_es": "Incofer Atlántico", "label_en": "Atlántico Station", "near_stop_id": "s2" },
+  { "id": "p3", "label_es": "Multiplaza", "label_en": "Multiplaza", "near_stop_id": "s3" }
+]

@@ -1,0 +1,7 @@
+[
+  { "id": "100", "short_name": "100", "long_name": "San Pedro - San José", "mode": "bus", "fare_min": 380, "fare_max": 380, "color": "#0ea5e9" },
+  { "id": "302", "short_name": "302", "long_name": "San Pedro - Curridabat", "mode": "bus", "fare_min": 420, "fare_max": 420, "color": "#f97316" },
+  { "id": "205", "short_name": "205", "long_name": "San Pedro - Multiplaza Escazú", "mode": "bus", "fare_min": 620, "fare_max": 620, "color": "#22c55e" },
+  { "id": "T1", "short_name": "T1", "long_name": "Heredia - San José", "mode": "train", "fare_min": 550, "fare_max": 550, "color": "#111827" },
+  { "id": "T2", "short_name": "T2", "long_name": "San José - Escazú", "mode": "train", "fare_min": 470, "fare_max": 470, "color": "#7c3aed" }
+]
