@@ -1,0 +1,147 @@
+
+Universidad Nacional
+Facultad de Ciencias Exactas y Naturales
+Escuela de Informática
+Aplicaciones Informáticas Globales
+
+Documento de Requisitos
+
+TRANSITPULSE
+Plataforma Inteligente de Predicción y Optimización de Transporte Público en Tiempo Real
+
+Profesor Titular:
+Legner Alvarado Martinez 
+
+Estudiantes:
+Anthony Monge Carmona 117880158
+Carlos González Garita 604890217
+Wendy Tatiana Araya Chaves 208040660
+Tannia Lucia Somarribas Valenzuela 118240589
+Valeria Gutiérrez Mata 118590225
+
+I Ciclo 2026
+1. Introducción
+1.1 Proposito del documento
+El objetivo de este documento es documentar y definir los requerimientos funcionales y no funcionales del sistema TransitPulse, estableciendo una base clara para el diseño, desarrollo e implementación del mismo.
+1.2 Alcance del sistema
+TransitPulse es una plataforma web responsiva y móvil que permite predecir, optimizar y gestionar el uso del transporte público mediante inteligencia artificial (IA), análisis de datos y tecnologías de geolocalización.
+
+El sistema será implementado inicialmente en la Gran Área Metropolitana (GAM) de Costa Rica, con posibilidad de expansión futura.
+2. Descripcion General del Sistema
+2.1 Perspectiva del producto
+TransitPulse funcionara como una plataforma que combina:
+Datos abiertos de transporte
+Reportes de usuarios (crowdsourcing)
+Modelos predictivos
+APIs externas (ej. mapas)
+Infraestructura en la nube
+2.2 Problemas a resolver
+El sistema aborda:
+
+Incertidumbre en tiempos de llegada
+Falta de información en tiempo real
+Ineficiencia en la planificación de rutas
+Ausencia de datos sobre ocupación y costos
+2.3 Objetivos del sistema
+Mejorar la movilidad urbana
+Reducir tiempos de espera
+Proporcionar información predictiva confiable
+Optimizar la experiencia del usuario
+3. Stakeholders
+
+Stakeholder
+Rol
+Usuarios del transporte
+Usuario final
+Estudiantes/Developers
+Construcción del sistema
+Profesor
+Supervision academica
+Entidades gubernamentales
+Regulacion y datos
+Empresas de transporte
+Posible fuente de informacion
+Proveedores tecnológicos
+APIs y servicios
+
+4. Requerimientos Funcionales (RF)
+RF-01: Consulta de rutas
+El sistema debe permitir al usuario buscar rutas de transporte público.
+RF-02: Predicción de tiempos de llegada
+El sistema debe mostrar tiempos estimados utilizando modelos predictivos.
+RF-03: Visualización en mapa
+El sistema debe integrar mapas interactivos para mostrar rutas y ubicaciones.
+RF-04: Alertas en tiempo real
+El sistema debe notificar retrasos, incidentes o cambios.
+RF-05: Recomendación de rutas
+El sistema debe sugerir rutas alternativas más eficientes.
+RF-06: Cálculo de tarifas
+El sistema debe calcular el costo del viaje según tarifas oficiales.
+RF-07: Estimación de ocupación
+El sistema debe mostrar el nivel de ocupación del transporte.
+RF-08: Reportes de usuarios
+El sistema debe permitir reportes anónimos de incidentes.
+RF-09: Planificación de viajes
+El usuario debe poder planificar horarios de salida.
+RF-10: Sistema de pagos digitales
+El sistema debe permitir pagos mediante tarjeta o medio digital.
+RF-11: Gestión de rutas multimodales
+El sistema debe integrar combinaciones de transporte (bus + tren).
+5. Requerimientos No Funcionales (RNF)
+RNF-01: Rendimiento
+Respuesta en tiempo real (< 5 segundos)
+RNF-02: Escalabilidad
+Uso de infraestructura en la nube
+RNF-03: Seguridad
+Protección de datos del usuario
+Cumplimiento de normativas
+RNF-04: Disponibilidad
+Sistema disponible 24/7
+RNF-05: Usabilidad
+Interfaz intuitiva y amigable
+RNF-06: Compatibilidad
+Web responsiva y dispositivos móviles
+RNF-07: Eficiencia
+Bajo consumo de batería y datos
+6. Supuestos y Restricciones
+6.1 Supuestos
+Existencia de datos abiertos de transporte
+Disponibilidad de APIs externas
+Participación activa de usuarios
+Infraestructura en la nube disponible
+6.2 Restricciones
+Dependencia de datos externos
+Limitaciones de integración de pagos
+Restricciones tecnológicas en dispositivos
+Consideraciones de privacidad
+7. Use Cases
+CU-01: Consultar ruta
+Actor: Usuario
+Descripción: El usuario busca una ruta entre dos puntos.
+CU-02: Ver tiempo de llegada
+Actor: Usuario
+Descripción: El sistema muestra predicciones en tiempo real.
+CU-03: Recibir alertas
+Actor: Usuario
+Descripción: El usuario recibe notificaciones de eventos.
+CU-04: Planificar viaje
+Actor: Usuario
+Descripción: El usuario programa su salida.
+CU-05: Realizar pago
+Actor: Usuario
+Descripción: El usuario paga el transporte digitalmente.
+8. Factores Críticos de Éxito
+Calidad y precisión de los datos
+Adopción por parte de los usuarios
+Precisión de modelos de IA
+Integración tecnológica eficiente
+Experiencia de usuario (UX)
+Seguridad y privacidad
+9. Riesgos
+Datos incompletos o desactualizados
+Baja participación de usuarios
+Fallas en modelos predictivos
+Problemas de privacidad
+Dependencia de APIs externas
+Baja adopción del sistema
+

@@ -54,4 +54,6 @@ class StopsService:
             "dist": dist,
             "live": stop.live,
             "routes": sorted(route_map.get(stop.id, [])),
+            "lat": stop.lat,
+            "lng": stop.lng,
         }

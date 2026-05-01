@@ -1,0 +1,9 @@
+# Test-only deps. NOT installed in the runtime container.
+# `pip install -r requirements.txt -r requirements-dev.txt` for a dev environment.
+
+-r requirements.txt
+
+iniconfig==2.3.0
+packaging==26.2
+pluggy==1.6.0
+pytest==8.3.5

@@ -1,0 +1,248 @@
+
+Universidad Nacional
+Facultad de Ciencias Exactas y Naturales
+Escuela de Informática
+Aplicaciones Informáticas Globales
+
+Arquitectura del Sistema
+
+TRANSITPULSE
+Plataforma Inteligente de Predicción y Optimización de Transporte Público en Tiempo Real
+
+Profesor Titular:
+Legner Alvarado Martinez 
+
+Estudiantes:
+Anthony Monge Carmona 117880158
+Carlos González Garita 604890217
+Wendy Tatiana Araya Chaves 208040660
+Tannia Lucia Somarribas Valenzuela 118240589
+Valeria Gutiérrez Mata 118590225
+
+I Ciclo 2026
+1. Introduccion
+El presente documento tiene como propósito describir la arquitectura general del sistema TransitPulse, definiendo los componentes principales de la solución, su forma de interacción y las decisiones técnicas adoptadas para su implementación.
+
+TransitPulse es una plataforma orientada a mejorar la experiencia de los usuarios del transporte público mediante el acceso a información sobre rutas, tiempos estimados de llegada, alertas, planificación de viajes y otros servicios complementarios. Debido al alcance del proyecto y a la necesidad de mantener una solución viable en términos técnicos y económicos, la arquitectura fue diseñada priorizando simplicidad, mantenibilidad y bajo costo operativo.
+2. Criterios arquitectónicos
+La definición de la arquitectura del sistema responde a los siguientes criterios:
+Mantener un costo de implementación y operación accesible.
+Permitir escalabilidad.
+Facilitar el mantenimiento y la evolución del sistema.
+Integrar servicios externos requeridos por la aplicación.
+Proteger la información de los usuarios.
+Garantizar tiempos de respuesta adecuados para la experiencia de uso.
+
+Estos criterios sirvieron como base para el diseño de la solución.
+3. Decisiones arquitectónicas principales
+3.1 Separación entre frontend y backend
+Se definió una arquitectura separada entre la capa de presentación y la capa de lógica de negocio. Esta decisión permite una mejor organización del sistema, facilita el mantenimiento y favorece futuras extensiones sin afectar directamente la interfaz de usuario.
+3.2 Organización modular del backend
+El backend se estructurará en módulos funcionales, tales como rutas, predicción, alertas, pagos y usuarios. No se adopta una arquitectura completa de microservicios, ya que para el alcance actual del proyecto implicaría mayor complejidad de implementación y administración.
+3.3 Uso de enfoque serverless
+Se propone el uso de una arquitectura serverless para el backend, principalmente por razones de costo. Este enfoque permite reducir gastos operativos al evitar la necesidad de mantener servidores activos permanentemente, resultando adecuado para una primera versión del sistema.
+
+3.4 Uso de base de datos relacional
+Se utilizará una base de datos relacional como repositorio principal de información. Esta decisión responde a que el sistema maneja datos estructurados y relaciones claras entre entidades como usuarios, rutas, viajes, reportes y pagos.
+3.5 No incorporación de cache dedicado en la primera versión
+En esta etapa no se incorporará una capa de cache dedicada. La razón principal es que su inclusión aumentaría el costo y la complejidad de la solución sin que exista todavía evidencia suficiente de una necesidad real. En caso de requerirse en etapas posteriores, podrá integrarse como una mejora evolutiva.
+3.6 Integración de servicios externos desde el backend
+Las APIs externas, como mapas, clima, datos de transporte y pagos, serán consumidas desde el backend. Esto permite centralizar el control de las integraciones, proteger credenciales y manejar de forma más segura la comunicación con servicios de terceros.
+4. Arquitectura general del sistema
+La arquitectura propuesta se compone de cuatro elementos principales:
+
+Frontend: interfaz de usuario accesible desde web responsiva.
+Backend: capa encargada de la lógica de negocio.
+Base de datos: almacenamiento principal de la información del
+Servicios externos: APIs requeridas para complementar las funcionalidades.
+
+El flujo general de operación consiste en que el usuario interactúa con la interfaz, el frontend envía solicitudes al backend, y este procesa la información consultando la base de datos o servicios externos según corresponda.
+
+5. Arquitectura
+Para la implementación del sistema se propone una arquitectura de despliegue de bajo costo, compuesta por un frontend estático, una capa backend serverless y una base de datos relacional administrada.
+5.1 Componentes principales
+Frontend estático
+CDN
+API Gateway
+Backend serverless
+Base de datos relacional
+Integración con APIs externas
+
+6. Seguridad y consideraciones técnicas
+La arquitectura contempla medidas básicas de seguridad, entre ellas el uso de comunicación segura,input validation, protección de credenciales y control del acceso a servicios. Asimismo, se reconoce que el sistema depende de integraciones externas, lo cual representa un riesgo técnico que deberá ser gestionado durante el desarrollo.
+
+De igual forma, el uso de serverless y la ausencia de cache dedicado responden al objetivo de mantener la solución económicamente viable en esta etapa, aceptando que futuras versiones podrían requerir optimizaciones adicionales.
+7. Conclusion
+La arquitectura propuesta fue definida con un enfoque práctico y realista, alineado con las necesidades funcionales del sistema y con las restricciones del proyecto. Se priorizó una solución organizada, mantenible y de bajo costo, capaz de integrar servicios externos y de crecer progresivamente en etapas futuras.
+
+En este sentido, la arquitectura seleccionada constituye una base adecuada para el desarrollo e implementación inicial de la plataforma.
+
+Appendixes
+Appendix A: Backend Low-Level design
+
+Este apéndice presenta una vista más detallada de la organización interna del backend de TransitPulse. Su propósito es complementar la arquitectura general del sistema, mostrando cómo se distribuyen las responsabilidades entre los distintos módulos funcionales.
+A.1 Módulo de Rutas
+Responsable de gestionar la consulta de rutas, paradas, trayectos y combinaciones de transporte disponibles para el usuario.
+
+Responsabilidades principales:
+Consultar rutas disponibles entre origen y destino.
+Obtener información de paradas y recorridos.
+Integrar datos provenientes de servicios externos de mapas y transporte.
+Retornar resultados estructurados al frontend.
+A.2 Módulo de Predicción
+Responsable de procesar la información histórica y contextual para estimar tiempos de llegada y apoyar la planificación de viajes.
+
+Responsabilidades principales:
+Analizar tiempos históricos de recorrido.
+Incorporar variables externas, como clima o estado del transporte.
+Generar estimaciones de llegada.
+Proveer información útil para sugerencias al usuario.
+A.3 Módulo de Alertas
+Responsable de administrar eventos relevantes para el usuario, como retrasos, incidentes o cambios en el servicio.
+Responsabilidades principales:
+Registrar alertas emitidas por el sistema.
+Consultar incidentes asociados a rutas o trayectos.
+Notificar información relevante al frontend.
+Mantener trazabilidad de eventos reportados.
+A.4 Módulo de Usuarios
+Responsable de la administración de usuarios, preferencias y datos asociados a la experiencia personalizada del sistema.
+
+Responsabilidades principales:
+Registrar y consultar usuarios.
+Gestionar credenciales y autenticación.
+Almacenar preferencias o historial de consultas.
+Asociar alertas, reportes y pagos a cada usuario.
+A.5 Módulo de Pagos
+Responsable de gestionar la lógica asociada a pagos digitales dentro de la plataforma.
+
+Responsabilidades principales:
+Registrar transacciones realizadas.
+Integrar la pasarela de pago externa.
+Consultar historial de pagos del usuario.
+Garantizar trazabilidad de operaciones.
+Appendix B: Endpoints Principales
+Este apéndice resume algunos de los endpoints principales que podrían formar parte de la API del sistema. Su objetivo es mostrar de manera referencial cómo se expondrían las funcionalidades principales del backend.
+
+Método
+Endpoint
+Descripción
+GET
+/routes/search	
+Consulta rutas entre un origen y un destino
+GET
+/routes/{id}
+Obtiene el detalle de una ruta específica
+GET
+/stops/nearby?lat=&lng=
+Consulta paradas cercanas
+GET
+/predictions/{routeId}	
+Retorna tiempos estimados de llegada
+GET
+/alerts	
+Consulta alertas activas del sistema
+POST
+/reports	
+Permite registrar reportes de incidentes
+GET
+/users/{id}	
+Consulta información del usuario
+POST
+/payments
+Registra una transacción de pago
+GET
+/payments/{userId}	
+Consulta historial de pagos de un usuario
+
+Los endpoints aquí presentados funcionaran como guía, pero muy posiblemente van a ser ajustados durante la implementación.
+Appendix C: Principales entidades de datos
+Este apéndice presenta las entidades más relevantes del sistema. No corresponde todavía a un modelo físico definitivo de base de datos, sino a una referencia para comprender la información que administra la plataforma.
+C.1 Usuario
+Representa a la persona que interactúa con la aplicación.
+Atributos principales:
+id_usuario
+nombre
+correo
+contraseña
+preferencias
+fecha_registro
+
+C.2 Ruta
+Representa un recorrido disponible dentro del sistema de transporte.
+Atributos principales:
+id_ruta
+nombre_ruta
+origen
+destino
+tipo_transporte
+tarifa
+
+C.3 Parada
+Representa un punto específico dentro de una ruta.
+Atributos principales:
+id_parada
+nombre
+latitud
+longitud
+id_ruta
+C.4 Viaje
+Representa una consulta o trayecto realizado por el usuario.
+Atributos principales:
+id_viaje
+id_usuario
+id_ruta
+hora_salida
+hora_estimada_llegada
+estado
+C.5 Reporte
+Representa un incidente o evento informado por un usuario o por el sistema.
+Atributos principales:
+id_reporte
+id_usuario
+id_ruta
+tipo_reporte
+descripcion
+fecha_reporte
+C.6 Pago
+Representa una transacción económica realizada por el usuario.
+Atributos principales:
+id_pago
+id_usuario
+monto
+`metodo_pag`o
+estado
+fecha_pago
+C.7 Alerta
+Representa una notificación generada por el sistema.
+Atributos principales:
+id_alerta
+id_ruta
+tipo_alerta
+mensaje
+fecha_emision
+Appendix D: Flujo interno de consulta de ruta
+
+Este apéndice describe de forma simplificada el flujo interno de una de las operaciones principales del sistema.
+D.1 Caso: consulta de ruta y tiempo estimado
+
+Resumen:
+El usuario ingresa origen y destino en la interfaz.
+El frontend envía la solicitud al API Gateway.
+El API Gateway dirige la solicitud al módulo de rutas.
+El módulo de rutas valida los parámetros recibidos.
+El sistema consulta la base de datos para recuperar rutas relacionadas.
+Si es necesario, el backend consulta APIs externas de mapas y transporte.
+El módulo de predicción calcula un tiempo estimado de llegada.
+El backend consolida la respuesta.
+El frontend presenta la información al usuario.
+Appendix E: Consideraciones de implementación
+
+Este apéndice resume algunas decisiones técnicas de detalle que sirven de referencia para el desarrollo inicial del sistema.
+E.1 Organización del backend
+El backend estará estructurado por módulos funcionales, con separación clara de responsabilidades, evitando complejidad innecesaria en la primera versión del sistema.
+E.2 Estrategia de persistencia
+La aplicación utilizará una base de datos relacional como almacenamiento principal, debido a la naturaleza estructurada de la información y a la relación entre sus entidades.
+E.3 Integraciones externas
+Las integraciones con servicios externos serán gestionadas desde el backend para mantener seguridad, centralizar el control de credenciales y reducir el acoplamiento del frontend con terceros.
+E.4 Enfoque de despliegue
+Se prioriza una arquitectura serverless de bajo costo para el backend, adecuada para la etapa inicial del proyecto. Asimismo, no se incluye una capa de cache dedicada en esta versión, debido a que su costo y complejidad aún no se justifican.

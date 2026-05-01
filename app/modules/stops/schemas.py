@@ -10,6 +10,8 @@ class StopOut(BaseModel):
     dist: int
     live: bool
     routes: list[str]
+    lat: float
+    lng: float
 
 
 class StopDetailOut(BaseModel):

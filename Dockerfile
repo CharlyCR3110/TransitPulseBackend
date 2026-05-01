@@ -5,10 +5,11 @@ COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:1.0.0 \
 
 WORKDIR /var/task
 
-COPY requirements.txt requirements-dev.txt ./
+COPY requirements.txt ./
 RUN python -m pip install --no-cache-dir -r requirements.txt
 
 COPY app ./app
+COPY bin ./bin
 
 EXPOSE 8080
 
