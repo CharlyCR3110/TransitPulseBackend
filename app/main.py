@@ -8,6 +8,7 @@ from sqlalchemy import text
 
 from app.config import get_settings
 from app.db import engine
+from app.observability import init_observability
 from app.modules.alerts.router import router as alerts_router
 from app.modules.arrivals.router import router as arrivals_router
 from app.modules.auth.router import router as auth_router
@@ -23,6 +24,7 @@ from app.modules.users.router import router as users_router
 def create_app() -> FastAPI:
     settings = get_settings()
     configure_logging()
+    init_observability(settings)
     app = FastAPI(title=settings.app_name, version=settings.app_version)
     app.add_middleware(
         CORSMiddleware,

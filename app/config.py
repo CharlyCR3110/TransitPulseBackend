@@ -32,6 +32,9 @@ class Settings(BaseSettings):
     arrivals_home_limit: int = Field(6, alias="ARRIVALS_HOME_LIMIT")
     nearest_stop_radius_m: float = Field(2000.0, alias="NEAREST_STOP_RADIUS_M")
     fuzzy_threshold: float = Field(0.3, alias="FUZZY_THRESHOLD")
+    sentry_dsn: str | None = Field(None, alias="SENTRY_DSN")
+    sentry_environment: str = Field("development", alias="SENTRY_ENVIRONMENT")
+    sentry_traces_sample_rate: float = Field(0.0, alias="SENTRY_TRACES_SAMPLE_RATE")
 
     @field_validator("cors_origins", mode="before")
     @classmethod
