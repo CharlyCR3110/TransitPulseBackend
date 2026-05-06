@@ -1,0 +1,18 @@
+[
+  {
+    "route_id": "100",
+    "direction": "outbound",
+    "hour_of_week": 7,
+    "mean_delay_min": 4.0,
+    "std_delay_min": 4.0,
+    "n_observations": 0
+  },
+  {
+    "route_id": "100",
+    "direction": "outbound",
+    "hour_of_week": 17,
+    "mean_delay_min": 5.0,
+    "std_delay_min": 5.0,
+    "n_observations": 0
+  }
+]

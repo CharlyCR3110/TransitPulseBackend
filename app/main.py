@@ -15,6 +15,7 @@ from app.modules.auth.router import router as auth_router
 from app.modules.health.router import router as health_router
 from app.modules.planner.router import router as planner_router
 from app.modules.reports.router import router as reports_router
+from app.modules.routes.router import router as routes_router
 from app.modules.shared.exceptions import AppError
 from app.modules.shared.logging import add_logging_middleware, configure_logging
 from app.modules.stops.router import router as stops_router
@@ -86,6 +87,7 @@ def create_app() -> FastAPI:
     app.include_router(health_router, prefix="/api/v1/health", tags=["health"])
     app.include_router(planner_router, prefix="/api/v1/planner", tags=["planner"])
     app.include_router(stops_router, prefix="/api/v1/stops", tags=["stops"])
+    app.include_router(routes_router, prefix="/api/v1/routes", tags=["routes"])
     app.include_router(arrivals_router, prefix="/api/v1/arrivals", tags=["arrivals"])
     app.include_router(alerts_router, prefix="/api/v1/alerts", tags=["alerts"])
     app.include_router(reports_router, prefix="/api/v1/reports", tags=["reports"])

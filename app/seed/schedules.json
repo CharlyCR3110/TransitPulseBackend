@@ -1,0 +1,24 @@
+[
+  {
+    "route_id": "100",
+    "direction": "outbound",
+    "service_day": "weekday",
+    "mode": "headway",
+    "headway_min": 12,
+    "start_time": "05:00",
+    "end_time": "22:30",
+    "explicit_times": null,
+    "notes": "placeholder schedule"
+  },
+  {
+    "route_id": "100",
+    "direction": "outbound",
+    "service_day": "saturday",
+    "mode": "headway",
+    "headway_min": 18,
+    "start_time": "05:30",
+    "end_time": "22:00",
+    "explicit_times": null,
+    "notes": null
+  }
+]

@@ -10,8 +10,11 @@ from app.db import Base, SessionLocal, engine
 from app.models.active_trip import ActiveTrip, ActiveTripStep
 from app.models.alert import Alert, AlertRoute
 from app.models.arrival_schedule import ArrivalSchedule
+from app.models.delay_prior import DelayPrior
 from app.models.place import Place
 from app.models.route import Route, RouteStop
+from app.models.route_shape import RouteShape
+from app.models.schedule import Schedule
 from app.models.stop import Stop
 from app.models.trip_template import TripTemplate
 
@@ -37,6 +40,9 @@ def load_seed() -> None:
         session.execute(delete(AlertRoute))
         session.execute(delete(Alert))
         session.execute(delete(ArrivalSchedule))
+        session.execute(delete(DelayPrior))
+        session.execute(delete(Schedule))
+        session.execute(delete(RouteShape))
         session.execute(delete(RouteStop))
         session.execute(delete(Place))
         session.execute(delete(Route))
@@ -51,6 +57,28 @@ def load_seed() -> None:
 
         for item in _read_json("route_stops.json"):
             session.add(RouteStop(**item))
+        session.flush()
+
+        for item in _read_json("route_shapes.json"):
+            session.add(RouteShape(**item))
+
+        for item in _read_json("schedules.json"):
+            session.add(
+                Schedule(
+                    route_id=item["route_id"],
+                    direction=item["direction"],
+                    service_day=item["service_day"],
+                    mode=item["mode"],
+                    headway_min=item["headway_min"],
+                    start_time=_parse_time(item["start_time"]),
+                    end_time=_parse_time(item["end_time"]),
+                    explicit_times=item["explicit_times"],
+                    notes=item["notes"],
+                )
+            )
+
+        for item in _read_json("delay_priors.json"):
+            session.add(DelayPrior(**item))
         session.flush()
 
         emitted_at = datetime.now(UTC)

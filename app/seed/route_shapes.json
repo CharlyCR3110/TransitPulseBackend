@@ -1,0 +1,10 @@
+[
+  {
+    "route_id": "100",
+    "direction": "outbound",
+    "geojson": {
+      "type": "LineString",
+      "coordinates": [[-84.0508, 9.9343], [-84.0789, 9.9355]]
+    }
+  }
+]
