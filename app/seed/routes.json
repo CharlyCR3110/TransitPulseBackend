@@ -3,5 +3,7 @@
   { "id": "302", "short_name": "302", "long_name": "San Pedro - Curridabat", "mode": "bus", "fare_min": 420, "fare_max": 420, "color": "#f97316" },
   { "id": "205", "short_name": "205", "long_name": "San Pedro - Multiplaza Escazú", "mode": "bus", "fare_min": 620, "fare_max": 620, "color": "#22c55e" },
   { "id": "T1", "short_name": "T1", "long_name": "Heredia - San José", "mode": "train", "fare_min": 550, "fare_max": 550, "color": "#111827" },
-  { "id": "T2", "short_name": "T2", "long_name": "San José - Escazú", "mode": "train", "fare_min": 470, "fare_max": 470, "color": "#7c3aed" }
+  { "id": "T2", "short_name": "T2", "long_name": "San José - Escazú", "mode": "train", "fare_min": 470, "fare_max": 470, "color": "#7c3aed" },
+  { "id": "400p", "short_name": "400 Pista", "long_name": "Heredia - San José por Pista (Transportes Unidos La 400)", "mode": "bus", "fare_min": 750, "fare_max": 750, "color": "#2563eb" },
+  { "id": "400sd", "short_name": "400 STD", "long_name": "San José - Heredia por Santo Domingo (MRH)", "mode": "bus", "fare_min": 720, "fare_max": 720, "color": "#dc2626" }
 ]

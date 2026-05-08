@@ -20,5 +20,71 @@
     "end_time": "22:00",
     "explicit_times": null,
     "notes": null
+  },
+  {
+    "route_id": "400p",
+    "direction": "outbound",
+    "service_day": "weekday",
+    "mode": "headway",
+    "headway_min": 12,
+    "start_time": "05:00",
+    "end_time": "22:00",
+    "explicit_times": null,
+    "notes": "Source: Moovit Transportes Unidos La 400 (POR PISTA). Headway estimated; operator does not publish."
+  },
+  {
+    "route_id": "400p",
+    "direction": "outbound",
+    "service_day": "saturday",
+    "mode": "headway",
+    "headway_min": 15,
+    "start_time": "05:00",
+    "end_time": "22:00",
+    "explicit_times": null,
+    "notes": null
+  },
+  {
+    "route_id": "400p",
+    "direction": "outbound",
+    "service_day": "sunday_holiday",
+    "mode": "headway",
+    "headway_min": 20,
+    "start_time": "05:00",
+    "end_time": "22:00",
+    "explicit_times": null,
+    "notes": null
+  },
+  {
+    "route_id": "400sd",
+    "direction": "outbound",
+    "service_day": "weekday",
+    "mode": "headway",
+    "headway_min": 10,
+    "start_time": "00:00",
+    "end_time": "23:59",
+    "explicit_times": null,
+    "notes": "Source: Moovit MRH (POR SANTO DOMINGO). 24-hour service. Headway estimated; operator does not publish."
+  },
+  {
+    "route_id": "400sd",
+    "direction": "outbound",
+    "service_day": "saturday",
+    "mode": "headway",
+    "headway_min": 15,
+    "start_time": "00:00",
+    "end_time": "23:59",
+    "explicit_times": null,
+    "notes": null
+  },
+  {
+    "route_id": "400sd",
+    "direction": "outbound",
+    "service_day": "sunday_holiday",
+    "mode": "headway",
+    "headway_min": 20,
+    "start_time": "00:00",
+    "end_time": "23:59",
+    "explicit_times": null,
+    "notes": null
   }
 ]

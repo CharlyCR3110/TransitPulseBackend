@@ -5,6 +5,7 @@ from datetime import UTC, datetime, time
 from pathlib import Path
 
 from sqlalchemy import delete, text
+from sqlalchemy.dialects.postgresql import insert as pg_insert
 
 from app.db import Base, SessionLocal, engine
 from app.models.active_trip import ActiveTrip, ActiveTripStep
@@ -29,11 +30,28 @@ def _parse_time(value: str) -> time:
     return time.fromisoformat(value)
 
 
+def _upsert_by_pk(session, model, rows: list[dict], pk_cols: list[str]) -> None:
+    """INSERT ... ON CONFLICT (pk_cols) DO UPDATE on every other column."""
+    if not rows:
+        return
+    pk_set = set(pk_cols)
+    update_col_names = [c.name for c in model.__table__.columns if c.name not in pk_set]
+    for row in rows:
+        stmt = pg_insert(model).values(**row)
+        set_clause = {name: stmt.excluded[name] for name in update_col_names if name in row}
+        if set_clause:
+            stmt = stmt.on_conflict_do_update(index_elements=pk_cols, set_=set_clause)
+        else:
+            stmt = stmt.on_conflict_do_nothing(index_elements=pk_cols)
+        session.execute(stmt)
+
+
 def load_seed() -> None:
     with engine.begin() as connection:
         connection.execute(text("CREATE EXTENSION IF NOT EXISTS pg_trgm"))
     Base.metadata.create_all(bind=engine)
     with SessionLocal() as session:
+        # Wipe seed-only tables (no user-data FK references).
         session.execute(delete(ActiveTripStep))
         session.execute(delete(ActiveTrip))
         session.execute(delete(TripTemplate))
@@ -44,15 +62,12 @@ def load_seed() -> None:
         session.execute(delete(Schedule))
         session.execute(delete(RouteShape))
         session.execute(delete(RouteStop))
-        session.execute(delete(Place))
-        session.execute(delete(Route))
-        session.execute(delete(Stop))
 
-        for item in _read_json("stops.json"):
-            session.add(Stop(**item))
-
-        for item in _read_json("routes.json"):
-            session.add(Route(**item))
+        # Upsert by PK — user data (reports.stop_id, reports.route_id) may
+        # reference these rows, so we cannot delete them.
+        _upsert_by_pk(session, Stop, _read_json("stops.json"), ["id"])
+        _upsert_by_pk(session, Route, _read_json("routes.json"), ["id"])
+        _upsert_by_pk(session, Place, _read_json("places.json"), ["id"])
         session.flush()
 
         for item in _read_json("route_stops.json"):
@@ -89,9 +104,6 @@ def load_seed() -> None:
             session.flush()
             for route_id in routes:
                 session.add(AlertRoute(alert_id=payload["id"], route_id=route_id))
-
-        for item in _read_json("places.json"):
-            session.add(Place(**item))
 
         schedules = _read_json("arrival_schedules.json")
         expanded: list[dict] = []
