@@ -7,6 +7,10 @@ class StopOut(BaseModel):
     id: str
     nameKey: str
     addrKey: str
+    labelEs: str
+    labelEn: str
+    addrEs: str
+    addrEn: str
     dist: int
     live: bool
     routes: list[str]
