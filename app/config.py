@@ -32,6 +32,14 @@ class Settings(BaseSettings):
     arrivals_home_limit: int = Field(6, alias="ARRIVALS_HOME_LIMIT")
     nearest_stop_radius_m: float = Field(2000.0, alias="NEAREST_STOP_RADIUS_M")
     fuzzy_threshold: float = Field(0.3, alias="FUZZY_THRESHOLD")
+    predictions_default_horizon_min: int = Field(
+        60, alias="PREDICTIONS_DEFAULT_HORIZON_MIN"
+    )
+    predictions_max_per_stop: int = Field(10, alias="PREDICTIONS_MAX_PER_STOP")
+    predictions_confidence_thresholds: tuple[float, float] = Field(
+        (2.0, 5.0),
+        alias="PREDICTIONS_CONFIDENCE_THRESHOLDS",
+    )
     sentry_dsn: str | None = Field(None, alias="SENTRY_DSN")
     sentry_environment: str = Field("development", alias="SENTRY_ENVIRONMENT")
     sentry_traces_sample_rate: float = Field(0.0, alias="SENTRY_TRACES_SAMPLE_RATE")

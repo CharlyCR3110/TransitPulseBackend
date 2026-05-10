@@ -14,6 +14,7 @@ from app.modules.arrivals.router import router as arrivals_router
 from app.modules.auth.router import router as auth_router
 from app.modules.health.router import router as health_router
 from app.modules.planner.router import router as planner_router
+from app.modules.predictions.router import router as predictions_router
 from app.modules.reports.router import router as reports_router
 from app.modules.routes.router import router as routes_router
 from app.modules.shared.exceptions import AppError
@@ -89,6 +90,7 @@ def create_app() -> FastAPI:
     app.include_router(stops_router, prefix="/api/v1/stops", tags=["stops"])
     app.include_router(routes_router, prefix="/api/v1/routes", tags=["routes"])
     app.include_router(arrivals_router, prefix="/api/v1/arrivals", tags=["arrivals"])
+    app.include_router(predictions_router, prefix="/api/v1/predictions", tags=["predictions"])
     app.include_router(alerts_router, prefix="/api/v1/alerts", tags=["alerts"])
     app.include_router(reports_router, prefix="/api/v1/reports", tags=["reports"])
     app.include_router(auth_router, prefix="/api/v1/auth", tags=["auth"])
