@@ -46,10 +46,45 @@ def _upsert_by_pk(session, model, rows: list[dict], pk_cols: list[str]) -> None:
         session.execute(stmt)
 
 
+def _ensure_route_stops_direction_schema() -> None:
+    """One-shot additive migration for databases created before F.1."""
+    with engine.begin() as connection:
+        connection.execute(
+            text(
+                """
+                ALTER TABLE route_stops
+                ADD COLUMN IF NOT EXISTS direction VARCHAR(16) NOT NULL DEFAULT 'outbound'
+                """
+            )
+        )
+        connection.execute(
+            text(
+                """
+                DO $$
+                BEGIN
+                    IF EXISTS (
+                        SELECT 1
+                        FROM pg_constraint
+                        WHERE conrelid = 'route_stops'::regclass
+                          AND conname = 'route_stops_pkey'
+                          AND pg_get_constraintdef(oid) = 'PRIMARY KEY (route_id, stop_id)'
+                    ) THEN
+                        ALTER TABLE route_stops DROP CONSTRAINT route_stops_pkey;
+                        ALTER TABLE route_stops
+                            ADD CONSTRAINT route_stops_pkey
+                            PRIMARY KEY (route_id, stop_id, direction);
+                    END IF;
+                END $$;
+                """
+            )
+        )
+
+
 def load_seed() -> None:
     with engine.begin() as connection:
         connection.execute(text("CREATE EXTENSION IF NOT EXISTS pg_trgm"))
     Base.metadata.create_all(bind=engine)
+    _ensure_route_stops_direction_schema()
     with SessionLocal() as session:
         # Wipe seed-only tables (no user-data FK references).
         session.execute(delete(ActiveTripStep))
@@ -70,8 +105,12 @@ def load_seed() -> None:
         _upsert_by_pk(session, Place, _read_json("places.json"), ["id"])
         session.flush()
 
-        for item in _read_json("route_stops.json"):
-            session.add(RouteStop(**item))
+        route_stop_rows = [
+            {"direction": "outbound", **item} for item in _read_json("route_stops.json")
+        ]
+        _upsert_by_pk(
+            session, RouteStop, route_stop_rows, ["route_id", "stop_id", "direction"]
+        )
         session.flush()
 
         for item in _read_json("route_shapes.json"):

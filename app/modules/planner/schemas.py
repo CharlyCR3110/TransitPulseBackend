@@ -24,6 +24,10 @@ class BusStepOut(BaseModel):
     time: str
     occ: int
     stops: int
+    boardStopId: str | None = None
+    alightStopId: str | None = None
+    boardWalkMin: int = 3
+    alightWalkMin: int = 3
     prediction: ArrivalPrediction | None = None
 
 

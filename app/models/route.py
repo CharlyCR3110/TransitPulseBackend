@@ -21,5 +21,8 @@ class RouteStop(Base):
 
     route_id: Mapped[str] = mapped_column(ForeignKey("routes.id"), primary_key=True)
     stop_id: Mapped[str] = mapped_column(ForeignKey("stops.id"), primary_key=True)
+    direction: Mapped[str] = mapped_column(
+        String(16), primary_key=True, default="outbound"
+    )
     stop_order: Mapped[int] = mapped_column(Integer)
     segment_minutes: Mapped[int] = mapped_column(Integer, default=3)

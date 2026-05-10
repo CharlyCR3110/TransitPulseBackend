@@ -28,13 +28,12 @@ class RoutesService:
             select(RouteStop, Stop)
             .join(Stop, Stop.id == RouteStop.stop_id)
             .where(RouteStop.route_id == route_id)
-            .order_by(RouteStop.stop_order)
+            .order_by(RouteStop.direction, RouteStop.stop_order)
         ).all()
 
         directions: dict[str, dict] = defaultdict(lambda: {"stops": [], "shape": None})
         for route_stop, stop in rows:
-            # Existing schema has no `direction`; default to 'outbound' for placeholder.
-            directions["outbound"]["stops"].append(
+            directions[route_stop.direction]["stops"].append(
                 {
                     "stopId": stop.id,
                     "sequence": route_stop.stop_order,

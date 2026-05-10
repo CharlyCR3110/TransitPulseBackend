@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 from collections import defaultdict
+from dataclasses import dataclass
 from datetime import UTC, datetime
 import hashlib
-from typing import Any, Optional
+from math import ceil
+from typing import Any
 
 from sqlalchemy import case, desc, func, select
 from sqlalchemy.orm import Session
@@ -22,6 +24,15 @@ from app.modules.shared.utils import clamp, haversine_m, parse_lat_lng
 
 
 _FALLBACK_LEAVE_IN_MIN = 4
+_WALKING_SPEED_M_PER_MIN = 80.0
+
+
+@dataclass(frozen=True)
+class _EndpointCandidate:
+    stop: Stop
+    lat: float
+    lng: float
+    walk_radius_m: float
 
 
 class PlannerService:
@@ -43,14 +54,16 @@ class PlannerService:
 
         now_utc = now_utc or datetime.now(UTC)
         seen_hashes: set[str] = set()
-        triples: list[tuple[Stop, Stop, dict[str, Any]]] = []
+        triples: list[tuple[_EndpointCandidate, _EndpointCandidate, dict[str, Any]]] = (
+            []
+        )
         for origin in origins:
             for destination in destinations:
-                if origin.id == destination.id:
+                if origin.stop.id == destination.stop.id:
                     continue
                 for candidate in self._build_candidates(origin, destination, now_utc):
                     signature = self._candidate_hash(
-                        origin.id, destination.id, candidate["steps"]
+                        origin.stop.id, destination.stop.id, candidate["steps"]
                     )
                     if signature in seen_hashes:
                         continue
@@ -60,7 +73,9 @@ class PlannerService:
         triples.sort(key=self._candidate_sort_key(sort))
         results: list[dict[str, Any]] = []
         for origin, destination, candidate in triples:
-            trip = self._persist_template(origin.id, destination.id, candidate)
+            trip = self._persist_template(
+                origin.stop.id, destination.stop.id, candidate
+            )
             results.append(self._trip_option_out(trip, sort.value))
         return results
 
@@ -164,9 +179,11 @@ class PlannerService:
 
     def _resolve_endpoint(self, value: str) -> Stop | None:
         candidates = self._resolve_endpoints(value)
-        return candidates[0] if candidates else None
+        return candidates[0].stop if candidates else None
 
-    def _resolve_endpoints(self, value: str, max_candidates: int = 5) -> list[Stop]:
+    def _resolve_endpoints(
+        self, value: str, max_candidates: int = 5
+    ) -> list[_EndpointCandidate]:
         """Return up to `max_candidates` plausible stops for the user query.
         Different sources contribute candidates so that a query like "Heredia"
         can resolve to both the 400p origin terminal AND the 400sd destination
@@ -174,7 +191,14 @@ class PlannerService:
         parsed = parse_lat_lng(value)
         if parsed is not None:
             stop = self._nearest_stop(parsed[0], parsed[1])
-            return [stop] if stop is not None else []
+            return [
+                _EndpointCandidate(
+                    stop=stop,
+                    lat=parsed[0],
+                    lng=parsed[1],
+                    walk_radius_m=self.settings.boarding_walk_radius_m,
+                )
+            ] if stop is not None else []
 
         lowered = value.strip().lower()
         if not lowered:
@@ -215,7 +239,15 @@ class PlannerService:
             stop = self.session.get(Stop, stop_id)
             if stop is not None:
                 stops.append(stop)
-        return stops
+        return [
+            _EndpointCandidate(
+                stop=stop,
+                lat=stop.lat,
+                lng=stop.lng,
+                walk_radius_m=self.settings.boarding_walk_radius_m,
+            )
+            for stop in stops
+        ]
 
     def _stop_candidates(self, query: str, limit: int = 5) -> list[tuple[str, float]]:
         score = func.greatest(
@@ -284,59 +316,87 @@ class PlannerService:
         return closest[1] if closest else None
 
     def _build_candidates(
-        self, origin: Stop, destination: Stop, now_utc: datetime
+        self,
+        origin: Stop | _EndpointCandidate,
+        destination: Stop | _EndpointCandidate,
+        now_utc: datetime,
     ) -> list[dict[str, Any]]:
+        origin_candidate = self._coerce_endpoint_candidate(origin)
+        destination_candidate = self._coerce_endpoint_candidate(destination)
         routes = self.session.scalars(select(Route)).all()
-        route_stops = self.session.scalars(select(RouteStop).order_by(RouteStop.route_id, RouteStop.stop_order)).all()
-        route_map: dict[str, list[RouteStop]] = defaultdict(list)
+        route_stops = self.session.scalars(
+            select(RouteStop).order_by(
+                RouteStop.route_id, RouteStop.direction, RouteStop.stop_order
+            )
+        ).all()
+        route_map: dict[tuple[str, str], list[RouteStop]] = defaultdict(list)
         route_by_id = {route.id: route for route in routes}
         for item in route_stops:
-            route_map[item.route_id].append(item)
+            route_map[(item.route_id, item.direction)].append(item)
 
         candidates: list[dict[str, Any]] = []
         predictions_svc = PredictionsService(self.session)
 
-        for route_id, stops in route_map.items():
-            origin_index = self._find_stop_index(stops, origin.id)
-            destination_index = self._find_stop_index(stops, destination.id)
-            if origin_index is not None and destination_index is not None and origin_index < destination_index:
+        for (route_id, direction), stops in route_map.items():
+            boarding = self._nearest_stop_on_route(origin_candidate, stops)
+            alighting = self._nearest_stop_on_route(destination_candidate, stops)
+            if (
+                boarding is not None
+                and alighting is not None
+                and boarding[0] < alighting[0]
+            ):
                 route = route_by_id[route_id]
+                origin_stop = boarding[1]
+                destination_stop = alighting[1]
                 leave_in_min, prediction = self._predict_leave_in(
-                    predictions_svc, origin.id, route_id, now_utc
+                    predictions_svc, origin_stop.id, route_id, now_utc, direction
                 )
                 candidates.append(
                     self._direct_candidate(
                         route,
                         stops,
-                        origin_index,
-                        destination_index,
-                        origin,
-                        destination,
+                        boarding[0],
+                        alighting[0],
+                        origin_stop,
+                        destination_stop,
+                        board_walk_min=boarding[3],
+                        alight_walk_min=alighting[3],
                         leave_in_min=leave_in_min,
                         prediction=prediction,
                     )
                 )
 
-        for route_a_id, stops_a in route_map.items():
-            origin_index = self._find_stop_index(stops_a, origin.id)
-            if origin_index is None:
+        for (route_a_id, direction_a), stops_a in route_map.items():
+            boarding = self._nearest_stop_on_route(origin_candidate, stops_a)
+            if boarding is None:
                 continue
-            for route_b_id, stops_b in route_map.items():
+            for (route_b_id, _direction_b), stops_b in route_map.items():
                 if route_a_id == route_b_id:
                     continue
-                destination_index = self._find_stop_index(stops_b, destination.id)
-                if destination_index is None:
+                alighting = self._nearest_stop_on_route(destination_candidate, stops_b)
+                if alighting is None:
                     continue
                 for transfer_a_index, stop_a in enumerate(stops_a):
                     transfer_b_index = self._find_stop_index(stops_b, stop_a.stop_id)
                     if transfer_b_index is None:
                         continue
-                    if origin_index < transfer_a_index < len(stops_a) and transfer_b_index < destination_index:
+                    if (
+                        boarding[0] < transfer_a_index < len(stops_a)
+                        and transfer_b_index < alighting[0]
+                    ):
                         transfer_stop = self.session.get(Stop, stop_a.stop_id)
+                        if transfer_stop is None:
+                            continue
                         route_a = route_by_id[route_a_id]
                         route_b = route_by_id[route_b_id]
+                        origin_stop = boarding[1]
+                        destination_stop = alighting[1]
                         leave_in_min, prediction = self._predict_leave_in(
-                            predictions_svc, origin.id, route_a_id, now_utc
+                            predictions_svc,
+                            origin_stop.id,
+                            route_a_id,
+                            now_utc,
+                            direction_a,
                         )
                         candidates.append(
                             self._transfer_candidate(
@@ -344,13 +404,15 @@ class PlannerService:
                                 route_b,
                                 stops_a,
                                 stops_b,
-                                origin_index,
+                                boarding[0],
                                 transfer_a_index,
                                 transfer_b_index,
-                                destination_index,
-                                origin,
+                                alighting[0],
+                                origin_stop,
                                 transfer_stop,
-                                destination,
+                                destination_stop,
+                                board_walk_min=boarding[3],
+                                alight_walk_min=alighting[3],
                                 leave_in_min=leave_in_min,
                                 prediction=prediction,
                             )
@@ -358,9 +420,41 @@ class PlannerService:
                         break
         deduped: dict[str, dict[str, Any]] = {}
         for candidate in candidates:
-            signature = self._candidate_hash(origin.id, destination.id, candidate["steps"])
+            signature = self._candidate_hash(
+                origin_candidate.stop.id,
+                destination_candidate.stop.id,
+                candidate["steps"],
+            )
             deduped[signature] = candidate
         return list(deduped.values())
+
+    def _coerce_endpoint_candidate(
+        self, endpoint: Stop | _EndpointCandidate
+    ) -> _EndpointCandidate:
+        if isinstance(endpoint, _EndpointCandidate):
+            return endpoint
+        return _EndpointCandidate(
+            stop=endpoint,
+            lat=endpoint.lat,
+            lng=endpoint.lng,
+            walk_radius_m=self.settings.boarding_walk_radius_m,
+        )
+
+    def _nearest_stop_on_route(
+        self, endpoint: _EndpointCandidate, route_stops: list[RouteStop]
+    ) -> tuple[int, Stop, float, int] | None:
+        closest: tuple[int, Stop, float, int] | None = None
+        for index, route_stop in enumerate(route_stops):
+            stop = self.session.get(Stop, route_stop.stop_id)
+            if stop is None:
+                continue
+            distance_m = haversine_m(endpoint.lat, endpoint.lng, stop.lat, stop.lng)
+            if distance_m > endpoint.walk_radius_m:
+                continue
+            walk_min = int(ceil(distance_m / _WALKING_SPEED_M_PER_MIN))
+            if closest is None or distance_m < closest[2]:
+                closest = (index, stop, distance_m, walk_min)
+        return closest
 
     def _find_stop_index(self, route_stops: list[RouteStop], stop_id: str) -> int | None:
         for idx, route_stop in enumerate(route_stops):
@@ -376,10 +470,15 @@ class PlannerService:
         destination_index: int,
         origin: Stop,
         destination: Stop,
+        board_walk_min: int = 3,
+        alight_walk_min: int = 3,
         leave_in_min: int | None = None,
         prediction: dict[str, Any] | None = None,
     ) -> dict[str, Any]:
-        ride_minutes = sum(item.segment_minutes for item in route_stops[origin_index + 1 : destination_index + 1])
+        ride_minutes = sum(
+            item.segment_minutes
+            for item in route_stops[origin_index + 1 : destination_index + 1]
+        )
         bus_step: dict[str, Any] = {
             "kind": "bus",
             "route": route.id,
@@ -391,13 +490,17 @@ class PlannerService:
             "time": f"+{ride_minutes} min",
             "occ": 2,
             "stops": destination_index - origin_index,
+            "boardStopId": origin.id,
+            "alightStopId": destination.id,
+            "boardWalkMin": board_walk_min,
+            "alightWalkMin": alight_walk_min,
         }
         if prediction is not None:
             bus_step["prediction"] = prediction
         steps = [
             {
                 "kind": "walk",
-                "minutes": 3,
+                "minutes": board_walk_min,
                 "toEs": origin.label_es,
                 "toEn": origin.label_en,
                 "time": "Ahora",
@@ -405,18 +508,22 @@ class PlannerService:
             bus_step,
             {
                 "kind": "walk",
-                "minutes": 3,
+                "minutes": alight_walk_min,
                 "toEs": destination.label_es,
                 "toEn": destination.label_en,
-                "time": f"+{ride_minutes + 3} min",
+                "time": f"+{ride_minutes + alight_walk_min} min",
             },
         ]
         return {
-            "minutes": ride_minutes + 6,
+            "minutes": ride_minutes + board_walk_min + alight_walk_min,
             "price": route.fare_min,
             "transfers": 0,
-            "walkMin": 6,
-            "leaveIn": leave_in_min if leave_in_min is not None else _FALLBACK_LEAVE_IN_MIN,
+            "walkMin": board_walk_min + alight_walk_min,
+            "leaveIn": (
+                leave_in_min
+                if leave_in_min is not None
+                else _FALLBACK_LEAVE_IN_MIN
+            ),
             "steps": steps,
         }
 
@@ -433,11 +540,19 @@ class PlannerService:
         origin: Stop,
         transfer_stop: Stop,
         destination: Stop,
+        board_walk_min: int = 3,
+        alight_walk_min: int = 3,
         leave_in_min: int | None = None,
         prediction: dict[str, Any] | None = None,
     ) -> dict[str, Any]:
-        ride_a = sum(item.segment_minutes for item in route_a_stops[origin_index + 1 : transfer_a_index + 1])
-        ride_b = sum(item.segment_minutes for item in route_b_stops[transfer_b_index + 1 : destination_index + 1])
+        ride_a = sum(
+            item.segment_minutes
+            for item in route_a_stops[origin_index + 1 : transfer_a_index + 1]
+        )
+        ride_b = sum(
+            item.segment_minutes
+            for item in route_b_stops[transfer_b_index + 1 : destination_index + 1]
+        )
         bus_step_a: dict[str, Any] = {
             "kind": "bus",
             "route": route_a.id,
@@ -449,13 +564,17 @@ class PlannerService:
             "time": f"+{ride_a} min",
             "occ": 2,
             "stops": transfer_a_index - origin_index,
+            "boardStopId": origin.id,
+            "alightStopId": transfer_stop.id,
+            "boardWalkMin": board_walk_min,
+            "alightWalkMin": 0,
         }
         if prediction is not None:
             bus_step_a["prediction"] = prediction
         steps = [
             {
                 "kind": "walk",
-                "minutes": 3,
+                "minutes": board_walk_min,
                 "toEs": origin.label_es,
                 "toEn": origin.label_en,
                 "time": "Ahora",
@@ -479,20 +598,24 @@ class PlannerService:
                 "time": f"+{ride_a + ride_b + 4} min",
                 "occ": 3,
                 "stops": destination_index - transfer_b_index,
+                "boardStopId": transfer_stop.id,
+                "alightStopId": destination.id,
+                "boardWalkMin": 0,
+                "alightWalkMin": alight_walk_min,
             },
             {
                 "kind": "walk",
-                "minutes": 3,
+                "minutes": alight_walk_min,
                 "toEs": destination.label_es,
                 "toEn": destination.label_en,
-                "time": f"+{ride_a + ride_b + 7} min",
+                "time": f"+{ride_a + ride_b + 4 + alight_walk_min} min",
             },
         ]
         return {
-            "minutes": ride_a + ride_b + 10,
+            "minutes": ride_a + ride_b + board_walk_min + alight_walk_min + 4,
             "price": route_a.fare_min + route_b.fare_min,
             "transfers": 1,
-            "walkMin": 6,
+            "walkMin": board_walk_min + alight_walk_min,
             "leaveIn": leave_in_min if leave_in_min is not None else 6,
             "steps": steps,
         }
@@ -503,6 +626,7 @@ class PlannerService:
         origin_stop_id: str,
         route_id: str,
         now_utc: datetime,
+        direction: str | None = None,
     ) -> tuple[int | None, dict[str, Any] | None]:
         """Return (leaveInMin, prediction) for the next departure of `route_id`
         at `origin_stop_id`. None if no prediction available."""
@@ -511,6 +635,8 @@ class PlannerService:
         )
         for p in preds:
             if p["routeId"] != route_id:
+                continue
+            if direction is not None and p["direction"] != direction:
                 continue
             delta_sec = (p["predictedDeparture"] - now_utc).total_seconds()
             leave_in_min = max(0, int(delta_sec // 60))
@@ -534,13 +660,37 @@ class PlannerService:
             key_fn = lambda candidate: (candidate["minutes"], candidate["transfers"], candidate["price"])
         return sorted(candidates, key=key_fn)
 
-    def _candidate_hash(self, origin_stop_id: str, destination_stop_id: str, steps: list[dict[str, Any]]) -> str:
+    def _candidate_hash(
+        self,
+        origin_stop_id: str,
+        destination_stop_id: str,
+        steps: list[dict[str, Any]],
+    ) -> str:
         signature = ";".join(
-            f"{step['kind']}:{step.get('route','')}:{step.get('fromEs','')}:{step.get('toEs','')}" for step in steps
+            ":".join(
+                [
+                    step["kind"],
+                    step.get("route", ""),
+                    step.get("fromEs", ""),
+                    step.get("toEs", ""),
+                    str(step.get("boardStopId", "")),
+                    str(step.get("alightStopId", "")),
+                    str(step.get("boardWalkMin", "")),
+                    str(step.get("alightWalkMin", "")),
+                ]
+            )
+            for step in steps
         )
-        return hashlib.sha256(f"{origin_stop_id}|{destination_stop_id}|{signature}".encode("utf-8")).hexdigest()
+        return hashlib.sha256(
+            f"{origin_stop_id}|{destination_stop_id}|{signature}".encode("utf-8")
+        ).hexdigest()
 
-    def _persist_template(self, origin_stop_id: str, destination_stop_id: str, candidate: dict[str, Any]) -> TripTemplate:
+    def _persist_template(
+        self,
+        origin_stop_id: str,
+        destination_stop_id: str,
+        candidate: dict[str, Any],
+    ) -> TripTemplate:
         content_hash = self._candidate_hash(origin_stop_id, destination_stop_id, candidate["steps"])
         existing = self.session.scalar(select(TripTemplate).where(TripTemplate.content_hash == content_hash))
         if existing is not None:

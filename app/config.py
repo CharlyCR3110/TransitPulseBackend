@@ -31,6 +31,7 @@ class Settings(BaseSettings):
     log_level: str = Field("INFO", alias="LOG_LEVEL")
     arrivals_home_limit: int = Field(6, alias="ARRIVALS_HOME_LIMIT")
     nearest_stop_radius_m: float = Field(2000.0, alias="NEAREST_STOP_RADIUS_M")
+    boarding_walk_radius_m: float = Field(800.0, alias="BOARDING_WALK_RADIUS_M")
     fuzzy_threshold: float = Field(0.3, alias="FUZZY_THRESHOLD")
     predictions_default_horizon_min: int = Field(
         60, alias="PREDICTIONS_DEFAULT_HORIZON_MIN"

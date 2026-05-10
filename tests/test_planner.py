@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Iterator
 from datetime import datetime, timezone
+from math import ceil
 
 import pytest
 from sqlalchemy.orm import Session
@@ -10,6 +11,7 @@ from app.db import SessionLocal
 from app.models.stop import Stop
 from app.modules.planner.service import PlannerService
 from app.modules.shared.types import SortMode
+from app.modules.shared.utils import haversine_m
 
 
 # Mon 2026-06-01 07:00 CR = 13:00 UTC. 400p has hour-7 weekday prior (mean=3, std=3),
@@ -36,6 +38,14 @@ def _candidates_for(
 
 def _bus_step(candidate: dict, route_id: str) -> dict:
     return next(s for s in candidate["steps"] if s.get("route") == route_id)
+
+
+def _first_bus_step(options: list[dict], route_id: str) -> dict:
+    for option in options:
+        for step in option["steps"]:
+            if step.get("route") == route_id:
+                return step
+    raise AssertionError(f"expected route {route_id} in planner options")
 
 
 def test_corridor_pair_produces_400p_candidate(db: Session) -> None:
@@ -102,3 +112,60 @@ def test_search_unknown_endpoint_returns_empty(db: Session) -> None:
         now_utc=MON_7AM_CR_UTC,
     )
     assert options == []
+
+
+def test_user_at_pricesmart_boards_at_pricesmart(db: Session) -> None:
+    options = PlannerService(db).search(
+        from_="9.9829,-84.1076",
+        to="9.9363,-84.0861",
+        sort=SortMode.FASTEST,
+        now_utc=MON_7AM_CR_UTC,
+    )
+    bus_step = _first_bus_step(options, "400p")
+    assert bus_step["boardStopId"] == "her_pricesmart"
+    assert bus_step["boardWalkMin"] == 0
+
+
+def test_user_far_from_corridor_falls_back_to_legacy_route(db: Session) -> None:
+    options = PlannerService(db).search(
+        from_="UCR",
+        to="Multiplaza",
+        sort=SortMode.FASTEST,
+        now_utc=MON_7AM_CR_UTC,
+    )
+    assert _first_bus_step(options, "205")["route"] == "205"
+    assert not any(
+        step.get("route") in {"400p", "400sd"}
+        for option in options
+        for step in option["steps"]
+    )
+
+
+def test_alight_uses_destination_walk_radius(db: Session) -> None:
+    options = PlannerService(db).search(
+        from_="9.9989,-84.1165",
+        to="9.9494,-84.1098",
+        sort=SortMode.FASTEST,
+        now_utc=MON_7AM_CR_UTC,
+    )
+    bus_step = _first_bus_step(options, "400p")
+    assert bus_step["alightStopId"] == "sj_irazu"
+
+
+def test_walk_minutes_uses_haversine(db: Session) -> None:
+    origin = "9.9819,-84.1076"
+    pricesmart = db.get(Stop, "her_pricesmart")
+    assert pricesmart is not None
+    expected_walk_min = int(
+        ceil(haversine_m(9.9819, -84.1076, pricesmart.lat, pricesmart.lng) / 80.0)
+    )
+
+    options = PlannerService(db).search(
+        from_=origin,
+        to="9.9363,-84.0861",
+        sort=SortMode.FASTEST,
+        now_utc=MON_7AM_CR_UTC,
+    )
+    bus_step = _first_bus_step(options, "400p")
+    assert bus_step["boardStopId"] == "her_pricesmart"
+    assert bus_step["boardWalkMin"] == expected_walk_min

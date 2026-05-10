@@ -85,6 +85,7 @@ class PredictionsService:
             segs = self.session.scalars(
                 select(RouteStop)
                 .where(RouteStop.route_id == target_rs.route_id)
+                .where(RouteStop.direction == target_rs.direction)
                 .where(RouteStop.stop_order <= target_rs.stop_order)
                 .order_by(RouteStop.stop_order)
             ).all()
@@ -93,7 +94,7 @@ class PredictionsService:
                 _ServingRoute(
                     route_id=target_rs.route_id,
                     route_code=route.short_name,
-                    direction="outbound",
+                    direction=target_rs.direction,
                     offset_min=offset,
                 )
             )
