@@ -23,10 +23,26 @@
   { "route_id": "400p", "stop_id": "sj_corobici",      "direction": "outbound", "stop_order": 7, "segment_minutes": 4 },
   { "route_id": "400p", "stop_id": "sj_term_cocacola", "direction": "outbound", "stop_order": 8, "segment_minutes": 6 },
 
+  { "route_id": "400p", "stop_id": "sj_term_cocacola", "direction": "inbound",  "stop_order": 1, "segment_minutes": 0 },
+  { "route_id": "400p", "stop_id": "sj_corobici",      "direction": "inbound",  "stop_order": 2, "segment_minutes": 5 },
+  { "route_id": "400p", "stop_id": "sj_irazu",         "direction": "inbound",  "stop_order": 3, "segment_minutes": 4 },
+  { "route_id": "400p", "stop_id": "pte_virilla",      "direction": "inbound",  "stop_order": 4, "segment_minutes": 5 },
+  { "route_id": "400p", "stop_id": "her_walmart",      "direction": "inbound",  "stop_order": 5, "segment_minutes": 4 },
+  { "route_id": "400p", "stop_id": "her_pricesmart",   "direction": "inbound",  "stop_order": 6, "segment_minutes": 4 },
+  { "route_id": "400p", "stop_id": "her_estadio",      "direction": "inbound",  "stop_order": 7, "segment_minutes": 5 },
+  { "route_id": "400p", "stop_id": "her_term_mc",      "direction": "inbound",  "stop_order": 8, "segment_minutes": 3 },
+
   { "route_id": "400sd", "stop_id": "sj_term_rh",       "direction": "outbound", "stop_order": 1, "segment_minutes": 0 },
   { "route_id": "400sd", "stop_id": "sj_tibas_cinco",   "direction": "outbound", "stop_order": 2, "segment_minutes": 5 },
   { "route_id": "400sd", "stop_id": "sd_plaza",         "direction": "outbound", "stop_order": 3, "segment_minutes": 9 },
   { "route_id": "400sd", "stop_id": "her_una",          "direction": "outbound", "stop_order": 4, "segment_minutes": 12 },
   { "route_id": "400sd", "stop_id": "her_estadio",      "direction": "outbound", "stop_order": 5, "segment_minutes": 4 },
-  { "route_id": "400sd", "stop_id": "her_term_braulio", "direction": "outbound", "stop_order": 6, "segment_minutes": 4 }
+  { "route_id": "400sd", "stop_id": "her_term_braulio", "direction": "outbound", "stop_order": 6, "segment_minutes": 4 },
+
+  { "route_id": "400sd", "stop_id": "her_term_braulio", "direction": "inbound",  "stop_order": 1, "segment_minutes": 0 },
+  { "route_id": "400sd", "stop_id": "her_estadio",      "direction": "inbound",  "stop_order": 2, "segment_minutes": 4 },
+  { "route_id": "400sd", "stop_id": "her_una",          "direction": "inbound",  "stop_order": 3, "segment_minutes": 4 },
+  { "route_id": "400sd", "stop_id": "sd_plaza",         "direction": "inbound",  "stop_order": 4, "segment_minutes": 12 },
+  { "route_id": "400sd", "stop_id": "sj_tibas_cinco",   "direction": "inbound",  "stop_order": 5, "segment_minutes": 9 },
+  { "route_id": "400sd", "stop_id": "sj_term_rh",       "direction": "inbound",  "stop_order": 6, "segment_minutes": 5 }
 ]

@@ -86,5 +86,71 @@
     "end_time": "23:59",
     "explicit_times": null,
     "notes": null
+  },
+  {
+    "route_id": "400p",
+    "direction": "inbound",
+    "service_day": "weekday",
+    "mode": "headway",
+    "headway_min": 12,
+    "start_time": "05:30",
+    "end_time": "22:30",
+    "explicit_times": null,
+    "notes": "Inbound (San José → Heredia). Headway mirrored from outbound; offset start by 30 min for first SJ-side departure."
+  },
+  {
+    "route_id": "400p",
+    "direction": "inbound",
+    "service_day": "saturday",
+    "mode": "headway",
+    "headway_min": 15,
+    "start_time": "05:30",
+    "end_time": "22:30",
+    "explicit_times": null,
+    "notes": null
+  },
+  {
+    "route_id": "400p",
+    "direction": "inbound",
+    "service_day": "sunday_holiday",
+    "mode": "headway",
+    "headway_min": 20,
+    "start_time": "05:30",
+    "end_time": "22:30",
+    "explicit_times": null,
+    "notes": null
+  },
+  {
+    "route_id": "400sd",
+    "direction": "inbound",
+    "service_day": "weekday",
+    "mode": "headway",
+    "headway_min": 10,
+    "start_time": "00:00",
+    "end_time": "23:59",
+    "explicit_times": null,
+    "notes": "Inbound (Heredia → San José). 24-hour mirror of outbound."
+  },
+  {
+    "route_id": "400sd",
+    "direction": "inbound",
+    "service_day": "saturday",
+    "mode": "headway",
+    "headway_min": 15,
+    "start_time": "00:00",
+    "end_time": "23:59",
+    "explicit_times": null,
+    "notes": null
+  },
+  {
+    "route_id": "400sd",
+    "direction": "inbound",
+    "service_day": "sunday_holiday",
+    "mode": "headway",
+    "headway_min": 20,
+    "start_time": "00:00",
+    "end_time": "23:59",
+    "explicit_times": null,
+    "notes": null
   }
 ]
