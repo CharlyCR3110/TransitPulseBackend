@@ -1,5 +1,32 @@
 [
   { "id": "p1", "label_es": "UCR", "label_en": "UCR", "near_stop_id": "s1" },
   { "id": "p2", "label_es": "Incofer Atlántico", "label_en": "Atlántico Station", "near_stop_id": "s2" },
-  { "id": "p3", "label_es": "Multiplaza", "label_en": "Multiplaza", "near_stop_id": "s3" }
+  { "id": "p3", "label_es": "Multiplaza", "label_en": "Multiplaza", "near_stop_id": "s3" },
+
+  { "id": "p_sj_centro",       "label_es": "San José",                 "label_en": "San José",                 "near_stop_id": "sj_term_cocacola" },
+  { "id": "p_sj_centro_400sd", "label_es": "San José",                 "label_en": "San José",                 "near_stop_id": "sj_term_rh" },
+  { "id": "p_sj_centro_alt",   "label_es": "San José Centro",          "label_en": "San José Downtown",        "near_stop_id": "sj_term_cocacola" },
+  { "id": "p_sj_cocacola",     "label_es": "Terminal Coca Cola",       "label_en": "Coca Cola Terminal",       "near_stop_id": "sj_term_cocacola" },
+  { "id": "p_sj_pasovaca",     "label_es": "Paso de la Vaca",          "label_en": "Paso de la Vaca",          "near_stop_id": "sj_term_cocacola" },
+  { "id": "p_sj_sabana",       "label_es": "La Sabana",                "label_en": "La Sabana",                "near_stop_id": "sj_corobici" },
+  { "id": "p_sj_corobici",     "label_es": "Corobicí",                 "label_en": "Corobicí",                 "near_stop_id": "sj_corobici" },
+  { "id": "p_sj_irazu",        "label_es": "Hotel Irazú",              "label_en": "Hotel Irazú",              "near_stop_id": "sj_irazu" },
+  { "id": "p_sj_tournon",      "label_es": "Tournón",                  "label_en": "Tournón",                  "near_stop_id": "sj_term_rh" },
+  { "id": "p_sj_riohondo",     "label_es": "Río Hondo",                "label_en": "Río Hondo",                "near_stop_id": "sj_term_rh" },
+  { "id": "p_sj_tibas",        "label_es": "Tibás",                    "label_en": "Tibás",                    "near_stop_id": "sj_tibas_cinco" },
+  { "id": "p_sj_tibas_5esq",   "label_es": "Cinco Esquinas",           "label_en": "Cinco Esquinas",           "near_stop_id": "sj_tibas_cinco" },
+
+  { "id": "p_sd_centro",       "label_es": "Santo Domingo",            "label_en": "Santo Domingo",            "near_stop_id": "sd_plaza" },
+  { "id": "p_sd_plaza",        "label_es": "Plaza Santo Domingo",      "label_en": "Santo Domingo Plaza",      "near_stop_id": "sd_plaza" },
+
+  { "id": "p_her_centro",      "label_es": "Heredia",                  "label_en": "Heredia",                  "near_stop_id": "her_term_mc" },
+  { "id": "p_her_centro_400sd","label_es": "Heredia",                  "label_en": "Heredia",                  "near_stop_id": "her_term_braulio" },
+  { "id": "p_her_centro_alt",  "label_es": "Heredia Centro",           "label_en": "Heredia Downtown",         "near_stop_id": "her_term_mc" },
+  { "id": "p_her_mercado",     "label_es": "Mercado Central Heredia",  "label_en": "Heredia Central Market",   "near_stop_id": "her_term_mc" },
+  { "id": "p_her_braulio",     "label_es": "Terminal Braulio Morales", "label_en": "Braulio Morales Terminal", "near_stop_id": "her_term_braulio" },
+  { "id": "p_her_estadio",     "label_es": "Estadio Rosabal Cordero",  "label_en": "Rosabal Cordero Stadium",  "near_stop_id": "her_estadio" },
+  { "id": "p_her_una",         "label_es": "UNA",                      "label_en": "UNA",                      "near_stop_id": "her_una" },
+  { "id": "p_her_una_full",    "label_es": "Universidad Nacional",     "label_en": "Universidad Nacional",     "near_stop_id": "her_una" },
+  { "id": "p_her_walmart",     "label_es": "Walmart Ulloa",            "label_en": "Walmart Ulloa",            "near_stop_id": "her_walmart" },
+  { "id": "p_her_pricesmart",  "label_es": "PriceSmart",               "label_en": "PriceSmart",               "near_stop_id": "her_pricesmart" }
 ]

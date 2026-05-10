@@ -2,6 +2,8 @@ from typing import Annotated, Literal
 
 from pydantic import BaseModel, Field
 
+from app.modules.arrivals.schemas import ArrivalPrediction
+
 
 class WalkStepOut(BaseModel):
     kind: Literal["walk"] = "walk"
@@ -22,6 +24,7 @@ class BusStepOut(BaseModel):
     time: str
     occ: int
     stops: int
+    prediction: ArrivalPrediction | None = None
 
 
 class TransferStepOut(BaseModel):
