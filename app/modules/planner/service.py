@@ -475,6 +475,40 @@ class PlannerService:
                 return idx
         return None
 
+    def _build_leg_stops(
+        self,
+        route_stops: list[RouteStop],
+        origin_index: int,
+        destination_index: int,
+    ) -> list[dict[str, Any]]:
+        """Expand a bus leg into one entry per stop traversed (board → alight,
+        inclusive). offsetFromBoardingMin is cumulative scheduled minutes from
+        the boarding stop. Used by the trip detail and active-trip UIs to render
+        each stop as its own card."""
+        leg: list[dict[str, Any]] = []
+        cumulative_min = 0
+        slice_ = route_stops[origin_index : destination_index + 1]
+        for sequence, route_stop in enumerate(slice_):
+            if sequence > 0:
+                cumulative_min += int(route_stop.segment_minutes or 0)
+            stop = self.session.get(Stop, route_stop.stop_id)
+            if stop is None:
+                continue
+            leg.append(
+                {
+                    "stopId": stop.id,
+                    "sequence": sequence,
+                    "nameEs": stop.label_es,
+                    "nameEn": stop.label_en,
+                    "lat": stop.lat,
+                    "lng": stop.lng,
+                    "offsetFromBoardingMin": cumulative_min,
+                    "isBoarding": sequence == 0,
+                    "isAlighting": sequence == len(slice_) - 1,
+                }
+            )
+        return leg
+
     def _direct_candidate(
         self,
         route: Route,
@@ -507,6 +541,9 @@ class PlannerService:
             "alightStopId": destination.id,
             "boardWalkMin": board_walk_min,
             "alightWalkMin": alight_walk_min,
+            "legStops": self._build_leg_stops(
+                route_stops, origin_index, destination_index
+            ),
         }
         if prediction is not None:
             bus_step["prediction"] = prediction
@@ -581,6 +618,9 @@ class PlannerService:
             "alightStopId": transfer_stop.id,
             "boardWalkMin": board_walk_min,
             "alightWalkMin": 0,
+            "legStops": self._build_leg_stops(
+                route_a_stops, origin_index, transfer_a_index
+            ),
         }
         if prediction is not None:
             bus_step_a["prediction"] = prediction
@@ -615,6 +655,9 @@ class PlannerService:
                 "alightStopId": destination.id,
                 "boardWalkMin": 0,
                 "alightWalkMin": alight_walk_min,
+                "legStops": self._build_leg_stops(
+                    route_b_stops, transfer_b_index, destination_index
+                ),
             },
             {
                 "kind": "walk",

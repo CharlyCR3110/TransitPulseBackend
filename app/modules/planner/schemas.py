@@ -13,6 +13,22 @@ class WalkStepOut(BaseModel):
     time: str
 
 
+class BusLegStop(BaseModel):
+    """One stop the bus passes through during this leg, ordered from
+    boarding (sequence=0) to alighting (sequence=N-1)."""
+    stopId: str
+    sequence: int
+    nameEs: str
+    nameEn: str
+    lat: float
+    lng: float
+    """Cumulative scheduled minutes from the boarding stop. 0 at the
+    boarding stop, total ride time at the alighting stop."""
+    offsetFromBoardingMin: int
+    isBoarding: bool = False
+    isAlighting: bool = False
+
+
 class BusStepOut(BaseModel):
     kind: Literal["bus"] = "bus"
     route: str
@@ -28,6 +44,7 @@ class BusStepOut(BaseModel):
     alightStopId: str | None = None
     boardWalkMin: int = 3
     alightWalkMin: int = 3
+    legStops: list[BusLegStop] = []
     prediction: ArrivalPrediction | None = None
 
 
