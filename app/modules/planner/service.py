@@ -79,13 +79,26 @@ class PlannerService:
             results.append(self._trip_option_out(trip, sort.value))
         return results
 
+    # When sorting by FASTEST, charge each transfer N "extra minutes" so that
+    # a slightly-shorter transfer trip doesn't beat a clean direct trip. Real
+    # transfers cost more than just headway: another fare, walking between
+    # stops, and rider cognitive overhead. 7 min is the midpoint between the
+    # 4-min headway-wait fudge already in the trip and the typical cost of
+    # missing a connection.
+    _TRANSFER_PENALTY_MIN = 7
+
     @staticmethod
     def _candidate_sort_key(sort: SortMode):
         if sort == SortMode.CHEAPEST:
             return lambda triple: (triple[2]["price"], triple[2]["minutes"], triple[2]["transfers"])
         if sort == SortMode.FEWEST:
             return lambda triple: (triple[2]["transfers"], triple[2]["minutes"], triple[2]["price"])
-        return lambda triple: (triple[2]["minutes"], triple[2]["transfers"], triple[2]["price"])
+        penalty = PlannerService._TRANSFER_PENALTY_MIN
+        return lambda triple: (
+            triple[2]["minutes"] + penalty * triple[2]["transfers"],
+            triple[2]["transfers"],
+            triple[2]["price"],
+        )
 
     def get_trip_detail(self, trip_id: str) -> dict[str, Any]:
         trip = self.session.get(TripTemplate, trip_id)
