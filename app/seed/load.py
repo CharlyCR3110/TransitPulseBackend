@@ -172,6 +172,16 @@ def load_seed() -> None:
 
         session.commit()
 
+    # In-process callers (tests, dev scripts) want the seed cache to reflect
+    # the new rows; out-of-process callers (Fly's init-db.sh) get a fresh
+    # cache on the next app start anyway.
+    try:
+        from app.lib import seed_cache
+
+        seed_cache.reset_for_tests()
+    except Exception:
+        pass
+
 
 if __name__ == "__main__":
     load_seed()

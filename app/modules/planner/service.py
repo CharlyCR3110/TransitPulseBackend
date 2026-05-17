@@ -12,6 +12,7 @@ from sqlalchemy import case, desc, func, select
 from sqlalchemy.orm import Session
 
 from app.config import get_settings
+from app.lib import seed_cache
 from app.models.active_trip import ActiveTrip, ActiveTripStep
 from app.models.place import Place
 from app.models.route import Route, RouteStop
@@ -339,16 +340,9 @@ class PlannerService:
     ) -> list[dict[str, Any]]:
         origin_candidate = self._coerce_endpoint_candidate(origin)
         destination_candidate = self._coerce_endpoint_candidate(destination)
-        routes = self.session.scalars(select(Route)).all()
-        route_stops = self.session.scalars(
-            select(RouteStop).order_by(
-                RouteStop.route_id, RouteStop.direction, RouteStop.stop_order
-            )
-        ).all()
-        route_map: dict[tuple[str, str], list[RouteStop]] = defaultdict(list)
-        route_by_id = {route.id: route for route in routes}
-        for item in route_stops:
-            route_map[(item.route_id, item.direction)].append(item)
+        cache = seed_cache.get_cache(self.session)
+        route_map = cache.route_stops_by_route_dir
+        route_by_id = cache.routes_by_id
 
         candidates: list[dict[str, Any]] = []
         predictions_svc = PredictionsService(self.session)

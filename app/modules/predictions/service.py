@@ -1,13 +1,12 @@
 from __future__ import annotations
 
-from collections import defaultdict
 from dataclasses import dataclass
 from datetime import date, datetime, time, timedelta, timezone
 
-from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.config import get_settings
+from app.lib import seed_cache
 from app.lib.time import (
     CR_TZ,
     at_local_date,
@@ -16,7 +15,6 @@ from app.lib.time import (
     to_cr_local,
 )
 from app.models.delay_prior import DelayPrior
-from app.models.route import Route, RouteStop
 from app.models.schedule import Schedule
 
 
@@ -44,13 +42,21 @@ class PredictionsService:
         now_local = to_cr_local(now_utc)
         until_local = now_local + timedelta(minutes=horizon)
 
-        serving = self._routes_serving_stop(stop_id)
+        cache = seed_cache.get_cache(self.session)
+        serving = [
+            _ServingRoute(
+                route_id=e.route_id,
+                route_code=e.route_code,
+                direction=e.direction,
+                offset_min=e.offset_min,
+            )
+            for e in cache.serving_by_stop.get(stop_id, [])
+        ]
         if not serving:
             return []
 
-        route_dir_pairs = {(s.route_id, s.direction) for s in serving}
-        priors = self._load_priors(route_dir_pairs)
-        schedules = self._load_schedules(route_dir_pairs)
+        priors = cache.priors_by_key
+        schedules = cache.schedules_by_route_dir
 
         out: list[dict] = []
         for s in serving:
@@ -66,64 +72,6 @@ class PredictionsService:
 
         out.sort(key=lambda p: p["predictedDeparture"])
         return out[: self.settings.predictions_max_per_stop]
-
-    def _routes_serving_stop(self, stop_id: str) -> list[_ServingRoute]:
-        # Find every route that has the requested stop, then for each route
-        # compute the cumulative offset from origin (sum of segment_minutes
-        # from stop_order=1 through this stop's stop_order). segment_minutes
-        # in the seed is the per-segment delta, not a cumulative offset.
-        target_rows = self.session.execute(
-            select(RouteStop, Route)
-            .join(Route, Route.id == RouteStop.route_id)
-            .where(RouteStop.stop_id == stop_id)
-        ).all()
-        if not target_rows:
-            return []
-
-        results: list[_ServingRoute] = []
-        for target_rs, route in target_rows:
-            segs = self.session.scalars(
-                select(RouteStop)
-                .where(RouteStop.route_id == target_rs.route_id)
-                .where(RouteStop.direction == target_rs.direction)
-                .where(RouteStop.stop_order <= target_rs.stop_order)
-                .order_by(RouteStop.stop_order)
-            ).all()
-            offset = sum(rs.segment_minutes or 0 for rs in segs)
-            results.append(
-                _ServingRoute(
-                    route_id=target_rs.route_id,
-                    route_code=route.short_name,
-                    direction=target_rs.direction,
-                    offset_min=offset,
-                )
-            )
-        return results
-
-    def _load_priors(
-        self, pairs: set[tuple[str, str]]
-    ) -> dict[tuple[str, str, int], DelayPrior]:
-        if not pairs:
-            return {}
-        route_ids = {p[0] for p in pairs}
-        rows = self.session.scalars(
-            select(DelayPrior).where(DelayPrior.route_id.in_(route_ids))
-        ).all()
-        return {(r.route_id, r.direction, r.hour_of_week): r for r in rows}
-
-    def _load_schedules(
-        self, pairs: set[tuple[str, str]]
-    ) -> dict[tuple[str, str], list[Schedule]]:
-        if not pairs:
-            return {}
-        route_ids = {p[0] for p in pairs}
-        rows = self.session.scalars(
-            select(Schedule).where(Schedule.route_id.in_(route_ids))
-        ).all()
-        bucket: dict[tuple[str, str], list[Schedule]] = defaultdict(list)
-        for s in rows:
-            bucket[(s.route_id, s.direction)].append(s)
-        return bucket
 
     def _walk_schedule(
         self,

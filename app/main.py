@@ -42,6 +42,14 @@ def create_app() -> FastAPI:
         with engine.begin() as connection:
             connection.execute(text("CREATE EXTENSION IF NOT EXISTS pg_trgm"))
 
+    @app.on_event("startup")
+    def warm_seed_cache() -> None:
+        from app.db import SessionLocal
+        from app.lib import seed_cache
+
+        with SessionLocal() as session:
+            seed_cache.reload(session)
+
     @app.exception_handler(AppError)
     async def handle_app_error(_: Request, exc: AppError) -> JSONResponse:
         return JSONResponse(
