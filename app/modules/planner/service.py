@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 from collections import defaultdict
+from copy import deepcopy
 from dataclasses import dataclass
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 import hashlib
 from math import ceil
 from typing import Any
@@ -100,11 +101,13 @@ class PlannerService:
             triple[2]["price"],
         )
 
-    def get_trip_detail(self, trip_id: str) -> dict[str, Any]:
+    def get_trip_detail(
+        self, trip_id: str, departure_at: datetime | None = None
+    ) -> dict[str, Any]:
         trip = self.session.get(TripTemplate, trip_id)
         if trip is None:
             raise NotFoundError("Trip not found", {"tripId": trip_id})
-        return self._trip_detail_out(trip)
+        return self._trip_detail_out(trip, departure_at=departure_at)
 
     def start_trip(self, trip_id: str, user: User | None) -> dict[str, Any]:
         trip = self.session.get(TripTemplate, trip_id)
@@ -364,6 +367,9 @@ class PlannerService:
                 leave_in_min, prediction = self._predict_leave_in(
                     predictions_svc, origin_stop.id, route_id, now_utc, direction
                 )
+                next_departures = self._next_departures(
+                    predictions_svc, origin_stop.id, route_id, now_utc, direction
+                )
                 candidates.append(
                     self._direct_candidate(
                         route,
@@ -372,10 +378,14 @@ class PlannerService:
                         alighting[0],
                         origin_stop,
                         destination_stop,
+                        origin_candidate,
+                        destination_candidate,
                         board_walk_min=boarding[3],
                         alight_walk_min=alighting[3],
                         leave_in_min=leave_in_min,
                         prediction=prediction,
+                        next_departures=next_departures,
+                        now_utc=now_utc,
                     )
                 )
 
@@ -411,6 +421,13 @@ class PlannerService:
                             now_utc,
                             direction_a,
                         )
+                        next_departures = self._next_departures(
+                            predictions_svc,
+                            origin_stop.id,
+                            route_a_id,
+                            now_utc,
+                            direction_a,
+                        )
                         candidates.append(
                             self._transfer_candidate(
                                 route_a,
@@ -424,10 +441,14 @@ class PlannerService:
                                 origin_stop,
                                 transfer_stop,
                                 destination_stop,
+                                origin_candidate,
+                                destination_candidate,
                                 board_walk_min=boarding[3],
                                 alight_walk_min=alighting[3],
                                 leave_in_min=leave_in_min,
                                 prediction=prediction,
+                                next_departures=next_departures,
+                                now_utc=now_utc,
                             )
                         )
                         break
@@ -509,6 +530,56 @@ class PlannerService:
             )
         return leg
 
+    def _walk_step(
+        self,
+        *,
+        minutes: int,
+        from_stop: Stop,
+        from_lat: float,
+        from_lng: float,
+        to_stop: Stop,
+        time: str,
+        to_lat: float | None = None,
+        to_lng: float | None = None,
+    ) -> dict[str, Any]:
+        to_lat = to_stop.lat if to_lat is None else to_lat
+        to_lng = to_stop.lng if to_lng is None else to_lng
+        return {
+            "kind": "walk",
+            "minutes": minutes,
+            "distanceMeters": int(round(haversine_m(from_lat, from_lng, to_lat, to_lng))),
+            "fromLat": from_lat,
+            "fromLng": from_lng,
+            "toLat": to_lat,
+            "toLng": to_lng,
+            "fromEs": from_stop.label_es,
+            "fromEn": from_stop.label_en,
+            "toEs": to_stop.label_es,
+            "toEn": to_stop.label_en,
+            "time": time,
+        }
+
+    def _stamp_candidate_times(
+        self, candidate: dict[str, Any], now_utc: datetime
+    ) -> dict[str, Any]:
+        current = now_utc
+        first_bus = True
+        for step in candidate["steps"]:
+            if step["kind"] == "bus" and first_bus:
+                start = now_utc + timedelta(minutes=candidate["leaveIn"])
+                if start < current:
+                    start = current
+                first_bus = False
+            else:
+                start = current
+            end = start + timedelta(minutes=step["minutes"])
+            step["startsAt"] = start.isoformat()
+            step["endsAt"] = end.isoformat()
+            current = end
+        candidate["departureAt"] = now_utc.isoformat()
+        candidate["arrivalAt"] = current.isoformat()
+        return candidate
+
     def _direct_candidate(
         self,
         route: Route,
@@ -517,15 +588,24 @@ class PlannerService:
         destination_index: int,
         origin: Stop,
         destination: Stop,
+        origin_candidate: _EndpointCandidate | None = None,
+        destination_candidate: _EndpointCandidate | None = None,
         board_walk_min: int = 3,
         alight_walk_min: int = 3,
         leave_in_min: int | None = None,
         prediction: dict[str, Any] | None = None,
+        next_departures: list[dict[str, Any]] | None = None,
+        now_utc: datetime | None = None,
     ) -> dict[str, Any]:
+        origin_candidate = origin_candidate or self._coerce_endpoint_candidate(origin)
+        destination_candidate = destination_candidate or self._coerce_endpoint_candidate(
+            destination
+        )
         ride_minutes = sum(
             item.segment_minutes
             for item in route_stops[origin_index + 1 : destination_index + 1]
         )
+        route_long_name = route.long_name
         bus_step: dict[str, Any] = {
             "kind": "bus",
             "route": route.id,
@@ -544,27 +624,34 @@ class PlannerService:
             "legStops": self._build_leg_stops(
                 route_stops, origin_index, destination_index
             ),
+            "nextDepartures": next_departures or [],
+            "routeLongNameEs": route_long_name,
+            "routeLongNameEn": route_long_name,
         }
         if prediction is not None:
             bus_step["prediction"] = prediction
         steps = [
-            {
-                "kind": "walk",
-                "minutes": board_walk_min,
-                "toEs": origin.label_es,
-                "toEn": origin.label_en,
-                "time": "Ahora",
-            },
+            self._walk_step(
+                minutes=board_walk_min,
+                from_stop=origin_candidate.stop,
+                from_lat=origin_candidate.lat,
+                from_lng=origin_candidate.lng,
+                to_stop=origin,
+                time="Ahora",
+            ),
             bus_step,
-            {
-                "kind": "walk",
-                "minutes": alight_walk_min,
-                "toEs": destination.label_es,
-                "toEn": destination.label_en,
-                "time": f"+{ride_minutes + alight_walk_min} min",
-            },
+            self._walk_step(
+                minutes=alight_walk_min,
+                from_stop=destination,
+                from_lat=destination.lat,
+                from_lng=destination.lng,
+                to_stop=destination_candidate.stop,
+                to_lat=destination_candidate.lat,
+                to_lng=destination_candidate.lng,
+                time=f"+{ride_minutes + alight_walk_min} min",
+            ),
         ]
-        return {
+        candidate = {
             "minutes": ride_minutes + board_walk_min + alight_walk_min,
             "price": route.fare_min,
             "transfers": 0,
@@ -576,6 +663,7 @@ class PlannerService:
             ),
             "steps": steps,
         }
+        return self._stamp_candidate_times(candidate, now_utc or datetime.now(UTC))
 
     def _transfer_candidate(
         self,
@@ -590,11 +678,19 @@ class PlannerService:
         origin: Stop,
         transfer_stop: Stop,
         destination: Stop,
+        origin_candidate: _EndpointCandidate | None = None,
+        destination_candidate: _EndpointCandidate | None = None,
         board_walk_min: int = 3,
         alight_walk_min: int = 3,
         leave_in_min: int | None = None,
         prediction: dict[str, Any] | None = None,
+        next_departures: list[dict[str, Any]] | None = None,
+        now_utc: datetime | None = None,
     ) -> dict[str, Any]:
+        origin_candidate = origin_candidate or self._coerce_endpoint_candidate(origin)
+        destination_candidate = destination_candidate or self._coerce_endpoint_candidate(
+            destination
+        )
         ride_a = sum(
             item.segment_minutes
             for item in route_a_stops[origin_index + 1 : transfer_a_index + 1]
@@ -621,17 +717,21 @@ class PlannerService:
             "legStops": self._build_leg_stops(
                 route_a_stops, origin_index, transfer_a_index
             ),
+            "nextDepartures": next_departures or [],
+            "routeLongNameEs": route_a.long_name,
+            "routeLongNameEn": route_a.long_name,
         }
         if prediction is not None:
             bus_step_a["prediction"] = prediction
         steps = [
-            {
-                "kind": "walk",
-                "minutes": board_walk_min,
-                "toEs": origin.label_es,
-                "toEn": origin.label_en,
-                "time": "Ahora",
-            },
+            self._walk_step(
+                minutes=board_walk_min,
+                from_stop=origin_candidate.stop,
+                from_lat=origin_candidate.lat,
+                from_lng=origin_candidate.lng,
+                to_stop=origin,
+                time="Ahora",
+            ),
             bus_step_a,
             {
                 "kind": "transfer",
@@ -658,16 +758,22 @@ class PlannerService:
                 "legStops": self._build_leg_stops(
                     route_b_stops, transfer_b_index, destination_index
                 ),
+                "nextDepartures": [],
+                "routeLongNameEs": route_b.long_name,
+                "routeLongNameEn": route_b.long_name,
             },
-            {
-                "kind": "walk",
-                "minutes": alight_walk_min,
-                "toEs": destination.label_es,
-                "toEn": destination.label_en,
-                "time": f"+{ride_a + ride_b + 4 + alight_walk_min} min",
-            },
+            self._walk_step(
+                minutes=alight_walk_min,
+                from_stop=destination,
+                from_lat=destination.lat,
+                from_lng=destination.lng,
+                to_stop=destination_candidate.stop,
+                to_lat=destination_candidate.lat,
+                to_lng=destination_candidate.lng,
+                time=f"+{ride_a + ride_b + 4 + alight_walk_min} min",
+            ),
         ]
-        return {
+        candidate = {
             "minutes": ride_a + ride_b + board_walk_min + alight_walk_min + 4,
             "price": route_a.fare_min + route_b.fare_min,
             "transfers": 1,
@@ -675,6 +781,7 @@ class PlannerService:
             "leaveIn": leave_in_min if leave_in_min is not None else 6,
             "steps": steps,
         }
+        return self._stamp_candidate_times(candidate, now_utc or datetime.now(UTC))
 
     @staticmethod
     def _predict_leave_in(
@@ -696,16 +803,42 @@ class PlannerService:
                 continue
             delta_sec = (p["predictedDeparture"] - now_utc).total_seconds()
             leave_in_min = max(0, int(delta_sec // 60))
-            prediction_payload = {
-                "scheduledDeparture": p["scheduledDeparture"].isoformat(),
-                "predictedDeparture": p["predictedDeparture"].isoformat(),
-                "windowLow": p["windowLow"].isoformat(),
-                "windowHigh": p["windowHigh"].isoformat(),
-                "confidence": p["confidence"],
-                "source": p["source"],
-            }
-            return leave_in_min, prediction_payload
+            return leave_in_min, PlannerService._prediction_payload(p)
         return None, None
+
+    @staticmethod
+    def _next_departures(
+        predictions_svc: PredictionsService,
+        origin_stop_id: str,
+        route_id: str,
+        now_utc: datetime,
+        direction: str | None = None,
+        limit: int = 5,
+    ) -> list[dict[str, Any]]:
+        out: list[dict[str, Any]] = []
+        preds = predictions_svc.predict_for_stop(
+            origin_stop_id, horizon_min=90, now_utc=now_utc
+        )
+        for p in preds:
+            if p["routeId"] != route_id:
+                continue
+            if direction is not None and p["direction"] != direction:
+                continue
+            out.append(PlannerService._prediction_payload(p))
+            if len(out) >= limit:
+                break
+        return out
+
+    @staticmethod
+    def _prediction_payload(prediction: dict[str, Any]) -> dict[str, Any]:
+        return {
+            "scheduledDeparture": prediction["scheduledDeparture"].isoformat(),
+            "predictedDeparture": prediction["predictedDeparture"].isoformat(),
+            "windowLow": prediction["windowLow"].isoformat(),
+            "windowHigh": prediction["windowHigh"].isoformat(),
+            "confidence": prediction["confidence"],
+            "source": prediction["source"],
+        }
 
     def _sort_candidates(self, candidates: list[dict[str, Any]], sort: SortMode) -> list[dict[str, Any]]:
         if sort == SortMode.CHEAPEST:
@@ -750,6 +883,14 @@ class PlannerService:
         content_hash = self._candidate_hash(origin_stop_id, destination_stop_id, candidate["steps"])
         existing = self.session.scalar(select(TripTemplate).where(TripTemplate.content_hash == content_hash))
         if existing is not None:
+            existing.total_minutes = candidate["minutes"]
+            existing.total_price = candidate["price"]
+            existing.transfers = candidate["transfers"]
+            existing.walk_min = candidate["walkMin"]
+            existing.leave_in = candidate["leaveIn"]
+            existing.steps = candidate["steps"]
+            self.session.commit()
+            self.session.refresh(existing)
             return existing
 
         trip = TripTemplate(
@@ -769,9 +910,12 @@ class PlannerService:
         return trip
 
     def _trip_option_out(self, trip: TripTemplate, tag: str) -> dict[str, Any]:
+        departure_at, arrival_at = self._step_time_envelope(trip.steps)
         return {
             "id": trip.id,
             "tag": tag,
+            "departureAt": departure_at,
+            "arrivalAt": arrival_at,
             "minutes": trip.total_minutes,
             "price": trip.total_price,
             "transfers": trip.transfers,
@@ -782,30 +926,120 @@ class PlannerService:
             "steps": trip.steps,
         }
 
-    def _trip_detail_out(self, trip: TripTemplate) -> dict[str, Any]:
+    def _trip_detail_out(
+        self, trip: TripTemplate, departure_at: datetime | None = None
+    ) -> dict[str, Any]:
+        steps = trip.steps
+        leave_in = trip.leave_in
+        if departure_at is not None:
+            steps, leave_in = self._steps_for_departure_at(trip, departure_at)
+        departure_at_out, arrival_at = self._step_time_envelope(steps)
         return {
             "id": trip.id,
+            "departureAt": departure_at_out,
+            "arrivalAt": arrival_at,
             "minutes": trip.total_minutes,
             "price": trip.total_price,
             "transfers": trip.transfers,
             "walkMin": trip.walk_min,
-            "leaveIn": trip.leave_in,
+            "leaveIn": leave_in,
             "confidence": self._compute_confidence(trip.transfers, trip.walk_min),
-            "occupancy": self._compute_occupancy(trip.steps),
-            "steps": trip.steps,
+            "occupancy": self._compute_occupancy(steps),
+            "steps": steps,
         }
 
     def _active_trip_out(self, trip: ActiveTrip, steps: list[dict[str, Any]]) -> dict[str, Any]:
         remaining_minutes = sum(step["minutes"] for step in steps[trip.current_step_index :])
         started = int((trip.started_at or datetime.now(UTC)).timestamp() * 1000)
+        departure_at, arrival_at = self._step_time_envelope(steps)
         return {
             "tripId": trip.trip_id,
             "activeTripId": trip.active_trip_id,
+            "departureAt": departure_at,
+            "arrivalAt": arrival_at,
             "currentStepIndex": trip.current_step_index,
             "steps": steps,
             "etaMinutes": remaining_minutes,
             "started": started,
         }
+
+    def _steps_for_departure_at(
+        self, trip: TripTemplate, departure_at: datetime
+    ) -> tuple[list[dict[str, Any]], int]:
+        if departure_at.tzinfo is None:
+            departure_at = departure_at.replace(tzinfo=UTC)
+        steps = deepcopy(trip.steps)
+        leave_in = trip.leave_in
+        predictions_svc = PredictionsService(self.session)
+
+        first_bus = next((s for s in steps if s.get("kind") == "bus"), None)
+        if first_bus is not None:
+            route_id = str(first_bus.get("route") or "")
+            board_stop_id = first_bus.get("boardStopId")
+            direction = self._infer_bus_direction(
+                route_id, str(board_stop_id) if board_stop_id else None, first_bus
+            )
+            if board_stop_id:
+                leave_in_new, prediction = self._predict_leave_in(
+                    predictions_svc,
+                    str(board_stop_id),
+                    route_id,
+                    departure_at,
+                    direction,
+                )
+                next_departures = self._next_departures(
+                    predictions_svc,
+                    str(board_stop_id),
+                    route_id,
+                    departure_at,
+                    direction,
+                )
+                if leave_in_new is not None:
+                    leave_in = leave_in_new
+                if prediction is not None:
+                    first_bus["prediction"] = prediction
+                first_bus["nextDepartures"] = next_departures
+
+        for step in steps:
+            if step.get("kind") != "bus":
+                continue
+            route = self.session.get(Route, str(step.get("route") or ""))
+            if route is not None:
+                step["routeLongNameEs"] = route.long_name
+                step["routeLongNameEn"] = route.long_name
+
+        candidate = {
+            "leaveIn": leave_in,
+            "steps": steps,
+            "minutes": trip.total_minutes,
+            "price": trip.total_price,
+            "transfers": trip.transfers,
+            "walkMin": trip.walk_min,
+        }
+        self._stamp_candidate_times(candidate, departure_at)
+        return steps, leave_in
+
+    def _infer_bus_direction(
+        self, route_id: str, board_stop_id: str | None, step: dict[str, Any]
+    ) -> str | None:
+        alight_stop_id = step.get("alightStopId")
+        if not route_id or not board_stop_id or not alight_stop_id:
+            return None
+        board_rows = self.session.scalars(
+            select(RouteStop)
+            .where(RouteStop.route_id == route_id)
+            .where(RouteStop.stop_id == board_stop_id)
+        ).all()
+        for board in board_rows:
+            alight = self.session.scalar(
+                select(RouteStop)
+                .where(RouteStop.route_id == route_id)
+                .where(RouteStop.stop_id == str(alight_stop_id))
+                .where(RouteStop.direction == board.direction)
+            )
+            if alight is not None and board.stop_order < alight.stop_order:
+                return board.direction
+        return None
 
     def _compute_confidence(self, transfers: int, walk_min: int) -> float:
         return round(clamp(1.0 - 0.05 * transfers - walk_min / 60.0, 0, 1), 2)
@@ -813,3 +1047,16 @@ class PlannerService:
     def _compute_occupancy(self, steps: list[dict[str, Any]]) -> int:
         occupancies = [int(step.get("occ", 0)) for step in steps if step["kind"] == "bus"]
         return max(occupancies) if occupancies else 0
+
+    @staticmethod
+    def _step_time_envelope(
+        steps: list[dict[str, Any]]
+    ) -> tuple[str | None, str | None]:
+        if not steps:
+            return None, None
+        departure_at = steps[0].get("startsAt")
+        arrival_at = steps[-1].get("endsAt")
+        return (
+            str(departure_at) if departure_at is not None else None,
+            str(arrival_at) if arrival_at is not None else None,
+        )

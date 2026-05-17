@@ -1,4 +1,5 @@
 from typing import Annotated
+from datetime import datetime
 
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
@@ -17,14 +18,21 @@ def search_trips(
     from_: Annotated[str, Query(alias="from")],
     to: str,
     sort: SortMode = SortMode.FASTEST,
+    departureAt: datetime | None = Query(default=None),
     session: Session = Depends(get_db),
 ) -> list[dict]:
-    return PlannerService(session).search(from_=from_, to=to, sort=sort)
+    return PlannerService(session).search(
+        from_=from_, to=to, sort=sort, now_utc=departureAt
+    )
 
 
 @router.get("/trips/{trip_id}", response_model=TripDetailOut)
-def get_trip_detail(trip_id: str, session: Session = Depends(get_db)) -> dict:
-    return PlannerService(session).get_trip_detail(trip_id)
+def get_trip_detail(
+    trip_id: str,
+    departureAt: datetime | None = Query(default=None),
+    session: Session = Depends(get_db),
+) -> dict:
+    return PlannerService(session).get_trip_detail(trip_id, departure_at=departureAt)
 
 
 @router.post("/trips/{trip_id}/start", response_model=ActiveTripOut)
