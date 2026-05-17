@@ -1,0 +1,2903 @@
+{
+  "summary": {
+    "stop_instances": 204,
+    "unique_canonical_stops": 167,
+    "by_tier": {
+      "anchor": 11,
+      "corner": 111,
+      "landmark": 35,
+      "mid": 10
+    },
+    "review_needed": 0,
+    "verified_coord_entries": 9
+  },
+  "directions": [
+    {
+      "route_id": "400p",
+      "direction_id": "400p_heredia_sanjose",
+      "from": "Heredia",
+      "to": "San José",
+      "duration_min": 32,
+      "stop_count": 11,
+      "stop_ids": [
+        "her_term_400",
+        "sj_esc_jrm",
+        "sj_funeraria_mag",
+        "sj_phadthai",
+        "sj_tryp_sabana",
+        "sj_mxm_mantica",
+        "sj_irazu",
+        "sj_ict",
+        "sj_migracion",
+        "pte_virilla_sj_pre",
+        "her_repuestos_gigante"
+      ]
+    },
+    {
+      "route_id": "400p",
+      "direction_id": "400p_sanjose_heredia",
+      "from": "San José",
+      "to": "Heredia",
+      "duration_min": 26,
+      "stop_count": 24,
+      "stop_ids": [
+        "her_term_mc",
+        "her_autopits_pirro",
+        "her_uhispano",
+        "her_super_miraflores",
+        "her_plaza_bratzi",
+        "her_paseo_flores",
+        "her_pricesmart_acera",
+        "her_kia",
+        "her_pequeno_mundo",
+        "her_walmart_los_lagos",
+        "her_los_lagos_entr",
+        "her_mcd_valencia",
+        "her_jard_recuerdo",
+        "her_arrocera_sabanero",
+        "pte_virilla_sj_post",
+        "sj_comeca",
+        "sj_migracion",
+        "sj_lacsa",
+        "sj_sagot",
+        "sj_monumento_agua",
+        "sj_corobici",
+        "sj_yamuni",
+        "sj_cementerio_extranjero",
+        "her_term_400"
+      ]
+    },
+    {
+      "route_id": "400u",
+      "direction_id": "400u_heredia_sanjose",
+      "from": "Heredia",
+      "to": "San José",
+      "duration_min": 38,
+      "stop_count": 47,
+      "stop_ids": [
+        "her_term_la400_pirro",
+        "her_polideportivo",
+        "her_mar_y_fuego",
+        "her_pizza_sta_cecilia",
+        "her_mas_pollo",
+        "her_san_agustin_sur",
+        "her_fidelitas",
+        "her_iglesia_hareb",
+        "her_super_sanfran",
+        "her_curva_aurora",
+        "her_tanque_aurora",
+        "her_term_aurora",
+        "her_parroquia_aurora",
+        "her_parque_aurora",
+        "her_peluditos",
+        "her_publiex",
+        "her_fab_bolsas",
+        "her_soda_ponche",
+        "her_ampm_barreal",
+        "her_cenada",
+        "her_cruce_aurora",
+        "her_cn_barreal",
+        "her_florida_bebidas",
+        "her_multicomercial_baden",
+        "her_cosechas_barreal",
+        "pte_bermudez_post",
+        "her_servicentro_barreal",
+        "her_cementerio_barreal",
+        "her_calle_azofeifa",
+        "her_una_lagunilla",
+        "her_interlogic",
+        "her_cc_lagunilla",
+        "her_super_taim",
+        "her_ultrapark",
+        "her_jard_recuerdo",
+        "her_arrocera_sabanero",
+        "pte_virilla_sj_post",
+        "sj_comeca",
+        "sj_migracion",
+        "sj_cn_virilla",
+        "sj_purdy_motor",
+        "sj_geely",
+        "sj_plaza_uruca",
+        "sj_suzuki",
+        "sj_credi_motors",
+        "sj_term_cocacola",
+        "sj_term_400u"
+      ]
+    },
+    {
+      "route_id": "400u",
+      "direction_id": "400u_sanjose_heredia",
+      "from": "San José",
+      "to": "Heredia",
+      "duration_min": 38,
+      "stop_count": 48,
+      "stop_ids": [
+        "sj_term_400u",
+        "sj_ejercito_salvacion",
+        "sj_botica_solera",
+        "sj_guanacasteco",
+        "sj_ford",
+        "sj_mot_britanicos",
+        "sj_faco_uruca",
+        "sj_autostar",
+        "sj_greatwall",
+        "sj_ftz_cocacola",
+        "sj_matra",
+        "sj_renault",
+        "sj_purdy_motor",
+        "sj_font",
+        "sj_migracion",
+        "pte_virilla_sj_pre",
+        "her_repuestos_gigante",
+        "her_ultrapark",
+        "her_super_taim",
+        "her_plaza_allegro",
+        "her_esc_villalobos",
+        "her_real_santamaria",
+        "her_lab_grith",
+        "her_una_lagunilla",
+        "her_calle_azofeifa",
+        "her_real_santamaria_o",
+        "her_servicentro_barreal",
+        "pte_bermudez_pre",
+        "her_parroquia_barreal",
+        "her_florida_bebidas",
+        "her_zf_metropolitana",
+        "her_outlet_center",
+        "her_congelados_monte",
+        "her_estrella_china",
+        "her_aurora_sur",
+        "her_esc_aurora",
+        "her_ebais_aurora",
+        "her_tanque_aurora",
+        "her_parque_aries",
+        "her_super_sanfran",
+        "her_iglesia_hareb",
+        "her_fidelitas",
+        "her_san_agustin_sur",
+        "her_shots_lico",
+        "her_mar_y_fuego",
+        "her_parque_sta_cecilia",
+        "her_polideportivo",
+        "her_term_la400_pirro"
+      ]
+    },
+    {
+      "route_id": "400sd",
+      "direction_id": "400sd_sanjose_heredia",
+      "from": "San José",
+      "to": "Heredia",
+      "duration_min": 34,
+      "stop_count": 40,
+      "stop_ids": [
+        "sj_term_rh",
+        "sj_tournon_int",
+        "sj_tournon_edos",
+        "tib_cinco_esquinas",
+        "tib_plantel_caribenos",
+        "tib_pops",
+        "tib_sonmerus",
+        "tib_sabucedo",
+        "tib_gran_oriente",
+        "tib_ins",
+        "tib_valvanera",
+        "tib_mueb_la_kasa",
+        "sd_mopt",
+        "sd_bk_plaza",
+        "sd_barrio_sta_rosa",
+        "sd_mcd",
+        "sd_autos_poblado",
+        "sd_iglesia_rosario",
+        "sd_ebais",
+        "sd_sognos",
+        "sd_autos_sd",
+        "sp_pan_chantilly",
+        "sp_lavacar_olas",
+        "sp_taller_sys",
+        "sp_cementerio",
+        "sp_colegio_europeo",
+        "sp_iglesia_oracion",
+        "her_plaza_puebla",
+        "her_eco_urbano",
+        "her_una",
+        "her_liceo_gym",
+        "her_hotel_cristina",
+        "her_pan_leandro",
+        "her_clinica_bolanos",
+        "her_clinica_heredia",
+        "her_estadio_pre",
+        "her_estadio",
+        "her_servicentro_casaque",
+        "her_hospital_svp",
+        "her_term_braulio"
+      ]
+    },
+    {
+      "route_id": "400sd",
+      "direction_id": "400sd_heredia_sanjose",
+      "from": "Heredia",
+      "to": "San José",
+      "duration_min": 27,
+      "stop_count": 34,
+      "stop_ids": [
+        "her_term_braulio",
+        "her_autopits_pirro",
+        "her_plantel_mrh",
+        "her_plaza_puebla",
+        "sp_cond_via_heredia",
+        "sp_perla_asia",
+        "sp_miraflores",
+        "sp_esquina_sabor",
+        "sp_vistas_sp",
+        "sp_taller_sys",
+        "sp_mxm",
+        "sp_pan_chantilly",
+        "sd_minisuper_bp",
+        "sd_pizza_napoli",
+        "sd_carnes_sta_rosa",
+        "sd_bomberos",
+        "sd_pali",
+        "sd_minibodegas",
+        "sd_autos_poblado",
+        "sd_mcd",
+        "sd_lapa_verde",
+        "sd_plaza",
+        "sd_mopt",
+        "tib_autos_xiri",
+        "tib_valvanera",
+        "tib_bac",
+        "tib_parque_democracia",
+        "tib_pizzahut",
+        "tib_morocco",
+        "tib_coopetaxi",
+        "tib_iglesia_tdm",
+        "sj_tournon_edos",
+        "sj_tournon_servicentro",
+        "sj_term_rh"
+      ]
+    }
+  ],
+  "stops": [
+    {
+      "id": "her_ampm_barreal",
+      "label_es": "Frente A Ampm",
+      "label_en": "In front of Ampm",
+      "addr_es": "Barreal Heredia",
+      "addr_en": "Barreal Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Ampm, Barreal Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_arrocera_sabanero",
+      "label_es": "Antigua Arrocera El Sabanero",
+      "label_en": "Antigua Arrocera El Sabanero",
+      "addr_es": "La Valencia De Heredia",
+      "addr_en": "La Valencia De Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Antigua Arrocera El Sabanero, La Valencia De Heredia",
+        "Antigua Arrocera El Sabanero, La Valencia Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_aurora_sur",
+      "label_es": "La Aurora Sur - Avenida Guanacaste",
+      "label_en": "La Aurora Sur - Avenida Guanacaste",
+      "addr_es": "La Aurora Heredia",
+      "addr_en": "La Aurora Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "La Aurora Sur - Avenida Guanacaste, La Aurora Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_autopits_pirro",
+      "label_es": "Autopits Heredia Pirro",
+      "label_en": "Autopits Heredia Pirro",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Autopits Heredia Pirro, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_calle_azofeifa",
+      "label_es": "Cruce Con Calle Azofeifa",
+      "label_en": "Crossing with Calle Azofeifa",
+      "addr_es": "Lagunilla Heredia",
+      "addr_en": "Lagunilla Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Cruce Con Calle Azofeifa, Lagunilla Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_cc_lagunilla",
+      "label_es": "Frente A Centro Comercial Lagunilla",
+      "label_en": "In front of Centro Comercial Lagunilla",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Centro Comercial Lagunilla, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_cementerio_barreal",
+      "label_es": "Cementerio Barreal",
+      "label_en": "Cementerio Barreal",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Cementerio Barreal, Heredia"
+      ],
+      "geocode_query": "Cementerio Barreal, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_cenada",
+      "label_es": "Terminal Cenada",
+      "label_en": "Terminal Cenada",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "anchor",
+      "raw_names": [
+        "Terminal Cenada, Heredia"
+      ],
+      "geocode_query": "Terminal Cenada, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_clinica_bolanos",
+      "label_es": "Contiguo A Área De Salud Clínica Dr. Francisco Bolaños",
+      "label_en": "Next to Área De Salud Clínica Dr. Francisco Bolaños",
+      "addr_es": "Fátima De Heredia",
+      "addr_en": "Fátima De Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Área De Salud Clínica Dr. Francisco Bolaños, Fátima De Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_clinica_heredia",
+      "label_es": "Clínica De Heredia",
+      "label_en": "Clínica De Heredia",
+      "addr_es": "Fátima Heredia",
+      "addr_en": "Fátima Heredia",
+      "tier": "anchor",
+      "raw_names": [
+        "Clínica De Heredia, Fátima Heredia"
+      ],
+      "geocode_query": "Clínica De Heredia, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_cn_barreal",
+      "label_es": "Centro De Negocios Barreal",
+      "label_en": "Centro De Negocios Barreal",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Centro De Negocios Barreal, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_congelados_monte",
+      "label_es": "Frente A Congelados Del Monte",
+      "label_en": "In front of Congelados Del Monte",
+      "addr_es": "Barreal Heredia",
+      "addr_en": "Barreal Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Congelados Del Monte, Barreal Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_cosechas_barreal",
+      "label_es": "Batidos Naturales Cosechas Barreal",
+      "label_en": "Batidos Naturales Cosechas Barreal",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Batidos Naturales Cosechas Barreal, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_cruce_aurora",
+      "label_es": "Cercanías Cruce La Aurora",
+      "label_en": "Near Cruce La Aurora",
+      "addr_es": "Barreal Heredia",
+      "addr_en": "Barreal Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Cercanías Cruce La Aurora, Barreal Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_curva_aurora",
+      "label_es": "Curva Entrada La Aurora",
+      "label_en": "Curva Entrada La Aurora",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Curva Entrada La Aurora, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_ebais_aurora",
+      "label_es": "Frente A Ebais La Aurora",
+      "label_en": "In front of Ebais La Aurora",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Ebais La Aurora, Heredia"
+      ],
+      "geocode_query": "Ebais La Aurora, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_eco_urbano",
+      "label_es": "Contiguo A Entrada Cond. Eco Heredia Urbano",
+      "label_en": "Next to Entrada Cond. Eco Heredia Urbano",
+      "addr_es": "La Puebla De Heredia",
+      "addr_en": "La Puebla De Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Entrada Cond. Eco Heredia Urbano, La Puebla De Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_esc_aurora",
+      "label_es": "Frente A Escuela La Aurora",
+      "label_en": "In front of Escuela La Aurora",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Escuela La Aurora"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_esc_villalobos",
+      "label_es": "Frente A Escuela Villalobos",
+      "label_en": "In front of Escuela Villalobos",
+      "addr_es": "Lagunilla Heredia",
+      "addr_en": "Lagunilla Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Escuela Villalobos, Lagunilla Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_estadio",
+      "label_es": "Frente A Estadio Eladio Rosabal Cordero",
+      "label_en": "In front of Estadio Eladio Rosabal Cordero",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Estadio Eladio Rosabal Cordero, Heredia"
+      ],
+      "geocode_query": "Estadio Eladio Rosabal Cordero, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_estadio_pre",
+      "label_es": "Cercanías A Estadio Eladio Rosabal Cordero",
+      "label_en": "Near Estadio Eladio Rosabal Cordero",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Cercanías A Estadio Eladio Rosabal Cordero, Heredia"
+      ],
+      "geocode_query": "Estadio Eladio Rosabal Cordero, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_estrella_china",
+      "label_es": "Restaurante Estrella China",
+      "label_en": "Restaurante Estrella China",
+      "addr_es": "La Aurora Heredia",
+      "addr_en": "La Aurora Heredia",
+      "tier": "mid",
+      "raw_names": [
+        "Restaurante Estrella China, La Aurora Heredia"
+      ],
+      "geocode_query": "Restaurante Estrella China, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_fab_bolsas",
+      "label_es": "Fabrica Nacional De Bolsas",
+      "label_en": "Fabrica Nacional De Bolsas",
+      "addr_es": "Barreal Heredia",
+      "addr_en": "Barreal Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Fabrica Nacional De Bolsas, Barreal Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_fidelitas",
+      "label_es": "Frente A Universidad Fidélitas Campus Sede Santa Cecilia",
+      "label_en": "In front of Universidad Fidélitas Campus Sede Santa Cecilia",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Universidad Fidélitas Campus Sede Santa Cecilia, Heredia",
+        "Universidad Fidélitas Sede Santa Cecilia, Heredia"
+      ],
+      "geocode_query": "Universidad Fidélitas Campus Sede Santa Cecilia, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_florida_bebidas",
+      "label_es": "Frente A Florida Bebidas",
+      "label_en": "In front of Florida Bebidas",
+      "addr_es": "Barreal Heredia",
+      "addr_en": "Barreal Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Florida Bebidas, Barreal Heredia",
+        "Contiguo A Entrada Florida Bebidas, Barreal Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_hospital_svp",
+      "label_es": "Antiguo Hospital San Vicente De Paul",
+      "label_en": "Antiguo Hospital San Vicente De Paul",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "anchor",
+      "raw_names": [
+        "Antiguo Hospital San Vicente De Paul"
+      ],
+      "geocode_query": "Hospital San Vicente De Paul, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_hotel_cristina",
+      "label_es": "Contiguo A Hotel D Cristina",
+      "label_en": "Next to Hotel D Cristina",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Hotel D Cristina, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_iglesia_hareb",
+      "label_es": "Iglesia Cristiana Monte Hareb",
+      "label_en": "Iglesia Cristiana Monte Hareb",
+      "addr_es": "Urb. La Victoria Heredia",
+      "addr_en": "Urb. La Victoria Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Iglesia Cristiana Monte Hareb, Urb. La Victoria Heredia",
+        "Frente A Iglesia Cristiana Monte Hareb, Urb. La Victoria Heredia"
+      ],
+      "geocode_query": "Iglesia Cristiana Monte Hareb, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_interlogic",
+      "label_es": "Interlogic",
+      "label_en": "Interlogic",
+      "addr_es": "Lagunilla Heredia",
+      "addr_en": "Lagunilla Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Interlogic, Lagunilla Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_jard_recuerdo",
+      "label_es": "Contiguo A Entrada Jardines Del Recuerdo",
+      "label_en": "Next to Entrada Jardines Del Recuerdo",
+      "addr_es": "La Valencia De Heredia",
+      "addr_en": "La Valencia De Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Entrada Jardines Del Recuerdo, La Valencia De Heredia",
+        "Contiguo A Entrada Jardines Del Recuerdo, La Valencia Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_kia",
+      "label_es": "Contiguo A Kia Motors",
+      "label_en": "Next to Kia Motors",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Kia Motors"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_lab_grith",
+      "label_es": "Frente A Laboratorios Grith",
+      "label_en": "In front of Laboratorios Grith",
+      "addr_es": "Lagunilla Heredia",
+      "addr_en": "Lagunilla Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Laboratorios Grith, Lagunilla Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_liceo_gym",
+      "label_es": "Costado Sur Gimnasio Liceo De Heredia",
+      "label_en": "South side of Gimnasio Liceo De Heredia",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "corner",
+      "raw_names": [
+        "Costado Sur Gimnasio Liceo De Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_los_lagos_entr",
+      "label_es": "Contiguo A Entrada Urb. Los Lagos",
+      "label_en": "Next to Entrada Urb. Los Lagos",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Entrada Urb. Los Lagos, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_mar_y_fuego",
+      "label_es": "Marisquería Mar Y Fuego",
+      "label_en": "Marisquería Mar Y Fuego",
+      "addr_es": "Santa Cecilia Heredia",
+      "addr_en": "Santa Cecilia Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Marisquería Mar Y Fuego, Santa Cecilia Heredia",
+        "Marisqueria Mar Y Fuego, Santa Cecilia Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_mas_pollo",
+      "label_es": "Mas Pollo Santa Cecilia",
+      "label_en": "Mas Pollo Santa Cecilia",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Mas Pollo Santa Cecilia, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_mcd_valencia",
+      "label_es": "Contiguo A MC Donald's La Valencia",
+      "label_en": "Next to MC Donald's La Valencia",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Contiguo A MC Donald's La Valencia, Heredia"
+      ],
+      "geocode_query": "MC Donald's La Valencia, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_multicomercial_baden",
+      "label_es": "Frente A Multicomercial Baden",
+      "label_en": "In front of Multicomercial Baden",
+      "addr_es": "Barreal Heredia",
+      "addr_en": "Barreal Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Multicomercial Baden, Barreal Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_outlet_center",
+      "label_es": "Frente A Outlet Center",
+      "label_en": "In front of Outlet Center",
+      "addr_es": "Barreal Heredia",
+      "addr_en": "Barreal Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Outlet Center, Barreal Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_pan_leandro",
+      "label_es": "Frente A Panadería Y Repostería Leandro",
+      "label_en": "In front of Panadería Y Repostería Leandro",
+      "addr_es": "Fátima De Heredia",
+      "addr_en": "Fátima De Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Panadería Y Repostería Leandro, Fátima De Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_parque_aries",
+      "label_es": "Frente A Parque Aries",
+      "label_en": "In front of Parque Aries",
+      "addr_es": "La Aurora Heredia",
+      "addr_en": "La Aurora Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Parque Aries, La Aurora Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_parque_aurora",
+      "label_es": "Parque De La Aurora",
+      "label_en": "Parque De La Aurora",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Parque De La Aurora, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_parque_sta_cecilia",
+      "label_es": "Parque Santa Cecilia",
+      "label_en": "Parque Santa Cecilia",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Parque Santa Cecilia, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_parroquia_aurora",
+      "label_es": "Parroquia Corpus Christi La Aurora",
+      "label_en": "Parroquia Corpus Christi La Aurora",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Parroquia Corpus Christi La Aurora, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_parroquia_barreal",
+      "label_es": "Parroquia Patriarca San José",
+      "label_en": "Parroquia Patriarca San José",
+      "addr_es": "Barreal Heredia",
+      "addr_en": "Barreal Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Parroquia Patriarca San José, Barreal Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_paseo_flores",
+      "label_es": "Paseo De Las Flores",
+      "label_en": "Paseo De Las Flores",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Paseo De Las Flores, Heredia"
+      ],
+      "geocode_query": "Paseo De Las Flores, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_peluditos",
+      "label_es": "Peluditos Pet Shop",
+      "label_en": "Peluditos Pet Shop",
+      "addr_es": "La Aurora Heredia",
+      "addr_en": "La Aurora Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Peluditos Pet Shop, La Aurora Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_pequeno_mundo",
+      "label_es": "Pequeño Mundo",
+      "label_en": "Pequeño Mundo",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Pequeño Mundo, Heredia"
+      ],
+      "geocode_query": "Pequeño Mundo, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_pizza_sta_cecilia",
+      "label_es": "Frente A Pizzería Santa Cecilia",
+      "label_en": "In front of Pizzería Santa Cecilia",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "mid",
+      "raw_names": [
+        "Frente A Pizzería Santa Cecilia, Heredia"
+      ],
+      "geocode_query": "Pizzería Santa Cecilia, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_plantel_mrh",
+      "label_es": "Plantel Autobuses Rápidos Heredianos",
+      "label_en": "Plantel Autobuses Rápidos Heredianos",
+      "addr_es": "Pirro Heredia",
+      "addr_en": "Pirro Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Plantel Autobuses Rápidos Heredianos, Pirro Heredia"
+      ],
+      "geocode_query": "Plantel Autobuses Rápidos Heredianos, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_plaza_allegro",
+      "label_es": "Plaza Comercial Allegro",
+      "label_en": "Plaza Comercial Allegro",
+      "addr_es": "Lagunilla Heredia",
+      "addr_en": "Lagunilla Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Plaza Comercial Allegro, Lagunilla Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_plaza_bratzi",
+      "label_es": "Plaza Bratsi",
+      "label_en": "Plaza Bratsi",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Plaza Bratsi, Heredia"
+      ],
+      "geocode_query": "Plaza Bratsi, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_plaza_puebla",
+      "label_es": "Diagonal A Plaza De Deportes La Puebla",
+      "label_en": "Diagonal to Plaza De Deportes La Puebla",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Diagonal A Plaza De Deportes La Puebla, Heredia",
+        "Frente A Plaza De Deportes La Puebla, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_polideportivo",
+      "label_es": "Polideportivo Santa Cecilia",
+      "label_en": "Polideportivo Santa Cecilia",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Polideportivo Santa Cecilia, Heredia",
+        "Frente A Polideportivo Santa Cecilia, Heredia"
+      ],
+      "geocode_query": "Polideportivo Santa Cecilia, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_pricesmart_acera",
+      "label_es": "Contiguo A Pricesmart",
+      "label_en": "Next to Pricesmart",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "landmark",
+      "raw_names": [
+        "Contiguo A Pricesmart"
+      ],
+      "geocode_query": "Pricesmart, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_publiex",
+      "label_es": "Agencia De Publicidad Publiex",
+      "label_en": "Agencia De Publicidad Publiex",
+      "addr_es": "La Aurora Heredia",
+      "addr_en": "La Aurora Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Agencia De Publicidad Publiex, La Aurora Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_real_santamaria",
+      "label_es": "Entrada Res. Real Santamaría",
+      "label_en": "Entrada Res. Real Santamaría",
+      "addr_es": "Lagunilla Heredia",
+      "addr_en": "Lagunilla Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Entrada Res. Real Santamaría, Lagunilla Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_real_santamaria_o",
+      "label_es": "Contiguo A Entrada Res. Real Santamaria Oeste",
+      "label_en": "Next to Entrada Res. Real Santamaria Oeste",
+      "addr_es": "Barreal Heredia",
+      "addr_en": "Barreal Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Entrada Res. Real Santamaria Oeste, Barreal Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_repuestos_gigante",
+      "label_es": "Repuestos Gigante La Valencia",
+      "label_en": "Repuestos Gigante La Valencia",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Repuestos Gigante La Valencia, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_san_agustin_sur",
+      "label_es": "Entrada Sur Cond. Hacienda San Agustín",
+      "label_en": "Entrada Sur Cond. Hacienda San Agustín",
+      "addr_es": "Santa Cecilia Heredia",
+      "addr_en": "Santa Cecilia Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Entrada Sur Cond. Hacienda San Agustín, Santa Cecilia Heredia",
+        "Frente A Entrada Sur Cond. San Agustín, Santa Cecilia Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_servicentro_barreal",
+      "label_es": "Servicentro Uno Barreal",
+      "label_en": "Servicentro Uno Barreal",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "mid",
+      "raw_names": [
+        "Servicentro Uno Barreal, Heredia",
+        "Frente A Servicentro Uno Barreal, Heredia"
+      ],
+      "geocode_query": "Servicentro Uno Barreal, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_servicentro_casaque",
+      "label_es": "Frente A Servicentro Casaque",
+      "label_en": "In front of Servicentro Casaque",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "mid",
+      "raw_names": [
+        "Frente A Servicentro Casaque, Heredia"
+      ],
+      "geocode_query": "Servicentro Casaque, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_shots_lico",
+      "label_es": "Shots Lico Market",
+      "label_en": "Shots Lico Market",
+      "addr_es": "Santa Cecilia Heredia",
+      "addr_en": "Santa Cecilia Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Shots Lico Market, Santa Cecilia Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_soda_ponche",
+      "label_es": "Contiguo A Soda Ponche Real",
+      "label_en": "Next to Soda Ponche Real",
+      "addr_es": "Barreal Heredia",
+      "addr_en": "Barreal Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Soda Ponche Real, Barreal Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_super_miraflores",
+      "label_es": "Super Miraflores",
+      "label_en": "Super Miraflores",
+      "addr_es": "Pirro Heredia",
+      "addr_en": "Pirro Heredia",
+      "tier": "mid",
+      "raw_names": [
+        "Super Miraflores, Pirro Heredia"
+      ],
+      "geocode_query": "Super Miraflores, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_super_sanfran",
+      "label_es": "Contiguo A Supermercado San Francisco",
+      "label_en": "Next to Supermercado San Francisco",
+      "addr_es": "Urb. La Victoria Heredia",
+      "addr_en": "Urb. La Victoria Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Contiguo A Supermercado San Francisco, Urb. La Victoria Heredia",
+        "Frente A Super San Francisco, Urb. La Victoria Heredia"
+      ],
+      "geocode_query": "Supermercado San Francisco, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_super_taim",
+      "label_es": "Frente A Super Taim",
+      "label_en": "In front of Super Taim",
+      "addr_es": "Lagunilla Heredia",
+      "addr_en": "Lagunilla Heredia",
+      "tier": "mid",
+      "raw_names": [
+        "Frente A Super Taim, Lagunilla Heredia",
+        "Super Taim, Lagunilla Heredia"
+      ],
+      "geocode_query": "Super Taim, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_tanque_aurora",
+      "label_es": "Tanque Agua La Aurora",
+      "label_en": "Tanque Agua La Aurora",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Tanque Agua La Aurora, Heredia",
+        "Frente A Tanque Agua La Aurora, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_term_400",
+      "label_es": "Terminal Heredia",
+      "label_en": "Terminal Heredia",
+      "addr_es": "Contiguo A Súper Fácil",
+      "addr_en": "Contiguo A Súper Fácil",
+      "tier": "anchor",
+      "raw_names": [
+        "Terminal Heredia, Contiguo A Súper Fácil"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_term_aurora",
+      "label_es": "Terminal La Aurora",
+      "label_en": "Terminal La Aurora",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "anchor",
+      "raw_names": [
+        "Terminal La Aurora"
+      ],
+      "geocode_query": "Terminal La Aurora, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_term_braulio",
+      "label_es": "Terminal Heredia",
+      "label_en": "Terminal Heredia",
+      "addr_es": "Frente A Escuela Braulio Morales",
+      "addr_en": "Frente A Escuela Braulio Morales",
+      "tier": "anchor",
+      "raw_names": [
+        "Terminal Heredia, Frente A Escuela Braulio Morales"
+      ],
+      "geocode_query": "Terminal Heredia, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_term_la400_pirro",
+      "label_es": "Terminal Heredia",
+      "label_en": "Terminal Heredia",
+      "addr_es": "Predio Transportes Unidos La 400 S.A.",
+      "addr_en": "Predio Transportes Unidos La 400 S.A.",
+      "tier": "anchor",
+      "raw_names": [
+        "Terminal Heredia, Predio Transportes Unidos La 400 S.A.",
+        "Terminal Heredia, Frente A Predio Transportes Unidos La 400 S.A."
+      ],
+      "geocode_query": "Terminal Heredia, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_term_mc",
+      "label_es": "Terminal Heredia",
+      "label_en": "Terminal Heredia",
+      "addr_es": "Frente A Mercado Central Heredia",
+      "addr_en": "Frente A Mercado Central Heredia",
+      "tier": "anchor",
+      "raw_names": [
+        "Terminal Heredia, Frente A Mercado Central Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_uhispano",
+      "label_es": "Universidad Hispanoamericana",
+      "label_en": "Universidad Hispanoamericana",
+      "addr_es": "Pirro Heredia",
+      "addr_en": "Pirro Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Universidad Hispanoamericana, Pirro Heredia"
+      ],
+      "geocode_query": "Universidad Hispanoamericana, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_ultrapark",
+      "label_es": "Frente A Ultrapark Lagunilla",
+      "label_en": "In front of Ultrapark Lagunilla",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Ultrapark Lagunilla, Heredia",
+        "Ultrapark Lagunilla, Heredia"
+      ],
+      "geocode_query": "Ultrapark Lagunilla, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_una",
+      "label_es": "Universidad Nacional De Costa Rica",
+      "label_en": "Universidad Nacional De Costa Rica",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Universidad Nacional De Costa Rica, Heredia"
+      ],
+      "geocode_query": "Universidad Nacional De Costa Rica, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_una_lagunilla",
+      "label_es": "Frente A Campus Presbítero Benjamín Núñez Universidad Nacional",
+      "label_en": "In front of Campus Presbítero Benjamín Núñez Universidad Nacional",
+      "addr_es": "Lagunilla Heredia",
+      "addr_en": "Lagunilla Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Campus Presbítero Benjamín Núñez Universidad Nacional, Lagunilla Heredia",
+        "Campus Presbítero Benjamín Núñez Universidad Nacional, Lagunilla Heredia"
+      ],
+      "geocode_query": "Campus Presbítero Benjamín Núñez Universidad Nacional, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_walmart_los_lagos",
+      "label_es": "Frente A Walmart Los Lagos",
+      "label_en": "In front of Walmart Los Lagos",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Walmart Los Lagos"
+      ],
+      "geocode_query": "Walmart Los Lagos, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_zf_metropolitana",
+      "label_es": "Zona Franca Metropolitana",
+      "label_en": "Zona Franca Metropolitana",
+      "addr_es": "Barreal Heredia",
+      "addr_en": "Barreal Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Zona Franca Metropolitana, Barreal Heredia"
+      ],
+      "geocode_query": "Zona Franca Metropolitana, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "pte_bermudez_post",
+      "label_es": "Posterior A Puente Río Bermudez",
+      "label_en": "Just after Puente Río Bermudez",
+      "addr_es": "Barreal Heredia",
+      "addr_en": "Barreal Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Posterior A Puente Río Bermudez, Barreal Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "pte_bermudez_pre",
+      "label_es": "Previo A Puente Río Bermúdez",
+      "label_en": "Just before Puente Río Bermúdez",
+      "addr_es": "Barreal Heredia",
+      "addr_en": "Barreal Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Previo A Puente Río Bermúdez, Barreal Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "pte_virilla_sj_post",
+      "label_es": "Posterior A Puente Río Virilla",
+      "label_en": "Just after Puente Río Virilla",
+      "addr_es": "Vuelta Del Virilla San José",
+      "addr_en": "Vuelta Del Virilla San José",
+      "tier": "corner",
+      "raw_names": [
+        "Posterior A Puente Río Virilla, Vuelta Del Virilla San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "pte_virilla_sj_pre",
+      "label_es": "Previo A Puente Río Virilla",
+      "label_en": "Just before Puente Río Virilla",
+      "addr_es": "Vuelta Del Virilla San José",
+      "addr_en": "Vuelta Del Virilla San José",
+      "tier": "corner",
+      "raw_names": [
+        "Previo A Puente Río Virilla, Vuelta Del Virilla San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sd_autos_poblado",
+      "label_es": "Contiguo A Autos El Poblado",
+      "label_en": "Next to Autos El Poblado",
+      "addr_es": "Santo Domingo",
+      "addr_en": "Santo Domingo",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Autos El Poblado, Santo Domingo",
+        "Diagonal Autos El Poblado, Santo Domingo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sd_autos_sd",
+      "label_es": "Contiguo A Autos Santo Domingo",
+      "label_en": "Next to Autos Santo Domingo",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Autos Santo Domingo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sd_barrio_sta_rosa",
+      "label_es": "Entrada A Barrio Santa Rosa",
+      "label_en": "Entrance to Barrio Santa Rosa",
+      "addr_es": "Santo Domingo",
+      "addr_en": "Santo Domingo",
+      "tier": "corner",
+      "raw_names": [
+        "Entrada A Barrio Santa Rosa, Santo Domingo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sd_bk_plaza",
+      "label_es": "Contiguo A Burguer King Plaza Santo Domingo",
+      "label_en": "Next to Burguer King Plaza Santo Domingo",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "landmark",
+      "raw_names": [
+        "Contiguo A Burguer King Plaza Santo Domingo"
+      ],
+      "geocode_query": "Burguer King Plaza Santo Domingo, Santo Domingo, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sd_bomberos",
+      "label_es": "Contiguo A Estación De Bomberos Santo Domingo",
+      "label_en": "Next to Estación De Bomberos Santo Domingo",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Estación De Bomberos Santo Domingo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sd_carnes_sta_rosa",
+      "label_es": "Centro De Carnes Santa Rosa",
+      "label_en": "Centro De Carnes Santa Rosa",
+      "addr_es": "Santo Domingo",
+      "addr_en": "Santo Domingo",
+      "tier": "corner",
+      "raw_names": [
+        "Centro De Carnes Santa Rosa, Santo Domingo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sd_ebais",
+      "label_es": "Frente A EBAIS De Santo Domingo",
+      "label_en": "In front of EBAIS De Santo Domingo",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A EBAIS De Santo Domingo"
+      ],
+      "geocode_query": "EBAIS De Santo Domingo, Santo Domingo, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sd_iglesia_rosario",
+      "label_es": "Costado Posterior Iglesia Católica De El Rosario",
+      "label_en": "Costado Posterior Iglesia Católica De El Rosario",
+      "addr_es": "Santo Domingo",
+      "addr_en": "Santo Domingo",
+      "tier": "corner",
+      "raw_names": [
+        "Costado Posterior Iglesia Católica De El Rosario, Santo Domingo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sd_lapa_verde",
+      "label_es": "Frente A Centro Cultura Lapa Verde",
+      "label_en": "In front of Centro Cultura Lapa Verde",
+      "addr_es": "Santo Domingo",
+      "addr_en": "Santo Domingo",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Centro Cultura Lapa Verde, Santo Domingo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sd_mcd",
+      "label_es": "Frente A MC Donald's De Santo Domingo",
+      "label_en": "In front of MC Donald's De Santo Domingo",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A MC Donald's De Santo Domingo",
+        "Contiguo A MC Donald's De Santo Domingo"
+      ],
+      "geocode_query": "MC Donald's De Santo Domingo, Santo Domingo, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sd_minibodegas",
+      "label_es": "Contiguo A Minibodegas",
+      "label_en": "Next to Minibodegas",
+      "addr_es": "Santo Domingo",
+      "addr_en": "Santo Domingo",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Minibodegas, Santo Domingo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sd_minisuper_bp",
+      "label_es": "Minisuper El Buen Precio",
+      "label_en": "Minisuper El Buen Precio",
+      "addr_es": "Santo Domingo",
+      "addr_en": "Santo Domingo",
+      "tier": "corner",
+      "raw_names": [
+        "Minisuper El Buen Precio, Santo Domingo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sd_mopt",
+      "label_es": "Frente A Plantel Del MOPT De Santo Domingo",
+      "label_en": "In front of Plantel Del MOPT De Santo Domingo",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Plantel Del MOPT De Santo Domingo",
+        "Plantel Del MOPT De Santo Domingo"
+      ],
+      "geocode_query": "Plantel Del MOPT De Santo Domingo, Santo Domingo, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sd_pali",
+      "label_es": "Frente A Palí De Santo Domingo",
+      "label_en": "In front of Palí De Santo Domingo",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Palí De Santo Domingo"
+      ],
+      "geocode_query": "Palí De Santo Domingo, Santo Domingo, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sd_pizza_napoli",
+      "label_es": "Frente A Pizerría Napoli",
+      "label_en": "In front of Pizerría Napoli",
+      "addr_es": "Santo Domingo",
+      "addr_en": "Santo Domingo",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Pizerría Napoli, Santo Domingo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sd_plaza",
+      "label_es": "Frente A Plaza Santo Domingo",
+      "label_en": "In front of Plaza Santo Domingo",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Plaza Santo Domingo"
+      ],
+      "geocode_query": "Plaza Santo Domingo, Santo Domingo, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sd_sognos",
+      "label_es": "Frente A Sognos Café",
+      "label_en": "In front of Sognos Café",
+      "addr_es": "Santo Domingo",
+      "addr_en": "Santo Domingo",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Sognos Café, Santo Domingo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_autostar",
+      "label_es": "Auto Star La Uruca",
+      "label_en": "Auto Star La Uruca",
+      "addr_es": "San José",
+      "addr_en": "San José",
+      "tier": "corner",
+      "raw_names": [
+        "Auto Star La Uruca, San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_botica_solera",
+      "label_es": "Antigua Botica Solera",
+      "label_en": "Antigua Botica Solera",
+      "addr_es": "Barrio México San José",
+      "addr_en": "Barrio México San José",
+      "tier": "corner",
+      "raw_names": [
+        "Antigua Botica Solera, Barrio México San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_cementerio_extranjero",
+      "label_es": "Frente A Cementerio Extranjero",
+      "label_en": "In front of Cementerio Extranjero",
+      "addr_es": "San José",
+      "addr_en": "San José",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Cementerio Extranjero, San José"
+      ],
+      "geocode_query": "Cementerio Extranjero, San José, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_cn_virilla",
+      "label_es": "Agencia CN Plantel Virrilla",
+      "label_en": "Agencia CN Plantel Virrilla",
+      "addr_es": "Zona Industrial La Uruca San José",
+      "addr_en": "Zona Industrial La Uruca San José",
+      "tier": "corner",
+      "raw_names": [
+        "Agencia CN Plantel Virrilla, Zona Industrial La Uruca San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_comeca",
+      "label_es": "Frente A Envases Comeca",
+      "label_en": "In front of Envases Comeca",
+      "addr_es": "La Uruca San José",
+      "addr_en": "La Uruca San José",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Envases Comeca, La Uruca San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_corobici",
+      "label_es": "Hotel Crown Plaza Corobicí",
+      "label_en": "Hotel Crown Plaza Corobicí",
+      "addr_es": "Autopista General Cañas San José",
+      "addr_en": "Autopista General Cañas San José",
+      "tier": "landmark",
+      "raw_names": [
+        "Hotel Crown Plaza Corobicí, Autopista General Cañas San José"
+      ],
+      "geocode_query": "Hotel Crown Plaza Corobicí, San José, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_credi_motors",
+      "label_es": "Credi Motors",
+      "label_en": "Credi Motors",
+      "addr_es": "Iglesias Flores San José",
+      "addr_en": "Iglesias Flores San José",
+      "tier": "corner",
+      "raw_names": [
+        "Credi Motors, Iglesias Flores San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_ejercito_salvacion",
+      "label_es": "Centro De Convivencia Ejército De Salvación",
+      "label_en": "Centro De Convivencia Ejército De Salvación",
+      "addr_es": "Bajos De La Unión San José",
+      "addr_en": "Bajos De La Unión San José",
+      "tier": "corner",
+      "raw_names": [
+        "Centro De Convivencia Ejército De Salvación, Bajos De La Unión San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_esc_jrm",
+      "label_es": "Costado Norte Escuela Juan Rafael Mora",
+      "label_en": "North side of Escuela Juan Rafael Mora",
+      "addr_es": "Pitahaya San José",
+      "addr_en": "Pitahaya San José",
+      "tier": "corner",
+      "raw_names": [
+        "Costado Norte Escuela Juan Rafael Mora, Pitahaya San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_faco_uruca",
+      "label_es": "Faco La Uruca",
+      "label_en": "Faco La Uruca",
+      "addr_es": "Piemonte San José",
+      "addr_en": "Piemonte San José",
+      "tier": "corner",
+      "raw_names": [
+        "Faco La Uruca, Piemonte San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_font",
+      "label_es": "Corporación Font",
+      "label_en": "Corporación Font",
+      "addr_es": "Zona Industrial La Uruca San José",
+      "addr_en": "Zona Industrial La Uruca San José",
+      "tier": "corner",
+      "raw_names": [
+        "Corporación Font, Zona Industrial La Uruca San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_ford",
+      "label_es": "Contiguo A Agencia Ford",
+      "label_en": "Next to Agencia Ford",
+      "addr_es": "Bajo Torres San José",
+      "addr_en": "Bajo Torres San José",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Agencia Ford, Bajo Torres San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_ftz_cocacola",
+      "label_es": "FTZ Coca Cola La Uruca",
+      "label_en": "FTZ Coca Cola La Uruca",
+      "addr_es": "San José",
+      "addr_en": "San José",
+      "tier": "landmark",
+      "raw_names": [
+        "FTZ Coca Cola La Uruca, San José"
+      ],
+      "geocode_query": "FTZ Coca Cola La Uruca, San José, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_funeraria_mag",
+      "label_es": "Funeraria Del Magisterio Nacional",
+      "label_en": "Funeraria Del Magisterio Nacional",
+      "addr_es": "Pitahaya San José",
+      "addr_en": "Pitahaya San José",
+      "tier": "corner",
+      "raw_names": [
+        "Funeraria Del Magisterio Nacional, Pitahaya San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_geely",
+      "label_es": "Agencia Autos Geely",
+      "label_en": "Agencia Autos Geely",
+      "addr_es": "La Uruca San José",
+      "addr_en": "La Uruca San José",
+      "tier": "corner",
+      "raw_names": [
+        "Agencia Autos Geely, La Uruca San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_greatwall",
+      "label_es": "Great Wall La Uruca",
+      "label_en": "Great Wall La Uruca",
+      "addr_es": "San José",
+      "addr_en": "San José",
+      "tier": "corner",
+      "raw_names": [
+        "Great Wall La Uruca, San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_guanacasteco",
+      "label_es": "Abastecedor El Guanacasteco",
+      "label_en": "Abastecedor El Guanacasteco",
+      "addr_es": "Iglesias Flores San José",
+      "addr_en": "Iglesias Flores San José",
+      "tier": "corner",
+      "raw_names": [
+        "Abastecedor El Guanacasteco, Iglesias Flores San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_ict",
+      "label_es": "Oficinas Centrales ICT",
+      "label_en": "Oficinas Centrales ICT",
+      "addr_es": "La Uruca San José",
+      "addr_en": "La Uruca San José",
+      "tier": "landmark",
+      "raw_names": [
+        "Oficinas Centrales ICT, La Uruca San José"
+      ],
+      "geocode_query": "Oficinas Centrales ICT, San José, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_irazu",
+      "label_es": "Hotel Irazú",
+      "label_en": "Hotel Irazú",
+      "addr_es": "Autopista General Cañas San José",
+      "addr_en": "Autopista General Cañas San José",
+      "tier": "landmark",
+      "raw_names": [
+        "Hotel Irazú, Autopista General Cañas San José"
+      ],
+      "geocode_query": "Hotel Irazú, San José, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_lacsa",
+      "label_es": "Antigua Lacsa",
+      "label_en": "Antigua Lacsa",
+      "addr_es": "La Uruca San José",
+      "addr_en": "La Uruca San José",
+      "tier": "corner",
+      "raw_names": [
+        "Antigua Lacsa, La Uruca San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_matra",
+      "label_es": "Contiguo A Matra La Uruca",
+      "label_en": "Next to Matra La Uruca",
+      "addr_es": "San José",
+      "addr_en": "San José",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Matra La Uruca, San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_migracion",
+      "label_es": "Cercanía A Migración",
+      "label_en": "Near Migración",
+      "addr_es": "La Uruca San José",
+      "addr_en": "La Uruca San José",
+      "tier": "corner",
+      "raw_names": [
+        "Cercanía A Migración, La Uruca San José",
+        "Cercanía Migración, La Uruca San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_monumento_agua",
+      "label_es": "Monumento Agua",
+      "label_en": "Monumento Agua",
+      "addr_es": "Autopista General Cañas San José",
+      "addr_en": "Autopista General Cañas San José",
+      "tier": "corner",
+      "raw_names": [
+        "Monumento Agua, Autopista General Cañas San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_mot_britanicos",
+      "label_es": "Motores Británicos",
+      "label_en": "Motores Británicos",
+      "addr_es": "Piemonte San José",
+      "addr_en": "Piemonte San José",
+      "tier": "corner",
+      "raw_names": [
+        "Motores Británicos, Piemonte San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_mxm_mantica",
+      "label_es": "Más X Menos Mántica",
+      "label_en": "Más X Menos Mántica",
+      "addr_es": "Autopista General Cañas San José",
+      "addr_en": "Autopista General Cañas San José",
+      "tier": "landmark",
+      "raw_names": [
+        "Más X Menos Mántica, Autopista General Cañas San José"
+      ],
+      "geocode_query": "Más X Menos Mántica, San José, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_phadthai",
+      "label_es": "Contiguo A Rest. Phad Thai",
+      "label_en": "Next to Rest. Phad Thai",
+      "addr_es": "Pitahaya San José",
+      "addr_en": "Pitahaya San José",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Rest. Phad Thai, Pitahaya San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_plaza_uruca",
+      "label_es": "Plaza De Deportes La Uruca",
+      "label_en": "Plaza De Deportes La Uruca",
+      "addr_es": "San José",
+      "addr_en": "San José",
+      "tier": "corner",
+      "raw_names": [
+        "Plaza De Deportes La Uruca, San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_purdy_motor",
+      "label_es": "Frente A Agencia Purdy Motor",
+      "label_en": "In front of Agencia Purdy Motor",
+      "addr_es": "Zona Industrial La Uruca San José",
+      "addr_en": "Zona Industrial La Uruca San José",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Agencia Purdy Motor, Zona Industrial La Uruca San José",
+        "Agencia Purdy Motor, Zona Industrial La Uruca San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_renault",
+      "label_es": "Agencia Renault La Uruca",
+      "label_en": "Agencia Renault La Uruca",
+      "addr_es": "San José",
+      "addr_en": "San José",
+      "tier": "corner",
+      "raw_names": [
+        "Agencia Renault La Uruca, San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_sagot",
+      "label_es": "Tienda Sagot",
+      "label_en": "Tienda Sagot",
+      "addr_es": "La Uruca San José",
+      "addr_en": "La Uruca San José",
+      "tier": "corner",
+      "raw_names": [
+        "Tienda Sagot, La Uruca San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_suzuki",
+      "label_es": "Agencia De Motocicletas Suzuki",
+      "label_en": "Agencia De Motocicletas Suzuki",
+      "addr_es": "La Uruca San José",
+      "addr_en": "La Uruca San José",
+      "tier": "corner",
+      "raw_names": [
+        "Agencia De Motocicletas Suzuki, La Uruca San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_term_400u",
+      "label_es": "Terminal San José",
+      "label_en": "Terminal San José",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "anchor",
+      "raw_names": [
+        "Terminal San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_term_cocacola",
+      "label_es": "Costado Oeste Terminal 7-10",
+      "label_en": "West side of Terminal 7-10",
+      "addr_es": "Paso De La Vaca San José",
+      "addr_en": "Paso De La Vaca San José",
+      "tier": "anchor",
+      "raw_names": [
+        "Costado Oeste Terminal 7-10, Paso De La Vaca San José"
+      ],
+      "geocode_query": "Terminal 7-10, San José, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_term_rh",
+      "label_es": "Terminal Rápidos Heredianos",
+      "label_en": "Terminal Rápidos Heredianos",
+      "addr_es": "San José",
+      "addr_en": "San José",
+      "tier": "anchor",
+      "raw_names": [
+        "Terminal Rápidos Heredianos, San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_tournon_edos",
+      "label_es": "Multiservicios Edos",
+      "label_en": "Multiservicios Edos",
+      "addr_es": "Tournón San José",
+      "addr_en": "Tournón San José",
+      "tier": "corner",
+      "raw_names": [
+        "Multiservicios Edos, Tournón San José",
+        "Frente A Multiservicios Edus, Tournón San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_tournon_int",
+      "label_es": "Intersección Barrio Tournon",
+      "label_en": "Intersección Barrio Tournon",
+      "addr_es": "San José",
+      "addr_en": "San José",
+      "tier": "corner",
+      "raw_names": [
+        "Intersección Barrio Tournon, San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_tournon_servicentro",
+      "label_es": "Contiguo A Servicentro Tournón",
+      "label_en": "Next to Servicentro Tournón",
+      "addr_es": "San José",
+      "addr_en": "San José",
+      "tier": "mid",
+      "raw_names": [
+        "Contiguo A Servicentro Tournón, San José"
+      ],
+      "geocode_query": "Servicentro Tournón, San José, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_tryp_sabana",
+      "label_es": "Diagonal A Hotel Tryp Sabana",
+      "label_en": "Diagonal to Hotel Tryp Sabana",
+      "addr_es": "Mántica San José",
+      "addr_en": "Mántica San José",
+      "tier": "corner",
+      "raw_names": [
+        "Diagonal A Hotel Tryp Sabana, Mántica San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sj_yamuni",
+      "label_es": "Contiguo A Tienda Yamuni",
+      "label_en": "Next to Tienda Yamuni",
+      "addr_es": "San Francisco San José",
+      "addr_en": "San Francisco San José",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Tienda Yamuni, San Francisco San José"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sp_cementerio",
+      "label_es": "Cementerio Municipal De San Pablo",
+      "label_en": "Cementerio Municipal De San Pablo",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "landmark",
+      "raw_names": [
+        "Cementerio Municipal De San Pablo"
+      ],
+      "geocode_query": "Cementerio Municipal De San Pablo, San Pablo, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sp_colegio_europeo",
+      "label_es": "Contiguo A Entrada Colegio Europeo",
+      "label_en": "Next to Entrada Colegio Europeo",
+      "addr_es": "San Pablo",
+      "addr_en": "San Pablo",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Entrada Colegio Europeo, San Pablo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sp_cond_via_heredia",
+      "label_es": "Contiguo A Entrada Cond. Vía Heredia",
+      "label_en": "Next to Entrada Cond. Vía Heredia",
+      "addr_es": "San Pablo",
+      "addr_en": "San Pablo",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Entrada Cond. Vía Heredia, San Pablo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sp_esquina_sabor",
+      "label_es": "Frente A Rest. La Esquina Del Sabor",
+      "label_en": "In front of Rest. La Esquina Del Sabor",
+      "addr_es": "San Pablo",
+      "addr_en": "San Pablo",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Rest. La Esquina Del Sabor, San Pablo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sp_iglesia_oracion",
+      "label_es": "Iglesia Casa De Oración San Pablo",
+      "label_en": "Iglesia Casa De Oración San Pablo",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "corner",
+      "raw_names": [
+        "Iglesia Casa De Oración San Pablo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sp_lavacar_olas",
+      "label_es": "Lavacar Olas",
+      "label_en": "Lavacar Olas",
+      "addr_es": "San Pablo",
+      "addr_en": "San Pablo",
+      "tier": "corner",
+      "raw_names": [
+        "Lavacar Olas, San Pablo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sp_miraflores",
+      "label_es": "Contiguo A Entrada Miraflores",
+      "label_en": "Next to Entrada Miraflores",
+      "addr_es": "San Pablo",
+      "addr_en": "San Pablo",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Entrada Miraflores, San Pablo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sp_mxm",
+      "label_es": "Más X Menos De San Pablo",
+      "label_en": "Más X Menos De San Pablo",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "landmark",
+      "raw_names": [
+        "Más X Menos De San Pablo"
+      ],
+      "geocode_query": "Más X Menos De San Pablo, San Pablo, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sp_pan_chantilly",
+      "label_es": "Panadería Y Repostería Chantilly",
+      "label_en": "Panadería Y Repostería Chantilly",
+      "addr_es": "San Pablo",
+      "addr_en": "San Pablo",
+      "tier": "corner",
+      "raw_names": [
+        "Panadería Y Repostería Chantilly, San Pablo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sp_perla_asia",
+      "label_es": "Frente A Rest. La Perla De Asia",
+      "label_en": "In front of Rest. La Perla De Asia",
+      "addr_es": "San Pablo",
+      "addr_en": "San Pablo",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Rest. La Perla De Asia, San Pablo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sp_taller_sys",
+      "label_es": "Frente A Taller Sys",
+      "label_en": "In front of Taller Sys",
+      "addr_es": "San Pablo",
+      "addr_en": "San Pablo",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Taller Sys, San Pablo",
+        "Contiguo A Taller Sys, San Pablo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "sp_vistas_sp",
+      "label_es": "Contiguo A Entrada Cond. Vistas De San Pablo",
+      "label_en": "Next to Entrada Cond. Vistas De San Pablo",
+      "addr_es": "San Pablo",
+      "addr_en": "San Pablo",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Entrada Cond. Vistas De San Pablo, San Pablo"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "tib_autos_xiri",
+      "label_es": "Autos Usados Xiri",
+      "label_en": "Autos Usados Xiri",
+      "addr_es": "San Juan De Tibás",
+      "addr_en": "San Juan De Tibás",
+      "tier": "corner",
+      "raw_names": [
+        "Autos Usados Xiri, San Juan De Tibás"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "tib_bac",
+      "label_es": "Agencia BAC Credomatic San Juan",
+      "label_en": "Agencia BAC Credomatic San Juan",
+      "addr_es": "Tibás",
+      "addr_en": "Tibás",
+      "tier": "mid",
+      "raw_names": [
+        "Agencia BAC Credomatic San Juan, Tibás"
+      ],
+      "geocode_query": "Agencia BAC Credomatic San Juan, Tibás, San José, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "tib_cinco_esquinas",
+      "label_es": "Frente A Guitarras Arristedes Guzmán",
+      "label_en": "In front of Guitarras Arristedes Guzmán",
+      "addr_es": "Cinco Esquinas De Tibás",
+      "addr_en": "Cinco Esquinas De Tibás",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Guitarras Arristedes Guzmán, Cinco Esquinas De Tibás"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "tib_coopetaxi",
+      "label_es": "Frente A Servicentro Coopetaxi",
+      "label_en": "In front of Servicentro Coopetaxi",
+      "addr_es": "San Juan De Tibás",
+      "addr_en": "San Juan De Tibás",
+      "tier": "mid",
+      "raw_names": [
+        "Frente A Servicentro Coopetaxi, San Juan De Tibás"
+      ],
+      "geocode_query": "Servicentro Coopetaxi, Tibás, San José, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "tib_gran_oriente",
+      "label_es": "Contiguo A Rest. Gran Oriente",
+      "label_en": "Next to Rest. Gran Oriente",
+      "addr_es": "San Juan Tibás",
+      "addr_en": "San Juan Tibás",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Rest. Gran Oriente, San Juan Tibás"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "tib_iglesia_tdm",
+      "label_es": "Frente A Iglesia Tierra De Milagros",
+      "label_en": "In front of Iglesia Tierra De Milagros",
+      "addr_es": "Cinco Esquinas De Tibás",
+      "addr_en": "Cinco Esquinas De Tibás",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Iglesia Tierra De Milagros, Cinco Esquinas De Tibás"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "tib_ins",
+      "label_es": "Cercanías A Agencia INS San Juan",
+      "label_en": "Near Agencia INS San Juan",
+      "addr_es": "Tibás",
+      "addr_en": "Tibás",
+      "tier": "corner",
+      "raw_names": [
+        "Cercanías A Agencia INS San Juan, Tibás"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "tib_morocco",
+      "label_es": "Contiguo A Autoservicio Morocco",
+      "label_en": "Next to Autoservicio Morocco",
+      "addr_es": "San Juan De Tibás",
+      "addr_en": "San Juan De Tibás",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Autoservicio Morocco, San Juan De Tibás"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "tib_mueb_la_kasa",
+      "label_es": "Frente A Mueblería La Kasa",
+      "label_en": "In front of Mueblería La Kasa",
+      "addr_es": "San Juan De Tibás",
+      "addr_en": "San Juan De Tibás",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Mueblería La Kasa, San Juan De Tibás"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "tib_parque_democracia",
+      "label_es": "Costado Norte Parque La Democracia",
+      "label_en": "North side of Parque La Democracia",
+      "addr_es": "San Juan De Tibás",
+      "addr_en": "San Juan De Tibás",
+      "tier": "corner",
+      "raw_names": [
+        "Costado Norte Parque La Democracia, San Juan De Tibás"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "tib_pizzahut",
+      "label_es": "Frente A Pizza Hut San Juan",
+      "label_en": "In front of Pizza Hut San Juan",
+      "addr_es": "Tibás",
+      "addr_en": "Tibás",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Pizza Hut San Juan, Tibás"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "tib_plantel_caribenos",
+      "label_es": "Plantel Caribeños",
+      "label_en": "Plantel Caribeños",
+      "addr_es": "Cinco Esquinas De Tibás",
+      "addr_en": "Cinco Esquinas De Tibás",
+      "tier": "corner",
+      "raw_names": [
+        "Plantel Caribeños, Cinco Esquinas De Tibás"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "tib_pops",
+      "label_es": "Pops Santa Mónica",
+      "label_en": "Pops Santa Mónica",
+      "addr_es": "Tibás",
+      "addr_en": "Tibás",
+      "tier": "landmark",
+      "raw_names": [
+        "Pops Santa Mónica, Tibás"
+      ],
+      "geocode_query": "Pops Santa Mónica, Tibás, San José, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "tib_sabucedo",
+      "label_es": "Parqueo Publico Sabucedo",
+      "label_en": "Parqueo Publico Sabucedo",
+      "addr_es": "San Juan De Tibás",
+      "addr_en": "San Juan De Tibás",
+      "tier": "corner",
+      "raw_names": [
+        "Parqueo Publico Sabucedo, San Juan De Tibás"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "tib_sonmerus",
+      "label_es": "Grupo Sonmerus",
+      "label_en": "Grupo Sonmerus",
+      "addr_es": "San Juan De Tibás",
+      "addr_en": "San Juan De Tibás",
+      "tier": "corner",
+      "raw_names": [
+        "Grupo Sonmerus, San Juan De Tibás"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "tib_valvanera",
+      "label_es": "Contiguo A Super La Valvanera",
+      "label_en": "Next to Super La Valvanera",
+      "addr_es": "San Juan De Tibás",
+      "addr_en": "San Juan De Tibás",
+      "tier": "mid",
+      "raw_names": [
+        "Contiguo A Super La Valvanera, San Juan De Tibás",
+        "Frente A Super La Valvanera, San Juan De Tibás"
+      ],
+      "geocode_query": "Super La Valvanera, Tibás, San José, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    }
+  ],
+  "verified_coords": [
+    {
+      "id": "her_estadio_eladio_rosabal_cordero",
+      "name": "Estadio Eladio Rosabal Cordero, Heredia",
+      "lat": 9.99952,
+      "lng": -84.12311,
+      "status": "verified",
+      "confidence": "high",
+      "source": "Mapcarta / OSM",
+      "note": null
+    },
+    {
+      "id": "her_cenada",
+      "name": "CENADA / Centro Nacional de Abastecimiento y Distribución de Alimentos, Barreal Heredia",
+      "lat": 9.97946,
+      "lng": -84.15257,
+      "status": "verified",
+      "confidence": "high",
+      "source": "Mapcarta / OSM",
+      "note": null
+    },
+    {
+      "id": "her_pima_cenada",
+      "name": "PIMA CENADA, Ulloa Heredia",
+      "lat": 9.98031,
+      "lng": -84.15128,
+      "status": "verified",
+      "confidence": "high",
+      "source": "Mapcarta / OSM",
+      "note": "Very close to CENADA; consider aliasing if not used as a distinct stop."
+    },
+    {
+      "id": "sj_migracion_la_uruca_parqueo",
+      "name": "Parqueo Público Migración, La Uruca San José",
+      "lat": 9.95678,
+      "lng": -84.11353,
+      "status": "candidate",
+      "confidence": "medium",
+      "source": "Mapcarta / OSM",
+      "note": "Candidate for stops named Cercanía A Migración / Oficinas Centrales Migración."
+    },
+    {
+      "id": "sj_la_uruca_district_anchor",
+      "name": "La Uruca, San José",
+      "lat": 9.9575393,
+      "lng": -84.1326701,
+      "status": "candidate",
+      "confidence": "low",
+      "source": "Wikipedia district coordinate",
+      "note": "District centroid only; do not use as exact stop coordinate."
+    },
+    {
+      "id": "her_terminal_mercado_central",
+      "name": "Terminal Heredia, Frente A Mercado Central Heredia",
+      "lat": 9.995570380351435,
+      "lng": -84.1177170535821,
+      "status": "verified",
+      "confidence": "high",
+      "source": "manually_verified",
+      "note": null
+    },
+    {
+      "id": "her_terminal_la400_super_facil",
+      "name": "Terminal Heredia, Contiguo A Súper Fácil",
+      "lat": 9.995477331704198,
+      "lng": -84.11685792654782,
+      "status": "verified",
+      "confidence": "high",
+      "source": "manually_verified",
+      "note": null
+    },
+    {
+      "id": "sj_terminal_rapidos_heredianos",
+      "name": "Terminal Rápidos Heredianos, San José",
+      "lat": 9.937830448742044,
+      "lng": -84.0779492707476,
+      "status": "verified",
+      "confidence": "high",
+      "source": "manually_verified",
+      "note": null
+    },
+    {
+      "id": "sj_terminal_san_jose_400",
+      "name": "Terminal San José",
+      "lat": 9.93641623106166,
+      "lng": -84.08055184129225,
+      "status": "verified",
+      "confidence": "high",
+      "source": "manually_verified",
+      "note": null
+    }
+  ]
+}

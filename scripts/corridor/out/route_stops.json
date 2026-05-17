@@ -81,70 +81,70 @@
     "stop_id": "sj_esc_jrm",
     "direction": "outbound",
     "stop_order": 2,
-    "segment_minutes": 4
+    "segment_minutes": 3
   },
   {
     "route_id": "400p",
     "stop_id": "sj_funeraria_mag",
     "direction": "outbound",
     "stop_order": 3,
-    "segment_minutes": 4
+    "segment_minutes": 3
   },
   {
     "route_id": "400p",
     "stop_id": "sj_phadthai",
     "direction": "outbound",
     "stop_order": 4,
-    "segment_minutes": 4
+    "segment_minutes": 3
   },
   {
     "route_id": "400p",
     "stop_id": "sj_tryp_sabana",
     "direction": "outbound",
     "stop_order": 5,
-    "segment_minutes": 4
+    "segment_minutes": 3
   },
   {
     "route_id": "400p",
     "stop_id": "sj_mxm_mantica",
     "direction": "outbound",
     "stop_order": 6,
-    "segment_minutes": 4
+    "segment_minutes": 3
   },
   {
     "route_id": "400p",
     "stop_id": "sj_irazu",
     "direction": "outbound",
     "stop_order": 7,
-    "segment_minutes": 6
+    "segment_minutes": 3
   },
   {
     "route_id": "400p",
     "stop_id": "sj_ict",
     "direction": "outbound",
     "stop_order": 8,
-    "segment_minutes": 1
+    "segment_minutes": 3
   },
   {
     "route_id": "400p",
     "stop_id": "sj_migracion",
     "direction": "outbound",
     "stop_order": 9,
-    "segment_minutes": 1
+    "segment_minutes": 3
   },
   {
     "route_id": "400p",
     "stop_id": "pte_virilla_pre",
     "direction": "outbound",
     "stop_order": 10,
-    "segment_minutes": 1
+    "segment_minutes": 3
   },
   {
     "route_id": "400p",
     "stop_id": "her_repuestos_gigante",
     "direction": "outbound",
     "stop_order": 11,
-    "segment_minutes": 1
+    "segment_minutes": 3
   },
   {
     "route_id": "400p",
@@ -312,7 +312,7 @@
     "stop_id": "her_term_400",
     "direction": "inbound",
     "stop_order": 24,
-    "segment_minutes": 4
+    "segment_minutes": 1
   },
   {
     "route_id": "400u",

@@ -1,0 +1,2198 @@
+{
+  "summary": {
+    "unique_stops": 166,
+    "by_source": {
+      "verified_md": 7,
+      "unresolved": 127,
+      "nominatim": 22,
+      "seed_existing": 8,
+      "explicit_override": 2
+    },
+    "resolved": 39
+  },
+  "resolutions": [
+    {
+      "id": "her_term_aurora",
+      "label_es": "Terminal La Aurora",
+      "tier": "anchor",
+      "raw_names": [
+        "Terminal La Aurora"
+      ],
+      "lat": 9.9907,
+      "lng": -84.15,
+      "source": "explicit_override",
+      "confidence": "high",
+      "note": "Nominatim hit, manually accepted"
+    },
+    {
+      "id": "her_term_la400_pirro",
+      "label_es": "Terminal Heredia",
+      "tier": "anchor",
+      "raw_names": [
+        "Terminal Heredia, Predio Transportes Unidos La 400 S.A.",
+        "Terminal Heredia, Frente A Predio Transportes Unidos La 400 S.A."
+      ],
+      "lat": 10.0078,
+      "lng": -84.1115,
+      "source": "explicit_override",
+      "confidence": "high",
+      "note": "existing seed (her_term_400 inherited)"
+    },
+    {
+      "id": "her_cementerio_barreal",
+      "label_es": "Cementerio Barreal",
+      "tier": "landmark",
+      "raw_names": [
+        "Cementerio Barreal, Heredia"
+      ],
+      "lat": 9.9690348,
+      "lng": -84.1325789,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Cementerio de Barreal, Barreal, Ulloa, Heredia, 40104, Costa Rica"
+    },
+    {
+      "id": "her_clinica_heredia",
+      "label_es": "Clínica De Heredia",
+      "tier": "anchor",
+      "raw_names": [
+        "Clínica De Heredia, Fátima Heredia"
+      ],
+      "lat": 9.9989967,
+      "lng": -84.1237356,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: INS - Centro de Salud Preferencial de Heredia, Calle 16, Los Ángeles, Heredia, 40101, Costa Rica"
+    },
+    {
+      "id": "her_ebais_aurora",
+      "label_es": "Frente A Ebais La Aurora",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Ebais La Aurora, Heredia"
+      ],
+      "lat": 9.9911595,
+      "lng": -84.1497483,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Ebais La Aurora, Avenida Mercurio, La Aurora, San Francisco, Heredia, 40103, Costa Rica"
+    },
+    {
+      "id": "her_estadio_pre",
+      "label_es": "Cercanías A Estadio Eladio Rosabal Cordero",
+      "tier": "landmark",
+      "raw_names": [
+        "Cercanías A Estadio Eladio Rosabal Cordero, Heredia"
+      ],
+      "lat": 9.9995092,
+      "lng": -84.1230075,
+      "source": "nominatim",
+      "confidence": "medium",
+      "note": "display: Estadio Eladio Rosabal Cordero, Mercedes Norte, Heredia, 40102, Costa Rica"
+    },
+    {
+      "id": "her_hospital_svp",
+      "label_es": "Antiguo Hospital San Vicente De Paul",
+      "tier": "anchor",
+      "raw_names": [
+        "Antiguo Hospital San Vicente De Paul"
+      ],
+      "lat": 9.990397,
+      "lng": -84.1218642,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Hospital San Vicente de Paúl, Avenida 16, Los Ángeles, Heredia, 40101, Costa Rica"
+    },
+    {
+      "id": "her_paseo_flores",
+      "label_es": "Paseo De Las Flores",
+      "tier": "landmark",
+      "raw_names": [
+        "Paseo De Las Flores, Heredia"
+      ],
+      "lat": 9.9849782,
+      "lng": -84.1113713,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Paseo de las Flores, Avenida La Milpa, La Radial 1, San Francisco, Heredia, 40103, Costa Rica"
+    },
+    {
+      "id": "her_pequeno_mundo",
+      "label_es": "Pequeño Mundo",
+      "tier": "landmark",
+      "raw_names": [
+        "Pequeño Mundo, Heredia"
+      ],
+      "lat": 10.000154,
+      "lng": -84.1442635,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Pequeño Mundo, Calle Real, La Pancha, Mercedes Norte, Mercedes, Heredia, 40102, Costa Rica"
+    },
+    {
+      "id": "her_pizza_sta_cecilia",
+      "label_es": "Frente A Pizzería Santa Cecilia",
+      "tier": "mid",
+      "raw_names": [
+        "Frente A Pizzería Santa Cecilia, Heredia"
+      ],
+      "lat": 9.9913701,
+      "lng": -84.1367962,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Pizzería Santa Cecilia, Vía 111, Gran Samaria, San Francisco, Heredia, 40103, Costa Rica"
+    },
+    {
+      "id": "her_plaza_bratzi",
+      "label_es": "Plaza Bratsi",
+      "tier": "landmark",
+      "raw_names": [
+        "Plaza Bratsi, Heredia"
+      ],
+      "lat": 9.9880564,
+      "lng": -84.1115538,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Plaza Bratsi, San Francisco, Heredia, 40103, Costa Rica"
+    },
+    {
+      "id": "her_polideportivo",
+      "label_es": "Polideportivo Santa Cecilia",
+      "tier": "landmark",
+      "raw_names": [
+        "Polideportivo Santa Cecilia, Heredia",
+        "Frente A Polideportivo Santa Cecilia, Heredia"
+      ],
+      "lat": 9.9885181,
+      "lng": -84.1394286,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Polideportivo Santa Cecilia, Calle La Simona, Santa Cecilia, Ulloa, Heredia, 40104, Costa Rica"
+    },
+    {
+      "id": "her_pricesmart_acera",
+      "label_es": "Contiguo A Pricesmart",
+      "tier": "landmark",
+      "raw_names": [
+        "Contiguo A Pricesmart"
+      ],
+      "lat": 9.9829195,
+      "lng": -84.1076434,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: PriceSmart, Radial Heredia, Zona Industrial, Rincón de Sabanilla, San Pablo, Heredia, 40902, Costa Rica"
+    },
+    {
+      "id": "her_super_sanfran",
+      "label_es": "Contiguo A Supermercado San Francisco",
+      "tier": "landmark",
+      "raw_names": [
+        "Contiguo A Supermercado San Francisco, Urb. La Victoria Heredia",
+        "Frente A Super San Francisco, Urb. La Victoria Heredia"
+      ],
+      "lat": 9.9880163,
+      "lng": -84.1342011,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Feria San Francisco, Alameda R, Residencial San Francisco, Ulloa, Heredia, 40104, Costa Rica"
+    },
+    {
+      "id": "her_uhispano",
+      "label_es": "Universidad Hispanoamericana",
+      "tier": "landmark",
+      "raw_names": [
+        "Universidad Hispanoamericana, Pirro Heredia"
+      ],
+      "lat": 9.9919742,
+      "lng": -84.1124995,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Universidad Hispanoamericana, Radial Heredia, Pirro, Heredia, 40101, Costa Rica"
+    },
+    {
+      "id": "her_ultrapark",
+      "label_es": "Frente A Ultrapark Lagunilla",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Ultrapark Lagunilla, Heredia",
+        "Ultrapark Lagunilla, Heredia"
+      ],
+      "lat": 9.9644658,
+      "lng": -84.1204548,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Zona Franca Ultrapark 2, Alameda E, Lagunilla, Ulloa, Heredia, 40104, Costa Rica"
+    },
+    {
+      "id": "her_zf_metropolitana",
+      "label_es": "Zona Franca Metropolitana",
+      "tier": "landmark",
+      "raw_names": [
+        "Zona Franca Metropolitana, Barreal Heredia"
+      ],
+      "lat": 9.9819535,
+      "lng": -84.145376,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Zona Franca Metropolitana, Ulloa, Heredia, 40104, Costa Rica"
+    },
+    {
+      "id": "sd_ebais",
+      "label_es": "Frente A EBAIS De Santo Domingo",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A EBAIS De Santo Domingo"
+      ],
+      "lat": 9.9812688,
+      "lng": -84.0897539,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Ebais Santo Domingo, Calle 3, Urbanización Villas de la Quintana, Santo Domingo, San Pablo, Heredia, 40901, Costa Rica"
+    },
+    {
+      "id": "sd_pali",
+      "label_es": "Frente A Palí De Santo Domingo",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Palí De Santo Domingo"
+      ],
+      "lat": 9.9792301,
+      "lng": -84.0904733,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Palí, Calle 1 Ignacio Bolaños, Santo Domingo, Heredia, 40301, Costa Rica"
+    },
+    {
+      "id": "sj_cementerio_extranjero",
+      "label_es": "Frente A Cementerio Extranjero",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Cementerio Extranjero, San José"
+      ],
+      "lat": 9.9300244,
+      "lng": -84.0882662,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Cementerio Extranjero, 0114, Hospital, San José, Área Metropolitana de San José, San José, 10103, Costa Rica"
+    },
+    {
+      "id": "sj_mxm_mantica",
+      "label_es": "Más X Menos Mántica",
+      "tier": "landmark",
+      "raw_names": [
+        "Más X Menos Mántica, Autopista General Cañas San José"
+      ],
+      "lat": 9.9393675,
+      "lng": -84.0977282,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Más X Menos, 0004, Calle 42 Libertad de Prensa, Mántica, Merced, San José, Área Metropolitana de San José, San José, 101"
+    },
+    {
+      "id": "sj_tournon_servicentro",
+      "label_es": "Contiguo A Servicentro Tournón",
+      "tier": "mid",
+      "raw_names": [
+        "Contiguo A Servicentro Tournón, San José"
+      ],
+      "lat": 9.9426708,
+      "lng": -84.078862,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Servicentro Tournón, Calle Central, Santa Teresa, Cinco Esquinas, Tibás, Área Metropolitana de San José, San José, 11302"
+    },
+    {
+      "id": "sp_cementerio",
+      "label_es": "Cementerio Municipal De San Pablo",
+      "tier": "landmark",
+      "raw_names": [
+        "Cementerio Municipal De San Pablo"
+      ],
+      "lat": 10.0198281,
+      "lng": -84.1348346,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Cementerio Municipal de Barva, San Pablo, Barva, Heredia, 40203, Costa Rica"
+    },
+    {
+      "id": "sp_mxm",
+      "label_es": "Más X Menos De San Pablo",
+      "tier": "landmark",
+      "raw_names": [
+        "Más X Menos De San Pablo"
+      ],
+      "lat": 9.98841,
+      "lng": -84.0989668,
+      "source": "nominatim",
+      "confidence": "low",
+      "note": "display: Más X Menos, Calle Fernando, Rincón de Ricardo, Rincón de Sabanilla, San Pablo, Heredia, 40902, Costa Rica"
+    },
+    {
+      "id": "her_term_braulio",
+      "label_es": "Terminal Heredia",
+      "tier": "anchor",
+      "raw_names": [
+        "Terminal Heredia, Frente A Escuela Braulio Morales"
+      ],
+      "lat": 9.9985,
+      "lng": -84.1158,
+      "source": "seed_existing",
+      "confidence": "high",
+      "note": "kept from existing app/seed/stops.json"
+    },
+    {
+      "id": "her_una",
+      "label_es": "Universidad Nacional De Costa Rica",
+      "tier": "landmark",
+      "raw_names": [
+        "Universidad Nacional De Costa Rica, Heredia"
+      ],
+      "lat": 10.0024,
+      "lng": -84.1099,
+      "source": "seed_existing",
+      "confidence": "high",
+      "note": "kept from existing app/seed/stops.json"
+    },
+    {
+      "id": "pte_virilla",
+      "label_es": "Posterior A Puente Río Virilla",
+      "tier": "corner",
+      "raw_names": [
+        "Posterior A Puente Río Virilla, Vuelta Del Virilla San José"
+      ],
+      "lat": 9.9676,
+      "lng": -84.1109,
+      "source": "seed_existing",
+      "confidence": "high",
+      "note": "kept from existing app/seed/stops.json"
+    },
+    {
+      "id": "sd_plaza",
+      "label_es": "Frente A Plaza Santo Domingo",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Plaza Santo Domingo"
+      ],
+      "lat": 9.9718,
+      "lng": -84.0881,
+      "source": "seed_existing",
+      "confidence": "high",
+      "note": "kept from existing app/seed/stops.json"
+    },
+    {
+      "id": "sj_corobici",
+      "label_es": "Hotel Crown Plaza Corobicí",
+      "tier": "landmark",
+      "raw_names": [
+        "Hotel Crown Plaza Corobicí, Autopista General Cañas San José"
+      ],
+      "lat": 9.9412,
+      "lng": -84.1019,
+      "source": "seed_existing",
+      "confidence": "high",
+      "note": "kept from existing app/seed/stops.json"
+    },
+    {
+      "id": "sj_irazu",
+      "label_es": "Hotel Irazú",
+      "tier": "landmark",
+      "raw_names": [
+        "Hotel Irazú, Autopista General Cañas San José"
+      ],
+      "lat": 9.9494,
+      "lng": -84.1098,
+      "source": "seed_existing",
+      "confidence": "high",
+      "note": "kept from existing app/seed/stops.json"
+    },
+    {
+      "id": "sj_term_cocacola",
+      "label_es": "Costado Oeste Terminal 7-10",
+      "tier": "anchor",
+      "raw_names": [
+        "Costado Oeste Terminal 7-10, Paso De La Vaca San José"
+      ],
+      "lat": 9.9363,
+      "lng": -84.0861,
+      "source": "seed_existing",
+      "confidence": "high",
+      "note": "kept from existing app/seed/stops.json"
+    },
+    {
+      "id": "sj_tibas_cinco",
+      "label_es": "Frente A Guitarras Arristedes Guzmán",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Guitarras Arristedes Guzmán, Cinco Esquinas De Tibás",
+        "Frente A Iglesia Tierra De Milagros, Cinco Esquinas De Tibás"
+      ],
+      "lat": 9.9474,
+      "lng": -84.0823,
+      "source": "seed_existing",
+      "confidence": "high",
+      "note": "kept from existing app/seed/stops.json"
+    },
+    {
+      "id": "her_ampm_barreal",
+      "label_es": "Frente A Ampm",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Ampm, Barreal Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_arrocera_sabanero",
+      "label_es": "Antigua Arrocera El Sabanero",
+      "tier": "corner",
+      "raw_names": [
+        "Antigua Arrocera El Sabanero, La Valencia De Heredia",
+        "Antigua Arrocera El Sabanero, La Valencia Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_aurora_sur",
+      "label_es": "La Aurora Sur - Avenida Guanacaste",
+      "tier": "corner",
+      "raw_names": [
+        "La Aurora Sur - Avenida Guanacaste, La Aurora Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_autopits_pirro",
+      "label_es": "Autopits Heredia Pirro",
+      "tier": "corner",
+      "raw_names": [
+        "Autopits Heredia Pirro, Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_calle_azofeifa",
+      "label_es": "Cruce Con Calle Azofeifa",
+      "tier": "corner",
+      "raw_names": [
+        "Cruce Con Calle Azofeifa, Lagunilla Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_cc_lagunilla",
+      "label_es": "Frente A Centro Comercial Lagunilla",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Centro Comercial Lagunilla, Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_clinica_bolanos",
+      "label_es": "Contiguo A Área De Salud Clínica Dr. Francisco Bolaños",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Área De Salud Clínica Dr. Francisco Bolaños, Fátima De Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_cn_barreal",
+      "label_es": "Centro De Negocios Barreal",
+      "tier": "corner",
+      "raw_names": [
+        "Centro De Negocios Barreal, Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_congelados_monte",
+      "label_es": "Frente A Congelados Del Monte",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Congelados Del Monte, Barreal Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_cosechas_barreal",
+      "label_es": "Batidos Naturales Cosechas Barreal",
+      "tier": "corner",
+      "raw_names": [
+        "Batidos Naturales Cosechas Barreal, Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_cruce_aurora",
+      "label_es": "Cercanías Cruce La Aurora",
+      "tier": "corner",
+      "raw_names": [
+        "Cercanías Cruce La Aurora, Barreal Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_curva_aurora",
+      "label_es": "Curva Entrada La Aurora",
+      "tier": "corner",
+      "raw_names": [
+        "Curva Entrada La Aurora, Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_eco_urbano",
+      "label_es": "Contiguo A Entrada Cond. Eco Heredia Urbano",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Entrada Cond. Eco Heredia Urbano, La Puebla De Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_esc_aurora",
+      "label_es": "Frente A Escuela La Aurora",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Escuela La Aurora"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_esc_villalobos",
+      "label_es": "Frente A Escuela Villalobos",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Escuela Villalobos, Lagunilla Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_estrella_china",
+      "label_es": "Restaurante Estrella China",
+      "tier": "mid",
+      "raw_names": [
+        "Restaurante Estrella China, La Aurora Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_fab_bolsas",
+      "label_es": "Fabrica Nacional De Bolsas",
+      "tier": "corner",
+      "raw_names": [
+        "Fabrica Nacional De Bolsas, Barreal Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_fidelitas",
+      "label_es": "Frente A Universidad Fidélitas Campus Sede Santa Cecilia",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Universidad Fidélitas Campus Sede Santa Cecilia, Heredia",
+        "Universidad Fidélitas Sede Santa Cecilia, Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_florida_bebidas",
+      "label_es": "Frente A Florida Bebidas",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Florida Bebidas, Barreal Heredia",
+        "Contiguo A Entrada Florida Bebidas, Barreal Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_hotel_cristina",
+      "label_es": "Contiguo A Hotel D Cristina",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Hotel D Cristina, Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_iglesia_hareb",
+      "label_es": "Iglesia Cristiana Monte Hareb",
+      "tier": "landmark",
+      "raw_names": [
+        "Iglesia Cristiana Monte Hareb, Urb. La Victoria Heredia",
+        "Frente A Iglesia Cristiana Monte Hareb, Urb. La Victoria Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_interlogic",
+      "label_es": "Interlogic",
+      "tier": "corner",
+      "raw_names": [
+        "Interlogic, Lagunilla Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_jard_recuerdo",
+      "label_es": "Contiguo A Entrada Jardines Del Recuerdo",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Entrada Jardines Del Recuerdo, La Valencia De Heredia",
+        "Contiguo A Entrada Jardines Del Recuerdo, La Valencia Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_kia",
+      "label_es": "Contiguo A Kia Motors",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Kia Motors"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_lab_grith",
+      "label_es": "Frente A Laboratorios Grith",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Laboratorios Grith, Lagunilla Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_liceo_gym",
+      "label_es": "Costado Sur Gimnasio Liceo De Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Costado Sur Gimnasio Liceo De Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_los_lagos_entr",
+      "label_es": "Contiguo A Entrada Urb. Los Lagos",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Entrada Urb. Los Lagos, Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_mar_y_fuego",
+      "label_es": "Marisquería Mar Y Fuego",
+      "tier": "corner",
+      "raw_names": [
+        "Marisquería Mar Y Fuego, Santa Cecilia Heredia",
+        "Marisqueria Mar Y Fuego, Santa Cecilia Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_mas_pollo",
+      "label_es": "Mas Pollo Santa Cecilia",
+      "tier": "corner",
+      "raw_names": [
+        "Mas Pollo Santa Cecilia, Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_mcd_valencia",
+      "label_es": "Contiguo A MC Donald's La Valencia",
+      "tier": "landmark",
+      "raw_names": [
+        "Contiguo A MC Donald's La Valencia, Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_multicomercial_baden",
+      "label_es": "Frente A Multicomercial Baden",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Multicomercial Baden, Barreal Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_outlet_center",
+      "label_es": "Frente A Outlet Center",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Outlet Center, Barreal Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_pan_leandro",
+      "label_es": "Frente A Panadería Y Repostería Leandro",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Panadería Y Repostería Leandro, Fátima De Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_parque_aries",
+      "label_es": "Frente A Parque Aries",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Parque Aries, La Aurora Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_parque_aurora",
+      "label_es": "Parque De La Aurora",
+      "tier": "corner",
+      "raw_names": [
+        "Parque De La Aurora, Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_parque_sta_cecilia",
+      "label_es": "Parque Santa Cecilia",
+      "tier": "corner",
+      "raw_names": [
+        "Parque Santa Cecilia, Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_parroquia_aurora",
+      "label_es": "Parroquia Corpus Christi La Aurora",
+      "tier": "corner",
+      "raw_names": [
+        "Parroquia Corpus Christi La Aurora, Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_parroquia_barreal",
+      "label_es": "Parroquia Patriarca San José",
+      "tier": "corner",
+      "raw_names": [
+        "Parroquia Patriarca San José, Barreal Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_peluditos",
+      "label_es": "Peluditos Pet Shop",
+      "tier": "corner",
+      "raw_names": [
+        "Peluditos Pet Shop, La Aurora Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_plantel_mrh",
+      "label_es": "Plantel Autobuses Rápidos Heredianos",
+      "tier": "landmark",
+      "raw_names": [
+        "Plantel Autobuses Rápidos Heredianos, Pirro Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_plaza_allegro",
+      "label_es": "Plaza Comercial Allegro",
+      "tier": "corner",
+      "raw_names": [
+        "Plaza Comercial Allegro, Lagunilla Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_plaza_puebla",
+      "label_es": "Diagonal A Plaza De Deportes La Puebla",
+      "tier": "corner",
+      "raw_names": [
+        "Diagonal A Plaza De Deportes La Puebla, Heredia",
+        "Frente A Plaza De Deportes La Puebla, Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_publiex",
+      "label_es": "Agencia De Publicidad Publiex",
+      "tier": "corner",
+      "raw_names": [
+        "Agencia De Publicidad Publiex, La Aurora Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_real_santamaria",
+      "label_es": "Entrada Res. Real Santamaría",
+      "tier": "corner",
+      "raw_names": [
+        "Entrada Res. Real Santamaría, Lagunilla Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_real_santamaria_o",
+      "label_es": "Contiguo A Entrada Res. Real Santamaria Oeste",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Entrada Res. Real Santamaria Oeste, Barreal Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_repuestos_gigante",
+      "label_es": "Repuestos Gigante La Valencia",
+      "tier": "corner",
+      "raw_names": [
+        "Repuestos Gigante La Valencia, Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_san_agustin_sur",
+      "label_es": "Entrada Sur Cond. Hacienda San Agustín",
+      "tier": "corner",
+      "raw_names": [
+        "Entrada Sur Cond. Hacienda San Agustín, Santa Cecilia Heredia",
+        "Frente A Entrada Sur Cond. San Agustín, Santa Cecilia Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_servicentro_barreal",
+      "label_es": "Servicentro Uno Barreal",
+      "tier": "mid",
+      "raw_names": [
+        "Servicentro Uno Barreal, Heredia",
+        "Frente A Servicentro Uno Barreal, Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_servicentro_casaque",
+      "label_es": "Frente A Servicentro Casaque",
+      "tier": "mid",
+      "raw_names": [
+        "Frente A Servicentro Casaque, Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_shots_lico",
+      "label_es": "Shots Lico Market",
+      "tier": "corner",
+      "raw_names": [
+        "Shots Lico Market, Santa Cecilia Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_soda_ponche",
+      "label_es": "Contiguo A Soda Ponche Real",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Soda Ponche Real, Barreal Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_super_miraflores",
+      "label_es": "Super Miraflores",
+      "tier": "mid",
+      "raw_names": [
+        "Super Miraflores, Pirro Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_super_taim",
+      "label_es": "Frente A Super Taim",
+      "tier": "mid",
+      "raw_names": [
+        "Frente A Super Taim, Lagunilla Heredia",
+        "Super Taim, Lagunilla Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_tanque_aurora",
+      "label_es": "Tanque Agua La Aurora",
+      "tier": "corner",
+      "raw_names": [
+        "Tanque Agua La Aurora, Heredia",
+        "Frente A Tanque Agua La Aurora, Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_una_lagunilla",
+      "label_es": "Frente A Campus Presbítero Benjamín Núñez Universidad Nacional",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Campus Presbítero Benjamín Núñez Universidad Nacional, Lagunilla Heredia",
+        "Campus Presbítero Benjamín Núñez Universidad Nacional, Lagunilla Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_walmart_los_lagos",
+      "label_es": "Frente A Walmart Los Lagos",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Walmart Los Lagos"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "pte_bermudez_post",
+      "label_es": "Posterior A Puente Río Bermudez",
+      "tier": "corner",
+      "raw_names": [
+        "Posterior A Puente Río Bermudez, Barreal Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "pte_bermudez_pre",
+      "label_es": "Previo A Puente Río Bermúdez",
+      "tier": "corner",
+      "raw_names": [
+        "Previo A Puente Río Bermúdez, Barreal Heredia"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "pte_virilla_pre",
+      "label_es": "Previo A Puente Río Virilla",
+      "tier": "corner",
+      "raw_names": [
+        "Previo A Puente Río Virilla, Vuelta Del Virilla San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sd_autos_poblado",
+      "label_es": "Contiguo A Autos El Poblado",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Autos El Poblado, Santo Domingo",
+        "Diagonal Autos El Poblado, Santo Domingo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sd_autos_sd",
+      "label_es": "Contiguo A Autos Santo Domingo",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Autos Santo Domingo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sd_barrio_sta_rosa",
+      "label_es": "Entrada A Barrio Santa Rosa",
+      "tier": "corner",
+      "raw_names": [
+        "Entrada A Barrio Santa Rosa, Santo Domingo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sd_bk_plaza",
+      "label_es": "Contiguo A Burguer King Plaza Santo Domingo",
+      "tier": "landmark",
+      "raw_names": [
+        "Contiguo A Burguer King Plaza Santo Domingo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sd_bomberos",
+      "label_es": "Contiguo A Estación De Bomberos Santo Domingo",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Estación De Bomberos Santo Domingo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sd_carnes_sta_rosa",
+      "label_es": "Centro De Carnes Santa Rosa",
+      "tier": "corner",
+      "raw_names": [
+        "Centro De Carnes Santa Rosa, Santo Domingo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sd_iglesia_rosario",
+      "label_es": "Costado Posterior Iglesia Católica De El Rosario",
+      "tier": "corner",
+      "raw_names": [
+        "Costado Posterior Iglesia Católica De El Rosario, Santo Domingo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sd_lapa_verde",
+      "label_es": "Frente A Centro Cultura Lapa Verde",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Centro Cultura Lapa Verde, Santo Domingo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sd_mcd",
+      "label_es": "Frente A MC Donald's De Santo Domingo",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A MC Donald's De Santo Domingo",
+        "Contiguo A MC Donald's De Santo Domingo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sd_minibodegas",
+      "label_es": "Contiguo A Minibodegas",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Minibodegas, Santo Domingo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sd_minisuper_bp",
+      "label_es": "Minisuper El Buen Precio",
+      "tier": "corner",
+      "raw_names": [
+        "Minisuper El Buen Precio, Santo Domingo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sd_mopt",
+      "label_es": "Frente A Plantel Del MOPT De Santo Domingo",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Plantel Del MOPT De Santo Domingo",
+        "Plantel Del MOPT De Santo Domingo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sd_pizza_napoli",
+      "label_es": "Frente A Pizerría Napoli",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Pizerría Napoli, Santo Domingo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sd_sognos",
+      "label_es": "Frente A Sognos Café",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Sognos Café, Santo Domingo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_autostar",
+      "label_es": "Auto Star La Uruca",
+      "tier": "corner",
+      "raw_names": [
+        "Auto Star La Uruca, San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_botica_solera",
+      "label_es": "Antigua Botica Solera",
+      "tier": "corner",
+      "raw_names": [
+        "Antigua Botica Solera, Barrio México San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_cn_virilla",
+      "label_es": "Agencia CN Plantel Virrilla",
+      "tier": "corner",
+      "raw_names": [
+        "Agencia CN Plantel Virrilla, Zona Industrial La Uruca San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_comeca",
+      "label_es": "Frente A Envases Comeca",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Envases Comeca, La Uruca San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_credi_motors",
+      "label_es": "Credi Motors",
+      "tier": "corner",
+      "raw_names": [
+        "Credi Motors, Iglesias Flores San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_ejercito_salvacion",
+      "label_es": "Centro De Convivencia Ejército De Salvación",
+      "tier": "corner",
+      "raw_names": [
+        "Centro De Convivencia Ejército De Salvación, Bajos De La Unión San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_esc_jrm",
+      "label_es": "Costado Norte Escuela Juan Rafael Mora",
+      "tier": "corner",
+      "raw_names": [
+        "Costado Norte Escuela Juan Rafael Mora, Pitahaya San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_faco_uruca",
+      "label_es": "Faco La Uruca",
+      "tier": "corner",
+      "raw_names": [
+        "Faco La Uruca, Piemonte San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_font",
+      "label_es": "Corporación Font",
+      "tier": "corner",
+      "raw_names": [
+        "Corporación Font, Zona Industrial La Uruca San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_ford",
+      "label_es": "Contiguo A Agencia Ford",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Agencia Ford, Bajo Torres San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_ftz_cocacola",
+      "label_es": "FTZ Coca Cola La Uruca",
+      "tier": "landmark",
+      "raw_names": [
+        "FTZ Coca Cola La Uruca, San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_funeraria_mag",
+      "label_es": "Funeraria Del Magisterio Nacional",
+      "tier": "corner",
+      "raw_names": [
+        "Funeraria Del Magisterio Nacional, Pitahaya San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_geely",
+      "label_es": "Agencia Autos Geely",
+      "tier": "corner",
+      "raw_names": [
+        "Agencia Autos Geely, La Uruca San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_greatwall",
+      "label_es": "Great Wall La Uruca",
+      "tier": "corner",
+      "raw_names": [
+        "Great Wall La Uruca, San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_guanacasteco",
+      "label_es": "Abastecedor El Guanacasteco",
+      "tier": "corner",
+      "raw_names": [
+        "Abastecedor El Guanacasteco, Iglesias Flores San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_ict",
+      "label_es": "Oficinas Centrales ICT",
+      "tier": "landmark",
+      "raw_names": [
+        "Oficinas Centrales ICT, La Uruca San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_lacsa",
+      "label_es": "Antigua Lacsa",
+      "tier": "corner",
+      "raw_names": [
+        "Antigua Lacsa, La Uruca San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_matra",
+      "label_es": "Contiguo A Matra La Uruca",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Matra La Uruca, San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_monumento_agua",
+      "label_es": "Monumento Agua",
+      "tier": "corner",
+      "raw_names": [
+        "Monumento Agua, Autopista General Cañas San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_mot_britanicos",
+      "label_es": "Motores Británicos",
+      "tier": "corner",
+      "raw_names": [
+        "Motores Británicos, Piemonte San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_phadthai",
+      "label_es": "Contiguo A Rest. Phad Thai",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Rest. Phad Thai, Pitahaya San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_plaza_uruca",
+      "label_es": "Plaza De Deportes La Uruca",
+      "tier": "corner",
+      "raw_names": [
+        "Plaza De Deportes La Uruca, San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_purdy_motor",
+      "label_es": "Frente A Agencia Purdy Motor",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Agencia Purdy Motor, Zona Industrial La Uruca San José",
+        "Agencia Purdy Motor, Zona Industrial La Uruca San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_renault",
+      "label_es": "Agencia Renault La Uruca",
+      "tier": "corner",
+      "raw_names": [
+        "Agencia Renault La Uruca, San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_sagot",
+      "label_es": "Tienda Sagot",
+      "tier": "corner",
+      "raw_names": [
+        "Tienda Sagot, La Uruca San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_suzuki",
+      "label_es": "Agencia De Motocicletas Suzuki",
+      "tier": "corner",
+      "raw_names": [
+        "Agencia De Motocicletas Suzuki, La Uruca San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_tournon_edos",
+      "label_es": "Multiservicios Edos",
+      "tier": "corner",
+      "raw_names": [
+        "Multiservicios Edos, Tournón San José",
+        "Frente A Multiservicios Edus, Tournón San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_tournon_int",
+      "label_es": "Intersección Barrio Tournon",
+      "tier": "corner",
+      "raw_names": [
+        "Intersección Barrio Tournon, San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_tryp_sabana",
+      "label_es": "Diagonal A Hotel Tryp Sabana",
+      "tier": "corner",
+      "raw_names": [
+        "Diagonal A Hotel Tryp Sabana, Mántica San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sj_yamuni",
+      "label_es": "Contiguo A Tienda Yamuni",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Tienda Yamuni, San Francisco San José"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sp_colegio_europeo",
+      "label_es": "Contiguo A Entrada Colegio Europeo",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Entrada Colegio Europeo, San Pablo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sp_cond_via_heredia",
+      "label_es": "Contiguo A Entrada Cond. Vía Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Entrada Cond. Vía Heredia, San Pablo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sp_esquina_sabor",
+      "label_es": "Frente A Rest. La Esquina Del Sabor",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Rest. La Esquina Del Sabor, San Pablo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sp_iglesia_oracion",
+      "label_es": "Iglesia Casa De Oración San Pablo",
+      "tier": "corner",
+      "raw_names": [
+        "Iglesia Casa De Oración San Pablo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sp_lavacar_olas",
+      "label_es": "Lavacar Olas",
+      "tier": "corner",
+      "raw_names": [
+        "Lavacar Olas, San Pablo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sp_miraflores",
+      "label_es": "Contiguo A Entrada Miraflores",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Entrada Miraflores, San Pablo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sp_pan_chantilly",
+      "label_es": "Panadería Y Repostería Chantilly",
+      "tier": "corner",
+      "raw_names": [
+        "Panadería Y Repostería Chantilly, San Pablo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sp_perla_asia",
+      "label_es": "Frente A Rest. La Perla De Asia",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Rest. La Perla De Asia, San Pablo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sp_taller_sys",
+      "label_es": "Frente A Taller Sys",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Taller Sys, San Pablo",
+        "Contiguo A Taller Sys, San Pablo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "sp_vistas_sp",
+      "label_es": "Contiguo A Entrada Cond. Vistas De San Pablo",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Entrada Cond. Vistas De San Pablo, San Pablo"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "tib_autos_xiri",
+      "label_es": "Autos Usados Xiri",
+      "tier": "corner",
+      "raw_names": [
+        "Autos Usados Xiri, San Juan De Tibás"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "tib_bac",
+      "label_es": "Agencia BAC Credomatic San Juan",
+      "tier": "mid",
+      "raw_names": [
+        "Agencia BAC Credomatic San Juan, Tibás"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "tib_coopetaxi",
+      "label_es": "Frente A Servicentro Coopetaxi",
+      "tier": "mid",
+      "raw_names": [
+        "Frente A Servicentro Coopetaxi, San Juan De Tibás"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "tib_gran_oriente",
+      "label_es": "Contiguo A Rest. Gran Oriente",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Rest. Gran Oriente, San Juan Tibás"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "tib_ins",
+      "label_es": "Cercanías A Agencia INS San Juan",
+      "tier": "corner",
+      "raw_names": [
+        "Cercanías A Agencia INS San Juan, Tibás"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "tib_morocco",
+      "label_es": "Contiguo A Autoservicio Morocco",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Autoservicio Morocco, San Juan De Tibás"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "tib_mueb_la_kasa",
+      "label_es": "Frente A Mueblería La Kasa",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Mueblería La Kasa, San Juan De Tibás"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "tib_parque_democracia",
+      "label_es": "Costado Norte Parque La Democracia",
+      "tier": "corner",
+      "raw_names": [
+        "Costado Norte Parque La Democracia, San Juan De Tibás"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "tib_pizzahut",
+      "label_es": "Frente A Pizza Hut San Juan",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Pizza Hut San Juan, Tibás"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "tib_plantel_caribenos",
+      "label_es": "Plantel Caribeños",
+      "tier": "corner",
+      "raw_names": [
+        "Plantel Caribeños, Cinco Esquinas De Tibás"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "tib_pops",
+      "label_es": "Pops Santa Mónica",
+      "tier": "landmark",
+      "raw_names": [
+        "Pops Santa Mónica, Tibás"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "tib_sabucedo",
+      "label_es": "Parqueo Publico Sabucedo",
+      "tier": "corner",
+      "raw_names": [
+        "Parqueo Publico Sabucedo, San Juan De Tibás"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "tib_sonmerus",
+      "label_es": "Grupo Sonmerus",
+      "tier": "corner",
+      "raw_names": [
+        "Grupo Sonmerus, San Juan De Tibás"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "tib_valvanera",
+      "label_es": "Contiguo A Super La Valvanera",
+      "tier": "mid",
+      "raw_names": [
+        "Contiguo A Super La Valvanera, San Juan De Tibás",
+        "Frente A Super La Valvanera, San Juan De Tibás"
+      ],
+      "lat": null,
+      "lng": null,
+      "source": "unresolved",
+      "confidence": "none",
+      "note": "no coord source"
+    },
+    {
+      "id": "her_cenada",
+      "label_es": "Terminal Cenada",
+      "tier": "anchor",
+      "raw_names": [
+        "Terminal Cenada, Heredia"
+      ],
+      "lat": 9.97946,
+      "lng": -84.15257,
+      "source": "verified_md",
+      "confidence": "high",
+      "note": "verified_md (her_cenada, high)"
+    },
+    {
+      "id": "her_estadio",
+      "label_es": "Frente A Estadio Eladio Rosabal Cordero",
+      "tier": "landmark",
+      "raw_names": [
+        "Frente A Estadio Eladio Rosabal Cordero, Heredia"
+      ],
+      "lat": 9.99952,
+      "lng": -84.12311,
+      "source": "verified_md",
+      "confidence": "high",
+      "note": "verified_md (her_estadio_eladio_rosabal_cordero, high)"
+    },
+    {
+      "id": "her_term_400",
+      "label_es": "Terminal Heredia",
+      "tier": "anchor",
+      "raw_names": [
+        "Terminal Heredia, Contiguo A Súper Fácil"
+      ],
+      "lat": 9.995477331704198,
+      "lng": -84.11685792654782,
+      "source": "verified_md",
+      "confidence": "high",
+      "note": "verified_md (her_terminal_la400_super_facil, high)"
+    },
+    {
+      "id": "her_term_mc",
+      "label_es": "Terminal Heredia",
+      "tier": "anchor",
+      "raw_names": [
+        "Terminal Heredia, Frente A Mercado Central Heredia"
+      ],
+      "lat": 9.995570380351435,
+      "lng": -84.1177170535821,
+      "source": "verified_md",
+      "confidence": "high",
+      "note": "verified_md (her_terminal_mercado_central, high)"
+    },
+    {
+      "id": "sj_migracion",
+      "label_es": "Cercanía A Migración",
+      "tier": "corner",
+      "raw_names": [
+        "Cercanía A Migración, La Uruca San José",
+        "Cercanía Migración, La Uruca San José"
+      ],
+      "lat": 9.95678,
+      "lng": -84.11353,
+      "source": "verified_md",
+      "confidence": "high",
+      "note": "verified_md (sj_migracion_la_uruca_parqueo, medium)"
+    },
+    {
+      "id": "sj_term_400u",
+      "label_es": "Terminal San José",
+      "tier": "anchor",
+      "raw_names": [
+        "Terminal San José"
+      ],
+      "lat": 9.93641623106166,
+      "lng": -84.08055184129225,
+      "source": "verified_md",
+      "confidence": "high",
+      "note": "verified_md (sj_terminal_san_jose_400, high)"
+    },
+    {
+      "id": "sj_term_rh",
+      "label_es": "Terminal Rápidos Heredianos",
+      "tier": "anchor",
+      "raw_names": [
+        "Terminal Rápidos Heredianos, San José"
+      ],
+      "lat": 9.937830448742044,
+      "lng": -84.0779492707476,
+      "source": "verified_md",
+      "confidence": "high",
+      "note": "verified_md (sj_terminal_rapidos_heredianos, high)"
+    }
+  ]
+}
