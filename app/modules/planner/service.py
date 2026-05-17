@@ -251,9 +251,10 @@ class PlannerService:
 
         ranked_ids = sorted(scored.items(), key=lambda kv: kv[1], reverse=True)
         ranked_ids = ranked_ids[:max_candidates]
+        cached_stops = seed_cache.get_cache(self.session).stops_by_id
         stops: list[Stop] = []
         for stop_id, _ in ranked_ids:
-            stop = self.session.get(Stop, stop_id)
+            stop = cached_stops.get(stop_id)
             if stop is not None:
                 stops.append(stop)
         return [
@@ -322,7 +323,7 @@ class PlannerService:
         return [(row[0], float(row[1])) for row in rows]
 
     def _nearest_stop(self, lat: float, lng: float) -> Stop | None:
-        stops = self.session.scalars(select(Stop)).all()
+        stops = seed_cache.get_cache(self.session).stops_all
         closest: tuple[float, Stop] | None = None
         for stop in stops:
             distance = haversine_m(lat, lng, stop.lat, stop.lng)
@@ -401,7 +402,7 @@ class PlannerService:
                         boarding[0] < transfer_a_index < len(stops_a)
                         and transfer_b_index < alighting[0]
                     ):
-                        transfer_stop = self.session.get(Stop, stop_a.stop_id)
+                        transfer_stop = cache.stops_by_id.get(stop_a.stop_id)
                         if transfer_stop is None:
                             continue
                         route_a = route_by_id[route_a_id]
@@ -472,8 +473,9 @@ class PlannerService:
         self, endpoint: _EndpointCandidate, route_stops: list[RouteStop]
     ) -> tuple[int, Stop, float, int] | None:
         closest: tuple[int, Stop, float, int] | None = None
+        cached_stops = seed_cache.get_cache(self.session).stops_by_id
         for index, route_stop in enumerate(route_stops):
-            stop = self.session.get(Stop, route_stop.stop_id)
+            stop = cached_stops.get(route_stop.stop_id)
             if stop is None:
                 continue
             distance_m = haversine_m(endpoint.lat, endpoint.lng, stop.lat, stop.lng)
@@ -503,10 +505,11 @@ class PlannerService:
         leg: list[dict[str, Any]] = []
         cumulative_min = 0
         slice_ = route_stops[origin_index : destination_index + 1]
+        cached_stops = seed_cache.get_cache(self.session).stops_by_id
         for sequence, route_stop in enumerate(slice_):
             if sequence > 0:
                 cumulative_min += int(route_stop.segment_minutes or 0)
-            stop = self.session.get(Stop, route_stop.stop_id)
+            stop = cached_stops.get(route_stop.stop_id)
             if stop is None:
                 continue
             leg.append(

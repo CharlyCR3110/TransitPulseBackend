@@ -23,6 +23,7 @@ from sqlalchemy.orm import Session
 from app.models.delay_prior import DelayPrior
 from app.models.route import Route, RouteStop
 from app.models.schedule import Schedule
+from app.models.stop import Stop
 
 
 @dataclass(frozen=True)
@@ -42,6 +43,8 @@ class SeedCache:
     route_stops_by_route_dir: dict[tuple[str, str], list[RouteStop]]
     route_stops_all: list[RouteStop]
     serving_by_stop: dict[str, list[ServingEntry]]
+    stops_by_id: dict[str, Stop]
+    stops_all: list[Stop]
 
 
 _CACHE: SeedCache | None = None
@@ -59,6 +62,12 @@ def _build_cache(session: Session) -> SeedCache:
     )
     schedules = list(session.scalars(select(Schedule)).all())
     priors = list(session.scalars(select(DelayPrior)).all())
+    stops = list(session.scalars(select(Stop)).all())
+    # Detach ORM rows so the cache survives the session being closed and
+    # can be safely read from any other session. We only read simple column
+    # attributes (no lazy relationships) so detaching is safe.
+    for row in (*routes, *route_stops, *schedules, *priors, *stops):
+        session.expunge(row)
 
     schedules_by_route_dir: dict[tuple[str, str], list[Schedule]] = defaultdict(list)
     for s in schedules:
@@ -101,6 +110,8 @@ def _build_cache(session: Session) -> SeedCache:
         route_stops_by_route_dir=dict(route_stops_by_route_dir),
         route_stops_all=route_stops,
         serving_by_stop=dict(serving_by_stop),
+        stops_by_id={s.id: s for s in stops},
+        stops_all=stops,
     )
 
 
