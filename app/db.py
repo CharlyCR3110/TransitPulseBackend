@@ -9,8 +9,8 @@ settings = get_settings()
 
 engine = create_engine(
     settings.database_url,
-    pool_size=5,
-    max_overflow=5,
+    pool_size=1,
+    max_overflow=1,
     pool_pre_ping=True,
     pool_recycle=600,
 )
