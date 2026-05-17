@@ -88,35 +88,38 @@ def test_predict_for_origin_stop_returns_eta_with_band(db: Session) -> None:
 
     p = out[0]
     assert p["routeId"] == "400p"
-    assert p["direction"] == "outbound"
+    # Post loop-split: her_term_mc is the origin of 400p INBOUND (Heredia → SJ).
+    assert p["direction"] == "inbound"
     assert p["stopId"] == "her_term_mc"
-    # Mon 7am prior for 400p has mean=3, std=3 → window ±5.88 min around predicted.
+    # Inbound has no delay_prior yet → fallback path (mean=0, std=2), so
+    # predicted == scheduled and window is ±3.92 min.
     assert p["predictedDeparture"] >= p["scheduledDeparture"]
     assert p["windowLow"] <= p["predictedDeparture"] <= p["windowHigh"]
     assert p["confidence"] in {"high", "medium", "low"}
-    assert p["source"] in {"scheduled+prior", "scheduled+observed"}
+    assert p["source"] in {"scheduled+prior", "scheduled+observed", "scheduled+no_prior"}
 
 
 def test_intermediate_stop_uses_cumulative_offset(db: Session) -> None:
-    """her_pricesmart is the 3rd stop on 400p with cumulative offset 8 min from
-    origin (segments 0+3+5). A 7:00 origin departure must arrive there at 7:08,
-    NOT at 7:05 (per-segment misuse) and NOT at 7:00 (zero-offset bug)."""
+    """her_pricesmart_acera is stop_order 7 on 400p inbound with cumulative
+    offset 6 min from her_term_mc (six 1-minute segments). A 7:00 origin
+    departure must arrive there at 7:06, NOT at 7:00 (zero-offset bug)."""
     out = PredictionsService(db).predict_for_stop(
-        "her_pricesmart", horizon_min=60, now_utc=MON_7AM_CR_UTC
+        "her_pricesmart_acera", horizon_min=60, now_utc=MON_7AM_CR_UTC
     )
-    assert out, "expected predictions at her_pricesmart"
+    assert out, "expected predictions at her_pricesmart_acera"
 
-    # Find the prediction whose scheduledDeparture lands exactly on a 7:08-style
-    # arrival (origin 7:00 + 8 min). We accept any prediction whose minute is
-    # NOT one of {00, 12, 24, 36, 48} — those would be the origin departure
-    # times, which would indicate offset_min was treated as 0.
+    # 400p inbound starts at 05:30 with 12-min headway → origin (her_term_mc)
+    # departures land at minutes {30, 42, 54, 06, 18}. With cumulative offset
+    # 6 min, her_pricesmart_acera scheduled minutes must be {36, 48, 00, 12, 24}.
+    # If offset_min were treated as 0, the intermediate minutes would equal the
+    # origin set.
     cr_minutes = {
         p["scheduledDeparture"].astimezone(CR_TZ).minute for p in out
     }
-    origin_only_minutes = {0, 12, 24, 36, 48}
+    origin_only_minutes = {30, 42, 54, 6, 18}
     assert not cr_minutes.issubset(origin_only_minutes), (
-        f"scheduled departures at her_pricesmart should be offset from origin "
-        f"departures by 8 min, but got minutes {cr_minutes} "
+        f"scheduled departures at her_pricesmart_acera should be offset from "
+        f"origin departures by 6 min, but got minutes {cr_minutes} "
         f"(would match origin if offset bug)"
     )
 

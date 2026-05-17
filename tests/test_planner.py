@@ -122,8 +122,24 @@ def test_user_at_pricesmart_boards_at_pricesmart(db: Session) -> None:
         now_utc=MON_7AM_CR_UTC,
     )
     bus_step = _first_bus_step(options, "400p")
-    assert bus_step["boardStopId"] == "her_pricesmart"
-    assert bus_step["boardWalkMin"] == 0
+    assert bus_step["boardStopId"] == "her_pricesmart_acera"
+    # her_pricesmart_acera sits ~5 m from the query coords → ≤ 1 walk min.
+    assert bus_step["boardWalkMin"] <= 1
+
+
+def test_place_query_pricesmart_resolves_to_400p(db: Session) -> None:
+    """Regression: after the 400p loop split, `her_pricesmart` (the actual
+    store coords) was orphaned out of `route_stops`. Searching by place name
+    must still produce a 400p option boarding at the in-route stop
+    `her_pricesmart_acera`."""
+    options = PlannerService(db).search(
+        from_="PriceSmart",
+        to="San José",
+        sort=SortMode.FASTEST,
+        now_utc=MON_7AM_CR_UTC,
+    )
+    bus_step = _first_bus_step(options, "400p")
+    assert bus_step["boardStopId"] == "her_pricesmart_acera"
 
 
 def test_user_far_from_corridor_falls_back_to_legacy_route(db: Session) -> None:
@@ -154,7 +170,7 @@ def test_alight_uses_destination_walk_radius(db: Session) -> None:
 
 def test_walk_minutes_uses_haversine(db: Session) -> None:
     origin = "9.9819,-84.1076"
-    pricesmart = db.get(Stop, "her_pricesmart")
+    pricesmart = db.get(Stop, "her_pricesmart_acera")
     assert pricesmart is not None
     expected_walk_min = int(
         ceil(haversine_m(9.9819, -84.1076, pricesmart.lat, pricesmart.lng) / 80.0)
@@ -167,5 +183,5 @@ def test_walk_minutes_uses_haversine(db: Session) -> None:
         now_utc=MON_7AM_CR_UTC,
     )
     bus_step = _first_bus_step(options, "400p")
-    assert bus_step["boardStopId"] == "her_pricesmart"
+    assert bus_step["boardStopId"] == "her_pricesmart_acera"
     assert bus_step["boardWalkMin"] == expected_walk_min
