@@ -152,5 +152,71 @@
     "end_time": "23:59",
     "explicit_times": null,
     "notes": null
+  },
+  {
+    "route_id": "400u",
+    "direction": "outbound",
+    "service_day": "weekday",
+    "mode": "headway",
+    "headway_min": 12,
+    "start_time": "05:00",
+    "end_time": "22:00",
+    "explicit_times": null,
+    "notes": "Mirrored from 400p (same operator, similar corridor length). SOURCES.md flags Headway as not yet captured from operator."
+  },
+  {
+    "route_id": "400u",
+    "direction": "outbound",
+    "service_day": "saturday",
+    "mode": "headway",
+    "headway_min": 15,
+    "start_time": "05:00",
+    "end_time": "22:00",
+    "explicit_times": null,
+    "notes": null
+  },
+  {
+    "route_id": "400u",
+    "direction": "outbound",
+    "service_day": "sunday_holiday",
+    "mode": "headway",
+    "headway_min": 20,
+    "start_time": "05:00",
+    "end_time": "22:00",
+    "explicit_times": null,
+    "notes": null
+  },
+  {
+    "route_id": "400u",
+    "direction": "inbound",
+    "service_day": "weekday",
+    "mode": "headway",
+    "headway_min": 12,
+    "start_time": "05:30",
+    "end_time": "22:30",
+    "explicit_times": null,
+    "notes": "Inbound (SJ → Heredia). Mirrored from 400p inbound; first SJ-side departure offset by 30 min."
+  },
+  {
+    "route_id": "400u",
+    "direction": "inbound",
+    "service_day": "saturday",
+    "mode": "headway",
+    "headway_min": 15,
+    "start_time": "05:30",
+    "end_time": "22:30",
+    "explicit_times": null,
+    "notes": null
+  },
+  {
+    "route_id": "400u",
+    "direction": "inbound",
+    "service_day": "sunday_holiday",
+    "mode": "headway",
+    "headway_min": 20,
+    "start_time": "05:30",
+    "end_time": "22:30",
+    "explicit_times": null,
+    "notes": null
   }
 ]
