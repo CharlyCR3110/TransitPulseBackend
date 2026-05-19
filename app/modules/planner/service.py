@@ -48,6 +48,7 @@ class PlannerService:
         to: str,
         sort: SortMode,
         now_utc: datetime | None = None,
+        max_results: int = 5,
     ) -> list[dict[str, Any]]:
         origins = self._resolve_endpoints(from_)
         destinations = self._resolve_endpoints(to)
@@ -74,7 +75,7 @@ class PlannerService:
 
         triples.sort(key=self._candidate_sort_key(sort))
         results: list[dict[str, Any]] = []
-        for origin, destination, candidate in triples:
+        for origin, destination, candidate in triples[:max_results]:
             trip = self._persist_template(
                 origin.stop.id, destination.stop.id, candidate
             )
@@ -384,69 +385,70 @@ class PlannerService:
                     )
                 )
 
-        for (route_a_id, direction_a), stops_a in route_map.items():
-            boarding = self._nearest_stop_on_route(origin_candidate, stops_a)
-            if boarding is None:
-                continue
-            for (route_b_id, _direction_b), stops_b in route_map.items():
-                if route_a_id == route_b_id:
+        if not candidates:
+            for (route_a_id, direction_a), stops_a in route_map.items():
+                boarding = self._nearest_stop_on_route(origin_candidate, stops_a)
+                if boarding is None:
                     continue
-                alighting = self._nearest_stop_on_route(destination_candidate, stops_b)
-                if alighting is None:
-                    continue
-                for transfer_a_index, stop_a in enumerate(stops_a):
-                    transfer_b_index = self._find_stop_index(stops_b, stop_a.stop_id)
-                    if transfer_b_index is None:
+                for (route_b_id, _direction_b), stops_b in route_map.items():
+                    if route_a_id == route_b_id:
                         continue
-                    if (
-                        boarding[0] < transfer_a_index < len(stops_a)
-                        and transfer_b_index < alighting[0]
-                    ):
-                        transfer_stop = cache.stops_by_id.get(stop_a.stop_id)
-                        if transfer_stop is None:
+                    alighting = self._nearest_stop_on_route(destination_candidate, stops_b)
+                    if alighting is None:
+                        continue
+                    for transfer_a_index, stop_a in enumerate(stops_a):
+                        transfer_b_index = self._find_stop_index(stops_b, stop_a.stop_id)
+                        if transfer_b_index is None:
                             continue
-                        route_a = route_by_id[route_a_id]
-                        route_b = route_by_id[route_b_id]
-                        origin_stop = boarding[1]
-                        destination_stop = alighting[1]
-                        leave_in_min, prediction = self._predict_leave_in(
-                            predictions_svc,
-                            origin_stop.id,
-                            route_a_id,
-                            now_utc,
-                            direction_a,
-                        )
-                        next_departures = self._next_departures(
-                            predictions_svc,
-                            origin_stop.id,
-                            route_a_id,
-                            now_utc,
-                            direction_a,
-                        )
-                        candidates.append(
-                            self._transfer_candidate(
-                                route_a,
-                                route_b,
-                                stops_a,
-                                stops_b,
-                                boarding[0],
-                                transfer_a_index,
-                                transfer_b_index,
-                                alighting[0],
-                                origin_stop,
-                                transfer_stop,
-                                destination_stop,
-                                origin_candidate,
-                                destination_candidate,
-                                board_walk_min=boarding[3],
-                                alight_walk_min=alighting[3],
-                                leave_in_min=leave_in_min,
-                                prediction=prediction,
-                                next_departures=next_departures,
-                                now_utc=now_utc,
+                        if (
+                            boarding[0] < transfer_a_index < len(stops_a)
+                            and transfer_b_index < alighting[0]
+                        ):
+                            transfer_stop = cache.stops_by_id.get(stop_a.stop_id)
+                            if transfer_stop is None:
+                                continue
+                            route_a = route_by_id[route_a_id]
+                            route_b = route_by_id[route_b_id]
+                            origin_stop = boarding[1]
+                            destination_stop = alighting[1]
+                            leave_in_min, prediction = self._predict_leave_in(
+                                predictions_svc,
+                                origin_stop.id,
+                                route_a_id,
+                                now_utc,
+                                direction_a,
                             )
-                        )
-                        break
+                            next_departures = self._next_departures(
+                                predictions_svc,
+                                origin_stop.id,
+                                route_a_id,
+                                now_utc,
+                                direction_a,
+                            )
+                            candidates.append(
+                                self._transfer_candidate(
+                                    route_a,
+                                    route_b,
+                                    stops_a,
+                                    stops_b,
+                                    boarding[0],
+                                    transfer_a_index,
+                                    transfer_b_index,
+                                    alighting[0],
+                                    origin_stop,
+                                    transfer_stop,
+                                    destination_stop,
+                                    origin_candidate,
+                                    destination_candidate,
+                                    board_walk_min=boarding[3],
+                                    alight_walk_min=alighting[3],
+                                    leave_in_min=leave_in_min,
+                                    prediction=prediction,
+                                    next_departures=next_departures,
+                                    now_utc=now_utc,
+                                )
+                            )
+                            break
         deduped: dict[str, dict[str, Any]] = {}
         for candidate in candidates:
             signature = self._candidate_hash(

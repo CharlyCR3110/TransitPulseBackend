@@ -19,10 +19,11 @@ def search_trips(
     to: str,
     sort: SortMode = SortMode.FASTEST,
     departureAt: datetime | None = Query(default=None),
+    maxResults: int = Query(default=5, ge=1, le=20),
     session: Session = Depends(get_db),
 ) -> list[dict]:
     return PlannerService(session).search(
-        from_=from_, to=to, sort=sort, now_utc=departureAt
+        from_=from_, to=to, sort=sort, now_utc=departureAt, max_results=maxResults
     )
 
 
