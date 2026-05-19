@@ -9,6 +9,8 @@ from app.config import get_settings
 from app.lib import seed_cache
 from app.models.alert import Alert, AlertRoute
 from app.models.arrival_schedule import ArrivalSchedule
+from app.models.report import Report
+from app.models.report_reaction import ReportReaction
 from app.models.stop import Stop
 from app.modules.predictions.service import PredictionsService
 from app.modules.shared.exceptions import NotFoundError
@@ -123,6 +125,13 @@ class ArrivalsService:
                     }
                 )
 
+        crowd_map = self._route_crowd_reports_map(
+            list({r["route"] for r in results})
+        )
+        for result in results:
+            summaries = crowd_map.get(result["route"])
+            result["crowdReports"] = summaries if summaries else None
+
         ordered = sorted(results, key=lambda item: item["etaSec"])
         return ordered[:limit] if limit is not None else ordered
 
@@ -146,6 +155,49 @@ class ArrivalsService:
                 route_id, (stop.label_es or "", stop.label_en or "")
             )
         return terminals
+
+    def _route_crowd_reports_map(
+        self, route_ids: list[str]
+    ) -> dict[str, list[dict]]:
+        if not route_ids:
+            return {}
+        now = datetime.now(UTC)
+        reports = self.session.scalars(
+            select(Report).where(
+                Report.route_id.in_(route_ids),
+                Report.expires_at > now,
+                Report.status.notin_(["resolved", "dismissed"]),
+            )
+        ).all()
+
+        detail_by_report: dict[int, str | None] = {}
+        if reports:
+            report_ids = [r.id for r in reports]
+            rows = self.session.execute(
+                select(
+                    ReportReaction.report_id,
+                    ReportReaction.detail,
+                )
+                .where(
+                    ReportReaction.report_id.in_(report_ids),
+                    ReportReaction.reaction == "confirm",
+                    ReportReaction.detail.isnot(None),
+                )
+                .order_by(ReportReaction.created_at.desc())
+            ).all()
+            for report_id, detail in rows:
+                detail_by_report.setdefault(report_id, detail)
+
+        result: dict[str, list[dict]] = {}
+        for report in reports:
+            result.setdefault(report.route_id, []).append(
+                {
+                    "type": report.type,
+                    "confirmCount": report.confirm_count,
+                    "latestDetail": detail_by_report.get(report.id),
+                }
+            )
+        return result
 
     def _route_status_map(self) -> dict[str, str]:
         """One aggregated alert query per request, instead of N queries — one

@@ -4,6 +4,7 @@ from app.models.arrival_schedule import ArrivalSchedule
 from app.models.delay_prior import DelayPrior
 from app.models.place import Place
 from app.models.report import Report
+from app.models.report_reaction import ReportReaction
 from app.models.route import Route, RouteStop
 from app.models.route_shape import RouteShape
 from app.models.schedule import Schedule
@@ -20,6 +21,7 @@ __all__ = [
     "DelayPrior",
     "Place",
     "Report",
+    "ReportReaction",
     "Route",
     "RouteShape",
     "RouteStop",

@@ -15,6 +15,12 @@ class ArrivalPrediction(BaseModel):
     source: PredictionSource
 
 
+class CrowdReportSummary(BaseModel):
+    type: str
+    confirmCount: int
+    latestDetail: str | None = None
+
+
 class ArrivalOut(BaseModel):
     id: str
     route: str
@@ -27,3 +33,4 @@ class ArrivalOut(BaseModel):
     note_es: str | None = None
     note_en: str | None = None
     prediction: ArrivalPrediction | None = None
+    crowdReports: list[CrowdReportSummary] | None = None
