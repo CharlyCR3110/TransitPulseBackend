@@ -42,7 +42,7 @@ REPO_ROOT = Path(__file__).resolve().parents[3]
 SEED_DIR = REPO_ROOT / "TransitPulseBackend/app/seed"
 OUT_DIR = REPO_ROOT / "TransitPulseBackend/scripts/corridor/out"
 
-CORRIDOR_ROUTE_IDS = {"400p", "400u", "400sd"}
+CORRIDOR_ROUTE_IDS = {"400p", "400u", "400sd", "402"}
 
 
 def _strip_accents(s: str) -> str:
@@ -126,11 +126,12 @@ def build_route_stops_json(directions, canonical_id_for, resolutions) -> list[di
 
     new_rows: list[dict] = []
     for d in directions:
-        direction = "outbound" if "heredia_sanjose" in d.direction_id else "inbound"
-        if d.from_ == "Heredia" and d.to_ == "San José":
+        if d.from_ == "Heredia":
             direction = "outbound"
-        elif d.from_ == "San José" and d.to_ == "Heredia":
+        elif d.to_ == "Heredia":
             direction = "inbound"
+        else:
+            direction = "outbound" if "heredia" in d.direction_id.split("_")[1:2] else "inbound"
 
         stop_ids = [canonical_id_for[raw] for raw in d.stops]
         n = len(stop_ids)
@@ -211,6 +212,11 @@ def ensure_route_metadata() -> list[dict]:
             "id": "400u", "short_name": "400 Uruca",
             "long_name": "Heredia - San José por La Uruca (Transportes Unidos La 400)",
             "mode": "bus", "fare_min": 750, "fare_max": 750, "color": "#16a34a",
+        },
+        "402": {
+            "id": "402", "short_name": "402 Cenada",
+            "long_name": "Heredia - Cenada - Lagunilla (Transportes Unidos La 400)",
+            "mode": "bus", "fare_min": 540, "fare_max": 540, "color": "#14b8a6",
         },
     }
     for rid, default in defaults.items():

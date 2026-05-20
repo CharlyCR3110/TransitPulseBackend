@@ -70,5 +70,14 @@
     "fare_min": 750,
     "fare_max": 750,
     "color": "#16a34a"
+  },
+  {
+    "id": "402",
+    "short_name": "402 Cenada",
+    "long_name": "Heredia - Cenada - Lagunilla (Transportes Unidos La 400)",
+    "mode": "bus",
+    "fare_min": 540,
+    "fare_max": 540,
+    "color": "#14b8a6"
   }
 ]

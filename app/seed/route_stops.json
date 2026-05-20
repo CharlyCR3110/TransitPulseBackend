@@ -1496,5 +1496,397 @@
     "direction": "outbound",
     "stop_order": 34,
     "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_term_mc",
+    "direction": "outbound",
+    "stop_order": 1,
+    "segment_minutes": 0
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_pizza_hut",
+    "direction": "outbound",
+    "stop_order": 2,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_autopits_pirro",
+    "direction": "outbound",
+    "stop_order": 3,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_uhispano",
+    "direction": "outbound",
+    "stop_order": 4,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_super_miraflores",
+    "direction": "outbound",
+    "stop_order": 5,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_plaza_bratzi",
+    "direction": "outbound",
+    "stop_order": 6,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_paseo_flores",
+    "direction": "outbound",
+    "stop_order": 7,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_pequeno_mundo",
+    "direction": "outbound",
+    "stop_order": 8,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_los_lagos_entr",
+    "direction": "outbound",
+    "stop_order": 9,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_mcd_valencia",
+    "direction": "outbound",
+    "stop_order": 10,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_ultrapark",
+    "direction": "outbound",
+    "stop_order": 11,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_super_taim",
+    "direction": "outbound",
+    "stop_order": 12,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_plaza_allegro",
+    "direction": "outbound",
+    "stop_order": 13,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_real_santamaria",
+    "direction": "outbound",
+    "stop_order": 14,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_lab_grith",
+    "direction": "outbound",
+    "stop_order": 15,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_una_lagunilla",
+    "direction": "outbound",
+    "stop_order": 16,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_calle_azofeifa",
+    "direction": "outbound",
+    "stop_order": 17,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_real_santamaria_o",
+    "direction": "outbound",
+    "stop_order": 18,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_servicentro_barreal",
+    "direction": "outbound",
+    "stop_order": 19,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "pte_bermudez_pre",
+    "direction": "outbound",
+    "stop_order": 20,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_cosechas_barreal",
+    "direction": "outbound",
+    "stop_order": 21,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_florida_bebidas",
+    "direction": "outbound",
+    "stop_order": 22,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_zf_metropolitana",
+    "direction": "outbound",
+    "stop_order": 23,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_outlet_center",
+    "direction": "outbound",
+    "stop_order": 24,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_soda_ponche",
+    "direction": "outbound",
+    "stop_order": 25,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_ampm_barreal",
+    "direction": "outbound",
+    "stop_order": 26,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_cenada",
+    "direction": "outbound",
+    "stop_order": 27,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_cenada",
+    "direction": "inbound",
+    "stop_order": 1,
+    "segment_minutes": 0
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_cn_barreal",
+    "direction": "inbound",
+    "stop_order": 2,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_florida_bebidas",
+    "direction": "inbound",
+    "stop_order": 3,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_multicomercial_baden",
+    "direction": "inbound",
+    "stop_order": 4,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_plaza_dep_barreal",
+    "direction": "inbound",
+    "stop_order": 5,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_cosechas_barreal",
+    "direction": "inbound",
+    "stop_order": 6,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "pte_bermudez_post",
+    "direction": "inbound",
+    "stop_order": 7,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_servicentro_barreal",
+    "direction": "inbound",
+    "stop_order": 8,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_cementerio_barreal",
+    "direction": "inbound",
+    "stop_order": 9,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_calle_azofeifa",
+    "direction": "inbound",
+    "stop_order": 10,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_una_lagunilla",
+    "direction": "inbound",
+    "stop_order": 11,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_lab_grith",
+    "direction": "inbound",
+    "stop_order": 12,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_interlogic",
+    "direction": "inbound",
+    "stop_order": 13,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_cc_lagunilla",
+    "direction": "inbound",
+    "stop_order": 14,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_super_taim",
+    "direction": "inbound",
+    "stop_order": 15,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_ultrapark",
+    "direction": "inbound",
+    "stop_order": 16,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_autos_xiri",
+    "direction": "inbound",
+    "stop_order": 17,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_liceo_los_lagos",
+    "direction": "inbound",
+    "stop_order": 18,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_walmart_los_lagos",
+    "direction": "inbound",
+    "stop_order": 19,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_comercial_2000",
+    "direction": "inbound",
+    "stop_order": 20,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_fab_chocolates",
+    "direction": "inbound",
+    "stop_order": 21,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_pricesmart",
+    "direction": "inbound",
+    "stop_order": 22,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_upi",
+    "direction": "inbound",
+    "stop_order": 23,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_plaza_bratzi",
+    "direction": "inbound",
+    "stop_order": 24,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_palacio_ceramica",
+    "direction": "inbound",
+    "stop_order": 25,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_plantel_mrh",
+    "direction": "inbound",
+    "stop_order": 26,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_tasty_pizza",
+    "direction": "inbound",
+    "stop_order": 27,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_megasuper",
+    "direction": "inbound",
+    "stop_order": 28,
+    "segment_minutes": 1
+  },
+  {
+    "route_id": "402",
+    "stop_id": "her_term_mc",
+    "direction": "inbound",
+    "stop_order": 29,
+    "segment_minutes": 1
   }
 ]

@@ -1,11 +1,11 @@
 {
   "summary": {
-    "stop_instances": 204,
-    "unique_canonical_stops": 167,
+    "stop_instances": 260,
+    "unique_canonical_stops": 177,
     "by_tier": {
       "anchor": 11,
-      "corner": 111,
-      "landmark": 35,
+      "corner": 119,
+      "landmark": 37,
       "mid": 10
     },
     "review_needed": 0,
@@ -29,7 +29,7 @@
         "sj_irazu",
         "sj_ict",
         "sj_migracion",
-        "pte_virilla_sj_pre",
+        "pte_virilla_pre",
         "her_repuestos_gigante"
       ]
     },
@@ -55,7 +55,7 @@
         "her_mcd_valencia",
         "her_jard_recuerdo",
         "her_arrocera_sabanero",
-        "pte_virilla_sj_post",
+        "pte_virilla",
         "sj_comeca",
         "sj_migracion",
         "sj_lacsa",
@@ -111,7 +111,7 @@
         "her_ultrapark",
         "her_jard_recuerdo",
         "her_arrocera_sabanero",
-        "pte_virilla_sj_post",
+        "pte_virilla",
         "sj_comeca",
         "sj_migracion",
         "sj_cn_virilla",
@@ -147,7 +147,7 @@
         "sj_purdy_motor",
         "sj_font",
         "sj_migracion",
-        "pte_virilla_sj_pre",
+        "pte_virilla_pre",
         "her_repuestos_gigante",
         "her_ultrapark",
         "her_super_taim",
@@ -193,7 +193,7 @@
         "sj_term_rh",
         "sj_tournon_int",
         "sj_tournon_edos",
-        "tib_cinco_esquinas",
+        "sj_tibas_cinco",
         "tib_plantel_caribenos",
         "tib_pops",
         "tib_sonmerus",
@@ -270,10 +270,86 @@
         "tib_pizzahut",
         "tib_morocco",
         "tib_coopetaxi",
-        "tib_iglesia_tdm",
+        "sj_tibas_cinco",
         "sj_tournon_edos",
         "sj_tournon_servicentro",
         "sj_term_rh"
+      ]
+    },
+    {
+      "route_id": "402",
+      "direction_id": "402_heredia_cenada",
+      "from": "Heredia",
+      "to": "Cenada",
+      "duration_min": 26,
+      "stop_count": 27,
+      "stop_ids": [
+        "her_term_mc",
+        "her_pizza_hut",
+        "her_autopits_pirro",
+        "her_uhispano",
+        "her_super_miraflores",
+        "her_plaza_bratzi",
+        "her_paseo_flores",
+        "her_pequeno_mundo",
+        "her_los_lagos_entr",
+        "her_mcd_valencia",
+        "her_ultrapark",
+        "her_super_taim",
+        "her_plaza_allegro",
+        "her_real_santamaria",
+        "her_lab_grith",
+        "her_una_lagunilla",
+        "her_calle_azofeifa",
+        "her_real_santamaria_o",
+        "her_servicentro_barreal",
+        "pte_bermudez_pre",
+        "her_cosechas_barreal",
+        "her_florida_bebidas",
+        "her_zf_metropolitana",
+        "her_outlet_center",
+        "her_soda_ponche",
+        "her_ampm_barreal",
+        "her_cenada"
+      ]
+    },
+    {
+      "route_id": "402",
+      "direction_id": "402_cenada_heredia",
+      "from": "Cenada",
+      "to": "Heredia",
+      "duration_min": 25,
+      "stop_count": 29,
+      "stop_ids": [
+        "her_cenada",
+        "her_cn_barreal",
+        "her_florida_bebidas",
+        "her_multicomercial_baden",
+        "her_plaza_dep_barreal",
+        "her_cosechas_barreal",
+        "pte_bermudez_post",
+        "her_servicentro_barreal",
+        "her_cementerio_barreal",
+        "her_calle_azofeifa",
+        "her_una_lagunilla",
+        "her_lab_grith",
+        "her_interlogic",
+        "her_cc_lagunilla",
+        "her_super_taim",
+        "her_ultrapark",
+        "her_autos_xiri",
+        "her_liceo_los_lagos",
+        "her_walmart_los_lagos",
+        "her_comercial_2000",
+        "her_fab_chocolates",
+        "her_pricesmart",
+        "her_upi",
+        "her_plaza_bratzi",
+        "her_palacio_ceramica",
+        "her_plantel_mrh",
+        "her_tasty_pizza",
+        "her_megasuper",
+        "her_term_mc"
       ]
     }
   ],
@@ -340,6 +416,21 @@
       "review_reasons": []
     },
     {
+      "id": "her_autos_xiri",
+      "label_es": "Frente A Autos Xiri / Antigua Peugeot",
+      "label_en": "In front of Autos Xiri / Antigua Peugeot",
+      "addr_es": "La Valencia Heredia",
+      "addr_en": "La Valencia Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Autos Xiri / Antigua Peugeot, La Valencia Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
       "id": "her_calle_azofeifa",
       "label_es": "Cruce Con Calle Azofeifa",
       "label_en": "Crossing with Calle Azofeifa",
@@ -392,7 +483,8 @@
       "addr_en": "Heredia",
       "tier": "anchor",
       "raw_names": [
-        "Terminal Cenada, Heredia"
+        "Terminal Cenada, Heredia",
+        "Terminal Cenada, Frente A Carpesheredia"
       ],
       "geocode_query": "Terminal Cenada, Heredia, Costa Rica",
       "id_source": "canonical",
@@ -445,6 +537,21 @@
       "review_reasons": []
     },
     {
+      "id": "her_comercial_2000",
+      "label_es": "Comercial Heredia 2000",
+      "label_en": "Comercial Heredia 2000",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Comercial Heredia 2000, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
       "id": "her_congelados_monte",
       "label_es": "Frente A Congelados Del Monte",
       "label_en": "In front of Congelados Del Monte",
@@ -467,7 +574,8 @@
       "addr_en": "Heredia",
       "tier": "corner",
       "raw_names": [
-        "Batidos Naturales Cosechas Barreal, Heredia"
+        "Batidos Naturales Cosechas Barreal, Heredia",
+        "Frente A Batidos Naturales Cosechas, Barreal Heredia"
       ],
       "geocode_query": null,
       "id_source": "canonical",
@@ -625,6 +733,21 @@
       "review_reasons": []
     },
     {
+      "id": "her_fab_chocolates",
+      "label_es": "Fábrica Nacional De Chocolates",
+      "label_en": "Fábrica Nacional De Chocolates",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Fábrica Nacional De Chocolates, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
       "id": "her_fidelitas",
       "label_es": "Frente A Universidad Fidélitas Campus Sede Santa Cecilia",
       "label_en": "In front of Universidad Fidélitas Campus Sede Santa Cecilia",
@@ -756,7 +879,9 @@
       "addr_en": "Lagunilla Heredia",
       "tier": "corner",
       "raw_names": [
-        "Frente A Laboratorios Grith, Lagunilla Heredia"
+        "Frente A Laboratorios Grith, Lagunilla Heredia",
+        "Frente A Laboratorios Griffith, Lagunilla Heredia",
+        "Laboratorios Griffith, Lagunilla Heredia"
       ],
       "geocode_query": null,
       "id_source": "canonical",
@@ -772,6 +897,21 @@
       "tier": "corner",
       "raw_names": [
         "Costado Sur Gimnasio Liceo De Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_liceo_los_lagos",
+      "label_es": "Frente A Liceo Urb. Los Lagos",
+      "label_en": "In front of Liceo Urb. Los Lagos",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Liceo Urb. Los Lagos, Heredia"
       ],
       "geocode_query": null,
       "id_source": "canonical",
@@ -840,6 +980,21 @@
       "review_reasons": []
     },
     {
+      "id": "her_megasuper",
+      "label_es": "Frente Al Megasúper",
+      "label_en": "Frente Al Megasúper",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Frente Al Megasúper, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
       "id": "her_multicomercial_baden",
       "label_es": "Frente A Multicomercial Baden",
       "label_en": "In front of Multicomercial Baden",
@@ -863,6 +1018,21 @@
       "tier": "corner",
       "raw_names": [
         "Frente A Outlet Center, Barreal Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_palacio_ceramica",
+      "label_es": "Contiguo A Palacio De La Cerámica",
+      "label_en": "Next to Palacio De La Cerámica",
+      "addr_es": "Pirro Heredia",
+      "addr_en": "Pirro Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Palacio De La Cerámica, Pirro Heredia"
       ],
       "geocode_query": null,
       "id_source": "canonical",
@@ -1005,6 +1175,21 @@
       "review_reasons": []
     },
     {
+      "id": "her_pizza_hut",
+      "label_es": "Frente A Pizza Hut",
+      "label_en": "In front of Pizza Hut",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Pizza Hut, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
       "id": "her_pizza_sta_cecilia",
       "label_es": "Frente A Pizzería Santa Cecilia",
       "label_en": "In front of Pizzería Santa Cecilia",
@@ -1057,9 +1242,25 @@
       "addr_en": "Heredia",
       "tier": "landmark",
       "raw_names": [
-        "Plaza Bratsi, Heredia"
+        "Plaza Bratsi, Heredia",
+        "Frente A Plaza Bratzi, Heredia"
       ],
       "geocode_query": "Plaza Bratsi, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_plaza_dep_barreal",
+      "label_es": "Contiguo A Plaza De Deportes Barreal",
+      "label_en": "Next to Plaza De Deportes Barreal",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Plaza De Deportes Barreal, Heredia"
+      ],
+      "geocode_query": null,
       "id_source": "canonical",
       "review_needed": false,
       "review_reasons": []
@@ -1092,6 +1293,21 @@
         "Frente A Polideportivo Santa Cecilia, Heredia"
       ],
       "geocode_query": "Polideportivo Santa Cecilia, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
+      "id": "her_pricesmart",
+      "label_es": "Pricesmart Heredia",
+      "label_en": "Pricesmart Heredia",
+      "addr_es": "",
+      "addr_en": "",
+      "tier": "landmark",
+      "raw_names": [
+        "Pricesmart Heredia"
+      ],
+      "geocode_query": "Pricesmart Heredia, Heredia, Costa Rica",
       "id_source": "canonical",
       "review_needed": false,
       "review_reasons": []
@@ -1134,7 +1350,8 @@
       "addr_en": "Lagunilla Heredia",
       "tier": "corner",
       "raw_names": [
-        "Entrada Res. Real Santamaría, Lagunilla Heredia"
+        "Entrada Res. Real Santamaría, Lagunilla Heredia",
+        "Contiguo A Entrada Resid. Real Santamaría, Lagunilla Heredia"
       ],
       "geocode_query": null,
       "id_source": "canonical",
@@ -1149,7 +1366,8 @@
       "addr_en": "Barreal Heredia",
       "tier": "corner",
       "raw_names": [
-        "Contiguo A Entrada Res. Real Santamaria Oeste, Barreal Heredia"
+        "Contiguo A Entrada Res. Real Santamaria Oeste, Barreal Heredia",
+        "Contiguo A Entrada Resid. Real Santamaria Oeste, Barreal Heredia"
       ],
       "geocode_query": null,
       "id_source": "canonical",
@@ -1312,6 +1530,21 @@
       "review_reasons": []
     },
     {
+      "id": "her_tasty_pizza",
+      "label_es": "Contiguo A Rest. Tasty Pizza",
+      "label_en": "Next to Rest. Tasty Pizza",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "corner",
+      "raw_names": [
+        "Contiguo A Rest. Tasty Pizza, Heredia"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
       "id": "her_term_400",
       "label_es": "Terminal Heredia",
       "label_en": "Terminal Heredia",
@@ -1380,7 +1613,8 @@
       "addr_en": "Frente A Mercado Central Heredia",
       "tier": "anchor",
       "raw_names": [
-        "Terminal Heredia, Frente A Mercado Central Heredia"
+        "Terminal Heredia, Frente A Mercado Central Heredia",
+        "Terminal Heredia, Costado Norte Mercado Heredia"
       ],
       "geocode_query": null,
       "id_source": "canonical",
@@ -1450,6 +1684,21 @@
       "review_reasons": []
     },
     {
+      "id": "her_upi",
+      "label_es": "Universidad Politécnica Internacional",
+      "label_en": "Universidad Politécnica Internacional",
+      "addr_es": "Heredia",
+      "addr_en": "Heredia",
+      "tier": "landmark",
+      "raw_names": [
+        "Universidad Politécnica Internacional, Heredia"
+      ],
+      "geocode_query": "Universidad Politécnica Internacional, Heredia, Costa Rica",
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
       "id": "her_walmart_los_lagos",
       "label_es": "Frente A Walmart Los Lagos",
       "label_en": "In front of Walmart Los Lagos",
@@ -1457,7 +1706,8 @@
       "addr_en": "",
       "tier": "landmark",
       "raw_names": [
-        "Frente A Walmart Los Lagos"
+        "Frente A Walmart Los Lagos",
+        "Walmart Los Lagos, Heredia"
       ],
       "geocode_query": "Walmart Los Lagos, Heredia, Costa Rica",
       "id_source": "canonical",
@@ -1487,7 +1737,8 @@
       "addr_en": "Barreal Heredia",
       "tier": "corner",
       "raw_names": [
-        "Posterior A Puente Río Bermudez, Barreal Heredia"
+        "Posterior A Puente Río Bermudez, Barreal Heredia",
+        "Posterior A Puente Río Bermúdez, Barreal Heredia"
       ],
       "geocode_query": null,
       "id_source": "canonical",
@@ -1510,7 +1761,7 @@
       "review_reasons": []
     },
     {
-      "id": "pte_virilla_sj_post",
+      "id": "pte_virilla",
       "label_es": "Posterior A Puente Río Virilla",
       "label_en": "Just after Puente Río Virilla",
       "addr_es": "Vuelta Del Virilla San José",
@@ -1525,7 +1776,7 @@
       "review_reasons": []
     },
     {
-      "id": "pte_virilla_sj_pre",
+      "id": "pte_virilla_pre",
       "label_es": "Previo A Puente Río Virilla",
       "label_en": "Just before Puente Río Virilla",
       "addr_es": "Vuelta Del Virilla San José",
@@ -2310,6 +2561,22 @@
       "review_reasons": []
     },
     {
+      "id": "sj_tibas_cinco",
+      "label_es": "Frente A Guitarras Arristedes Guzmán",
+      "label_en": "In front of Guitarras Arristedes Guzmán",
+      "addr_es": "Cinco Esquinas De Tibás",
+      "addr_en": "Cinco Esquinas De Tibás",
+      "tier": "corner",
+      "raw_names": [
+        "Frente A Guitarras Arristedes Guzmán, Cinco Esquinas De Tibás",
+        "Frente A Iglesia Tierra De Milagros, Cinco Esquinas De Tibás"
+      ],
+      "geocode_query": null,
+      "id_source": "canonical",
+      "review_needed": false,
+      "review_reasons": []
+    },
+    {
       "id": "sj_tournon_edos",
       "label_es": "Multiservicios Edos",
       "label_en": "Multiservicios Edos",
@@ -2597,21 +2864,6 @@
       "review_reasons": []
     },
     {
-      "id": "tib_cinco_esquinas",
-      "label_es": "Frente A Guitarras Arristedes Guzmán",
-      "label_en": "In front of Guitarras Arristedes Guzmán",
-      "addr_es": "Cinco Esquinas De Tibás",
-      "addr_en": "Cinco Esquinas De Tibás",
-      "tier": "corner",
-      "raw_names": [
-        "Frente A Guitarras Arristedes Guzmán, Cinco Esquinas De Tibás"
-      ],
-      "geocode_query": null,
-      "id_source": "canonical",
-      "review_needed": false,
-      "review_reasons": []
-    },
-    {
       "id": "tib_coopetaxi",
       "label_es": "Frente A Servicentro Coopetaxi",
       "label_en": "In front of Servicentro Coopetaxi",
@@ -2635,21 +2887,6 @@
       "tier": "corner",
       "raw_names": [
         "Contiguo A Rest. Gran Oriente, San Juan Tibás"
-      ],
-      "geocode_query": null,
-      "id_source": "canonical",
-      "review_needed": false,
-      "review_reasons": []
-    },
-    {
-      "id": "tib_iglesia_tdm",
-      "label_es": "Frente A Iglesia Tierra De Milagros",
-      "label_en": "In front of Iglesia Tierra De Milagros",
-      "addr_es": "Cinco Esquinas De Tibás",
-      "addr_en": "Cinco Esquinas De Tibás",
-      "tier": "corner",
-      "raw_names": [
-        "Frente A Iglesia Tierra De Milagros, Cinco Esquinas De Tibás"
       ],
       "geocode_query": null,
       "id_source": "canonical",

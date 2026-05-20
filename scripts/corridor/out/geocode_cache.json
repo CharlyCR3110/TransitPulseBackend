@@ -614,5 +614,27 @@
     "osm_id": null,
     "display_name": null,
     "importance": null
+  },
+  "her_pricesmart::Pricesmart Heredia, Heredia, Costa Rica": {
+    "stop_id": "her_pricesmart",
+    "query": "Pricesmart Heredia, Heredia, Costa Rica",
+    "lat": 9.9829195,
+    "lng": -84.1076434,
+    "confidence": "low",
+    "osm_type": "way",
+    "osm_id": "198646321",
+    "display_name": "PriceSmart, Radial Heredia, Zona Industrial, Rincón de Sabanilla, San Pablo, Heredia, 40902, Costa Rica",
+    "importance": 6.893492027156508e-05
+  },
+  "her_upi::Universidad Politécnica Internacional, Heredia, Costa Rica": {
+    "stop_id": "her_upi",
+    "query": "Universidad Politécnica Internacional, Heredia, Costa Rica",
+    "lat": 9.9851853,
+    "lng": -84.1084925,
+    "confidence": "low",
+    "osm_type": "way",
+    "osm_id": "730794586",
+    "display_name": "Universidad Politécnica Internacional, Radial Heredia, La Radial 1, Rincón de Sabanilla, Heredia, 40902, Costa Rica",
+    "importance": 6.893492027156508e-05
   }
 }

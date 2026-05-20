@@ -59,6 +59,9 @@ CANONICAL_IDS: dict[str, str] = {
     "Terminal La Aurora": "her_term_aurora",
     "Terminal Cenada, Heredia": "her_cenada",
 
+    "Terminal Heredia, Costado Norte Mercado Heredia": "her_term_mc",
+    "Terminal Cenada, Frente A Carpesheredia": "her_cenada",
+
     # --- Big anchors (existing IDs in seed) ---
     "Walmart Ulloa, Heredia": "her_walmart",
     "Pricesmart Heredia": "her_pricesmart",
@@ -77,6 +80,7 @@ CANONICAL_IDS: dict[str, str] = {
     "Previo A Puente Río Virilla, Vuelta Del Virilla San José": "pte_virilla_pre",
     "Posterior A Puente Río Virilla, Vuelta Del Virilla San José": "pte_virilla",
     "Posterior A Puente Río Bermudez, Barreal Heredia": "pte_bermudez_post",
+    "Posterior A Puente Río Bermúdez, Barreal Heredia": "pte_bermudez_post",
     "Previo A Puente Río Bermúdez, Barreal Heredia": "pte_bermudez_pre",
 
     # --- Universities ---
@@ -204,6 +208,19 @@ CANONICAL_IDS: dict[str, str] = {
     "Frente A Servicentro Uno Barreal, Heredia": "her_servicentro_barreal",
     "Frente A Servicentro Casaque, Heredia": "her_servicentro_casaque",
 
+    # --- 402-only stops (Heredia - Cenada - Lagunilla) ---
+    "Frente A Pizza Hut, Heredia": "her_pizza_hut",
+    "Contiguo A Plaza De Deportes Barreal, Heredia": "her_plaza_dep_barreal",
+    "Contiguo A Rest. Tasty Pizza, Heredia": "her_tasty_pizza",
+    "Frente Al Megasúper, Heredia": "her_megasuper",
+
+    # --- 402 aliases (same physical stop, different Moovit name) ---
+    "Contiguo A Entrada Resid. Real Santamaría, Lagunilla Heredia": "her_real_santamaria",
+    "Frente A Laboratorios Griffith, Lagunilla Heredia": "her_lab_grith",
+    "Laboratorios Griffith, Lagunilla Heredia": "her_lab_grith",
+    "Frente A Batidos Naturales Cosechas, Barreal Heredia": "her_cosechas_barreal",
+    "Walmart Los Lagos, Heredia": "her_walmart_los_lagos",
+
     # --- 400sd-only Santo Domingo / San Pablo ---
     "Panadería Y Repostería Chantilly, San Pablo": "sp_pan_chantilly",
     "Lavacar Olas, San Pablo": "sp_lavacar_olas",
@@ -275,6 +292,7 @@ CANONICAL_IDS: dict[str, str] = {
     "Contiguo A Entrada Jardines Del Recuerdo, La Valencia De Heredia": "her_jard_recuerdo",
     "Entrada Res. Real Santamaría, Lagunilla Heredia": "her_real_santamaria",
     "Contiguo A Entrada Res. Real Santamaria Oeste, Barreal Heredia": "her_real_santamaria_o",
+    "Contiguo A Entrada Resid. Real Santamaria Oeste, Barreal Heredia": "her_real_santamaria_o",
     "Frente A Laboratorios Grith, Lagunilla Heredia": "her_lab_grith",
     "Contiguo A Entrada Cond. Vía Heredia, San Pablo": "sp_cond_via_heredia",
     "Frente A Rest. La Perla De Asia, San Pablo": "sp_perla_asia",

@@ -218,5 +218,71 @@
     "end_time": "22:30",
     "explicit_times": null,
     "notes": null
+  },
+  {
+    "route_id": "402",
+    "direction": "outbound",
+    "service_day": "weekday",
+    "mode": "headway",
+    "headway_min": 15,
+    "start_time": "05:10",
+    "end_time": "21:30",
+    "explicit_times": null,
+    "notes": "Source: Moovit PDF 220716977 (Heredia - Cenada - Lagunilla). Headway estimated."
+  },
+  {
+    "route_id": "402",
+    "direction": "outbound",
+    "service_day": "saturday",
+    "mode": "headway",
+    "headway_min": 18,
+    "start_time": "05:25",
+    "end_time": "21:30",
+    "explicit_times": null,
+    "notes": null
+  },
+  {
+    "route_id": "402",
+    "direction": "outbound",
+    "service_day": "sunday_holiday",
+    "mode": "headway",
+    "headway_min": 20,
+    "start_time": "05:30",
+    "end_time": "21:30",
+    "explicit_times": null,
+    "notes": null
+  },
+  {
+    "route_id": "402",
+    "direction": "inbound",
+    "service_day": "weekday",
+    "mode": "headway",
+    "headway_min": 15,
+    "start_time": "05:50",
+    "end_time": "22:55",
+    "explicit_times": null,
+    "notes": "Inbound (Cenada → Heredia). Headway estimated."
+  },
+  {
+    "route_id": "402",
+    "direction": "inbound",
+    "service_day": "saturday",
+    "mode": "headway",
+    "headway_min": 18,
+    "start_time": "05:30",
+    "end_time": "21:30",
+    "explicit_times": null,
+    "notes": null
+  },
+  {
+    "route_id": "402",
+    "direction": "inbound",
+    "service_day": "sunday_holiday",
+    "mode": "headway",
+    "headway_min": 20,
+    "start_time": "06:05",
+    "end_time": "22:15",
+    "explicit_times": null,
+    "notes": null
   }
 ]
