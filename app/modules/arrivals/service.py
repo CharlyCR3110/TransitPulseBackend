@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -13,6 +13,14 @@ from app.models.report import Report
 from app.models.report_reaction import ReportReaction
 from app.models.stop import Stop
 from app.modules.predictions.service import PredictionsService
+from app.modules.reports.config import (
+    CONFIRM_THRESHOLD,
+    CROWD_DELAY_BASE_MINUTES,
+    CROWD_DELAY_MAX_MINUTES,
+    CROWD_DELAY_PER_CONFIRM_MINUTES,
+    CROWD_DELAY_TOTAL_CAP_MINUTES,
+    DELAY_REPORT_TYPES,
+)
 from app.modules.shared.exceptions import NotFoundError
 from app.modules.shared.utils import time_range_to_next_departure
 
@@ -125,12 +133,29 @@ class ArrivalsService:
                     }
                 )
 
-        crowd_map = self._route_crowd_reports_map(
-            list({r["route"] for r in results})
-        )
+        route_ids = list({r["route"] for r in results})
+        crowd_map = self._route_crowd_reports_map(route_ids)
         for result in results:
             summaries = crowd_map.get(result["route"])
             result["crowdReports"] = summaries if summaries else None
+
+        delay_map = self._crowd_delay_map(crowd_map)
+        occ_boost = self._crowd_occupancy_boost(crowd_map)
+        for result in results:
+            rid = result["route"]
+            delay_sec = delay_map.get(rid, 0)
+            if delay_sec > 0:
+                result["etaSec"] += delay_sec
+                pred = result.get("prediction")
+                if pred and isinstance(pred, dict):
+                    delta = timedelta(seconds=delay_sec)
+                    pred["predictedDeparture"] = pred["predictedDeparture"] + delta
+                    pred["windowLow"] = pred["windowLow"] + delta
+                    pred["windowHigh"] = pred["windowHigh"] + delta + timedelta(minutes=1)
+                    pred["crowdAdjusted"] = True
+            boost = occ_boost.get(rid, 0)
+            if boost > 0:
+                result["occupancy"] = min(result["occupancy"] + boost, 4)
 
         ordered = sorted(results, key=lambda item: item["etaSec"])
         return ordered[:limit] if limit is not None else ordered
@@ -197,6 +222,44 @@ class ArrivalsService:
                     "latestDetail": detail_by_report.get(report.id),
                 }
             )
+        return result
+
+    @staticmethod
+    def _crowd_delay_map(
+        crowd_map: dict[str, list[dict]],
+    ) -> dict[str, int]:
+        """route_id → total delay in seconds from confirmed delay-type reports."""
+        result: dict[str, int] = {}
+        for route_id, summaries in crowd_map.items():
+            total_min = 0.0
+            for s in summaries:
+                if s["type"] not in DELAY_REPORT_TYPES:
+                    continue
+                if s["confirmCount"] < CONFIRM_THRESHOLD:
+                    continue
+                base = CROWD_DELAY_BASE_MINUTES.get(s["type"], 3)
+                per = CROWD_DELAY_PER_CONFIRM_MINUTES.get(s["type"], 1)
+                cap = CROWD_DELAY_MAX_MINUTES.get(s["type"], 15)
+                delay = min(base + per * s["confirmCount"], cap)
+                total_min += delay
+            total_min = min(total_min, CROWD_DELAY_TOTAL_CAP_MINUTES)
+            if total_min > 0:
+                result[route_id] = int(total_min * 60)
+        return result
+
+    @staticmethod
+    def _crowd_occupancy_boost(
+        crowd_map: dict[str, list[dict]],
+    ) -> dict[str, int]:
+        """route_id → occupancy bump from confirmed OVERCROWDING reports."""
+        result: dict[str, int] = {}
+        for route_id, summaries in crowd_map.items():
+            boost = 0
+            for s in summaries:
+                if s["type"] == "OVERCROWDING" and s["confirmCount"] >= CONFIRM_THRESHOLD:
+                    boost += 1
+            if boost > 0:
+                result[route_id] = boost
         return result
 
     def _route_status_map(self) -> dict[str, str]:

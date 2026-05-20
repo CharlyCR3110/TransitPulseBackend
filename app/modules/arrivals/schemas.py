@@ -13,6 +13,7 @@ class ArrivalPrediction(BaseModel):
     windowHigh: datetime
     confidence: Confidence
     source: PredictionSource
+    crowdAdjusted: bool = False
 
 
 class CrowdReportSummary(BaseModel):

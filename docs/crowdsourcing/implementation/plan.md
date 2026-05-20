@@ -2,19 +2,28 @@
 
 ## Checklist
 
-- [ ] Step 1: Database migration — extend Report model + create ReportReaction table
-- [ ] Step 2: TTL config + report type validation
-- [ ] Step 3: Direction inference from active trip
-- [ ] Step 4: Rewrite POST /reports with active trip context + dedup + rate limiting
-- [ ] Step 5: GET /reports endpoint — list active reports by route+direction
-- [ ] Step 6: POST /reports/{id}/confirm — confirmation with detail + expiry extension
-- [ ] Step 7: POST /reports/{id}/deny — denial + auto-dismiss logic
-- [ ] Step 8: Arrivals integration — crowdReports field on ArrivalOut
-- [ ] Step 9: Backend deploy — migrate Neon + deploy to Fly + smoke test
-- [ ] Step 10: Frontend — report submission from active trip view
-- [ ] Step 11: Frontend — crowd report badges on arrival/trip cards
-- [ ] Step 12: Frontend — confirm/deny UI on report detail
-- [ ] Step 13: Frontend deploy — deploy to Vercel + end-to-end smoke test
+- [x] Step 1: Database migration — extend Report model + create ReportReaction table
+- [x] Step 2: TTL config + report type validation
+- [x] Step 3: Direction inference from active trip
+- [x] Step 4: Rewrite POST /reports with active trip context + dedup + rate limiting
+- [x] Step 5: GET /reports endpoint — list active reports by route+direction
+- [x] Step 6: POST /reports/{id}/confirm — confirmation with detail + expiry extension
+- [x] Step 7: POST /reports/{id}/deny — denial + auto-dismiss logic
+- [x] Step 8: Arrivals integration — crowdReports field on ArrivalOut
+- [x] Step 9: Backend deploy — migrate Neon + deploy to Fly + smoke test
+- [x] Step 10: Frontend — report submission from active trip view
+- [x] Step 11: Frontend — crowd report badges on arrival/trip cards
+- [x] Step 12: Frontend — confirm/deny UI on report detail
+- [x] Step 13: Frontend deploy — deploy to Vercel + end-to-end smoke test
+
+### Phase 2: Crowd-Adjusted Predictions
+
+- [x] Step 14: Backend — crowd delay adjustment config + logic in arrivals service
+- [x] Step 15: Backend — occupancy boost from OVERCROWDING reports
+- [x] Step 16: Schema — add `crowdAdjusted` flag to ArrivalPrediction
+- [x] Step 17: Backend deploy — deploy to Fly + smoke test
+- [x] Step 18: Frontend — crowd-adjusted ETA indicator on arrival badges
+- [x] Step 19: Frontend deploy — deploy to Vercel + e2e verify
 
 ---
 
@@ -398,3 +407,138 @@
 **Integrates with:** Steps 9-12
 
 **Demo:** Full end-to-end: open the live app, start a trip, submit a report, see the badge on arrivals, confirm it, watch it expire. The crowdsourcing feature is live.
+
+---
+
+## Phase 2: Crowd-Adjusted Predictions
+
+---
+
+## Step 14: Backend — crowd delay adjustment config + logic in arrivals service
+
+**Objective:** When active DELAY, BREAKDOWN, or ACCIDENT reports exist for a route, shift the predicted departure times forward (adding delay) proportional to report type and confirmation count.
+
+**Implementation guidance:**
+- Add delay adjustment constants to `app/modules/reports/config.py`:
+  - `CROWD_DELAY_BASE_MINUTES`: base delay per report type (e.g. DELAY=3, BREAKDOWN=8, ACCIDENT=10)
+  - `CROWD_DELAY_PER_CONFIRM_MINUTES`: extra delay per confirmation (e.g. DELAY=1, BREAKDOWN=2, ACCIDENT=2)
+  - `CROWD_DELAY_MAX_MINUTES`: cap per report type (e.g. DELAY=15, BREAKDOWN=30, ACCIDENT=30)
+  - Only reports with `confirm_count >= CONFIRM_THRESHOLD` (2) trigger adjustments — unconfirmed reports are signals, not adjustments
+- In `ArrivalsService._compute_arrivals()`, after attaching `crowdReports`:
+  1. Build a delay map: `route_id → total_delay_minutes` from active delay-type reports
+  2. For each result with a prediction, if its route has a crowd delay:
+     - Shift `predictedDeparture` by `+delay_minutes`
+     - Shift `windowLow` and `windowHigh` by `+delay_minutes`
+     - Recalculate `etaSec` from shifted `predictedDeparture`
+     - Widen confidence window slightly (add 1 min to std) to reflect crowd uncertainty
+     - Set `crowdAdjusted = True` on the prediction
+  3. For fallback (schedule-based) arrivals with no prediction object, apply the delay directly to `etaSec`
+- Multiple delay-type reports on the same route stack (DELAY + ACCIDENT), but cap total at `max(CROWD_DELAY_MAX_MINUTES)` = 30 min
+
+**Test requirements:**
+- Arrival with confirmed DELAY report → etaSec increased, prediction shifted
+- Unconfirmed report (0-1 confirms) → no adjustment
+- Multiple report types stack correctly
+- Total delay capped at max
+- Expired/dismissed reports don't affect predictions
+
+**Integrates with:** Steps 2, 8 (crowd_map already computed)
+
+**Demo:** Submit and confirm a DELAY report on 400p. Call `GET /stops/s1` and verify the 400p arrival's `etaSec` is higher than the scheduled time, and `prediction.crowdAdjusted` is `true`.
+
+---
+
+## Step 15: Backend — occupancy boost from OVERCROWDING reports
+
+**Objective:** When active OVERCROWDING reports exist for a route, bump the occupancy value on arrival cards.
+
+**Implementation guidance:**
+- In `ArrivalsService._compute_arrivals()`, after the delay adjustment pass:
+  1. Check `crowd_map` for OVERCROWDING reports with `confirm_count >= CONFIRM_THRESHOLD`
+  2. For matching routes, increase `occupancy` by 1 per confirmed OVERCROWDING report (cap at 4)
+- This is simpler than delay — no prediction shifting, just the occupancy integer
+
+**Test requirements:**
+- Confirmed OVERCROWDING → occupancy bumped
+- Unconfirmed OVERCROWDING → no change
+- Occupancy caps at 4
+
+**Integrates with:** Step 14
+
+**Demo:** Submit and confirm an OVERCROWDING report on 400p. Verify the arrival card shows higher occupancy.
+
+---
+
+## Step 16: Schema — add `crowdAdjusted` flag to ArrivalPrediction
+
+**Objective:** Add a boolean field to the prediction schema so the frontend knows when an ETA was crowd-adjusted.
+
+**Implementation guidance:**
+- Add `crowdAdjusted: bool = False` to `ArrivalPrediction` in `app/modules/arrivals/schemas.py`
+- Add `crowdAdjusted?: boolean` to the frontend `ArrivalPrediction` type in `src/types/transit.ts`
+- Set to `True` in the arrivals service when crowd delay is applied (Step 14)
+
+**Test requirements:**
+- Field defaults to `false` when no crowd adjustment
+- Field is `true` when delay was applied
+
+**Integrates with:** Step 14
+
+**Demo:** Compare two arrivals — one with crowd delay, one without. Verify the flag differs.
+
+---
+
+## Step 17: Backend deploy — deploy to Fly + smoke test
+
+**Objective:** Deploy the prediction adjustment logic to production.
+
+**Implementation guidance:**
+- Deploy to Fly: `fly deploy`
+- Smoke test:
+  - `GET /stops/{stop}` — verify predictions still return correctly with no active reports
+  - Submit + confirm a DELAY report → verify shifted ETA in arrivals
+  - Verify `crowdAdjusted` flag in response
+
+**Test requirements:**
+- No regression in normal predictions
+- Crowd-adjusted predictions visible in production
+
+**Integrates with:** Steps 14-16
+
+**Demo:** Hit live API, verify predictions are crowd-adjusted when reports are active.
+
+---
+
+## Step 18: Frontend — crowd-adjusted ETA indicator on arrival badges
+
+**Objective:** Show a visual indicator on the ETA badge when the prediction was crowd-adjusted.
+
+**Implementation guidance:**
+- In the `EtaBadge` component, check `prediction.crowdAdjusted`
+- When true, add a small crowd icon or tint the badge differently (e.g. warning-colored border, "~" prefix on the time, or a small people icon)
+- Tooltip or tap detail: "ETA adjusted based on X crowd reports"
+
+**Test requirements:**
+- Indicator visible when `crowdAdjusted` is true
+- No indicator when false or prediction is null
+
+**Integrates with:** Steps 11, 16
+
+**Demo:** With an active confirmed delay report, view arrivals and see the crowd-adjusted indicator on the affected route's ETA badge.
+
+---
+
+## Step 19: Frontend deploy — deploy to Vercel + e2e verify
+
+**Objective:** Deploy frontend changes and verify the full crowd-adjusted predictions flow end-to-end.
+
+**Implementation guidance:**
+- `vercel deploy --prod`
+- Verify: arrival cards show crowd-adjusted indicators when delay reports are active
+- Verify: indicators disappear when reports expire or are dismissed
+
+**Test requirements:**
+- Build succeeds, tests pass
+- E2e flow works on production
+
+**Demo:** Full flow on the live app — submit delay report, confirm it, see ETA shift and crowd indicator on arrival card.

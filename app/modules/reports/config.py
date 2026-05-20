@@ -37,6 +37,28 @@ DISMISS_MARGIN = 2
 RATE_LIMIT_PER_HOUR = 5
 DEDUP_WINDOW_MINUTES = 10
 
+DELAY_REPORT_TYPES = {ReportType.DELAY, ReportType.BREAKDOWN, ReportType.ACCIDENT}
+
+CROWD_DELAY_BASE_MINUTES: dict[str, float] = {
+    ReportType.DELAY: 3,
+    ReportType.BREAKDOWN: 8,
+    ReportType.ACCIDENT: 10,
+}
+
+CROWD_DELAY_PER_CONFIRM_MINUTES: dict[str, float] = {
+    ReportType.DELAY: 1,
+    ReportType.BREAKDOWN: 2,
+    ReportType.ACCIDENT: 2,
+}
+
+CROWD_DELAY_MAX_MINUTES: dict[str, float] = {
+    ReportType.DELAY: 15,
+    ReportType.BREAKDOWN: 30,
+    ReportType.ACCIDENT: 30,
+}
+
+CROWD_DELAY_TOTAL_CAP_MINUTES = 30
+
 
 def compute_expires_at(report_type: str, base: datetime) -> datetime:
     ttl = REPORT_TTL_MINUTES.get(report_type, 30)
