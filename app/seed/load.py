@@ -86,7 +86,12 @@ def load_seed() -> None:
     Base.metadata.create_all(bind=engine)
     _ensure_route_stops_direction_schema()
     with SessionLocal() as session:
-        # Wipe seed-only tables (no user-data FK references).
+        # Wipe seed-only tables. Reports may reference active_trips via a
+        # nullable FK — clear those references before deleting.
+        from app.models.report import Report
+        session.execute(
+            Report.__table__.update().where(Report.active_trip_id.isnot(None)).values(active_trip_id=None)
+        )
         session.execute(delete(ActiveTripStep))
         session.execute(delete(ActiveTrip))
         session.execute(delete(TripTemplate))
